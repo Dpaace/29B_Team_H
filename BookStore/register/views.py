@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
+
 
 # Create your views here.
 
@@ -18,3 +20,18 @@ def Register(request):
 
 def home(request):
     return render(request,"home.html")
+
+def loginn(request):
+    if request.method=='POST':
+        customer_name=request.POST.get("User_name")
+        customer_password=request.POST.get("psw")        
+
+        user = authenticate(request, username=customer_name,password=customer_password)
+      
+        if user is not None:
+            login(request, user)
+            print(request.user.username)
+            return redirect ("/register/home")
+
+        
+    return render(request,"login.html")
