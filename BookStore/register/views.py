@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 
 
+
 # Create your views here.
 
 def Register(request):
@@ -16,7 +17,7 @@ def Register(request):
         user=User.objects.create_user(username=Username,email=email,password=psw,first_name=first,last_name=last)
         user.save()
         return redirect ("/register/home")
-    return render(request,"register.html")
+    return render(request,"signin/signin.html")
 
 def home(request):
     return render(request,"home.html")
@@ -35,3 +36,6 @@ def loginn(request):
 
         
     return render(request,"login.html")
+
+def profile(request):
+    return render(request,"User/profile.html")
