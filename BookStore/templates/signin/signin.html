@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -40,13 +40,14 @@
 
                             <div class="actual-form">
                                 <div class="input-wrap">
-                                    <input type="text" minlength="4" class="input-field" autocomplete="off" name="user_name" required />
+                                    <input id="username" type="text" minlength="4" class="input-field" autocomplete="off"
+                                        name="user_name" required />
                                     <label>Username</label>
                                 </div>
 
                                 <div class="input-wrap">
-                                    <input type="password" name="psw" minlength="4" class="input-field" autocomplete="off"
-                                        required />
+                                    <input id="password" type="password" name="psw" minlength="4" class="input-field"
+                                        autocomplete="off" required />
                                     <label>Password</label>
                                 </div>
 
@@ -69,32 +70,35 @@
 
                             <div class="actual-form">
                                 <div class="input-wrap">
-                                    <input type="text" name="first" minlength="4" class="input-field" autocomplete="off" required />
+                                    <input id="rfirstname" type="text" name="first" minlength="4" class="input-field" autocomplete="off"
+                                        required />
                                     <label>First Name</label>
                                 </div>
                                 <div class="input-wrap">
-                                    <input type="text" minlength="4" name="last" class="input-field" autocomplete="off" required />
+                                    <input id="rlastname" type="text" minlength="4" name="last" class="input-field" autocomplete="off"
+                                        required />
                                     <label>Last Name</label>
                                 </div>
 
                                 <div class="input-wrap">
-                                    <input type="email" class="input-field" name="email" autocomplete="off" required />
+                                    <input id="remail" type="email" class="input-field" name="email" autocomplete="off" required />
                                     <label>Email</label>
                                 </div>
 
                                 <div class="input-wrap">
-                                    <input type="text" name="user_name" minlength="4" class="input-field" autocomplete="off" required />
+                                    <input id="rusername" type="text" name="user_name" minlength="4" class="input-field"
+                                        autocomplete="off" required />
                                     <label>Username</label>
                                 </div>
 
                                 <div class="input-wrap">
-                                    <input type="password" name="psw" minlength="4" class="input-field" autocomplete="off"
-                                        required />
+                                    <input id="rpassword" type="password" name="psw" minlength="4" class="input-field"
+                                        autocomplete="off" required />
                                     <label>Password</label>
                                 </div>
 
                                 <div class="input-wrap">
-                                    <input type="password" minlength="4" class="input-field" autocomplete="off"
+                                    <input id="cpassword" type="password" minlength="4" class="input-field" autocomplete="off"
                                         required />
                                     <label>Confirm Password</label>
                                 </div>
@@ -117,8 +121,8 @@
                             <img src="./img/3.png" class="image img-3" alt="" /> -->
 
                             <img src="{% static 'assets/sign_img/img1.png' %}" class="image img-1 show" alt="" />
-                            <img src="{% static 'assets/sign_img/img2.png' %}"  class="image img-2" alt="" />
-                            <img src="{% static 'assets/sign_img/img3.png' %}"  class="image img-3" alt="" />
+                            <img src="{% static 'assets/sign_img/img2.png' %}" class="image img-2" alt="" />
+                            <img src="{% static 'assets/sign_img/img3.png' %}" class="image img-3" alt="" />
                         </div>
 
                         <div class="text-slider">
@@ -161,7 +165,7 @@
 
     <!-- particles.js links  -->
     <script src="{% static 'js/sign_js/particles.min.js' %}"></script>
-    <script src= "{%  static 'js/sign_js/app.js' %}"></script>
+    <script src="{%  static 'js/sign_js/app.js' %}"></script>
 
     <!-- vanilla-tilt.js link  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>

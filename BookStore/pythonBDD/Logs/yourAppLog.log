@@ -1,0 +1,32 @@
+15-May-22 15:45:31 -
+
+15-May-22 15:45:31 -====== WebDriver manager ======
+15-May-22 15:45:32 -Current google-chrome version is 101.0.4951
+15-May-22 15:45:32 -Get LATEST chromedriver version for 101.0.4951 google-chrome
+15-May-22 15:45:32 -Driver [C:\Users\dipes\.wdm\drivers\chromedriver\win32\101.0.4951.41\chromedriver.exe] found in cache
+15-May-22 15:45:34 -*****Driver Initialised*****
+15-May-22 15:45:34 -*****Browser Launched*****
+15-May-22 15:45:34 -*****Passing Credentials*****
+15-May-22 15:45:45 -*****Credentials Entered Successfully*****
+15-May-22 15:45:45 -*****Register Button Clicked*****
+15-May-22 15:45:50 -*****Browser Closed*****
+4951.41\chromedriver.exe] found in cache
+Driver [C:\Users\dipes\.wdm\drivers\chromedriver\win32\101.0.4951.41\chromedriver.exe] found in cache
+*****Driver Initialised*****
+*****Driver Initialised*****
+*****Driver Initialised*****
+*****Browser Launched*****
+*****Browser Launched*****
+*****Browser Launched*****
+*****Passing Credentials*****
+*****Passing Credentials*****
+*****Passing Credentials*****
+*****Credentials Entered Successfully*****
+*****Credentials Entered Successfully*****
+*****Credentials Entered Successfully*****
+*****Register Button Clicked*****
+*****Register Button Clicked*****
+*****Register Button Clicked*****
+*****Browser Closed*****
+*****Browser Closed*****
+*****Browser Closed*****
