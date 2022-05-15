@@ -6,5 +6,6 @@ urlpatterns =[
     path("",views.Register),
      path("home",views.home),
      path("loginn",views.loginn),
+     path("profile",views.profile)
    
 ]
