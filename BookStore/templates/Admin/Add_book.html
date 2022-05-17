@@ -4,7 +4,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Add Books</title>
-    <link rel="stylesheet" href="static\css\Admin\Add_book.css" />
+    {% load static %}
+     <!-- custom css file link  -->
+     <link rel="stylesheet" href="{% static 'css/sign_css/Admin\Add_book.css' %}">
 
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
