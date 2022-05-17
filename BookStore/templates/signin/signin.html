@@ -29,7 +29,7 @@
             <div class="box">
                 <div class="inner-box">
                     <div class="forms-wrap">
-                        <form action="loginn" autocomplete="off" class="sign-in-form">
+                        <form action="loginn" method="post" autocomplete="off" class="sign-in-form" >
                             {% csrf_token %}
 
                             <div class="heading">
@@ -59,7 +59,7 @@
                             </div>
                         </form>
 
-                        <form action="" autocomplete="off" class="sign-up-form">
+                        <form action="" method="post" autocomplete="off" class="sign-up-form">
                             {% csrf_token %}
                             <div class="heading">
                                 <h2></h2>
