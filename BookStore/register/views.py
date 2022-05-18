@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-
+from register.forms import *
 
 # Create your views here.
 def home(request):
     return render(request, "home.html")
 
-def addbook(request):
+def addbooks(request):
+    if request.method=="POST":
+        form=add_book(request.POST, request.FILES)
+        form.save()
+        return redirect("/register/home")
     return render(request, "admin/Add_book.html")
 
 
