@@ -7,6 +7,11 @@ from django.contrib.auth import authenticate, login, logout
 def home(request):
     return render(request, "home.html")
 
+def addbook(request):
+    return render(request, "admin/Add_book.html")
+
+
+
 
 def Register(request):
     if request.method == 'POST':
@@ -32,6 +37,20 @@ def loginn(request):
             print(request.user.username)
             return redirect("home")
     return render(request, "signin/signin.html")
+
+
+def Aloginn(request):
+    if request.method == 'POST':
+        customer_name = request.POST.get("user_name")
+        customer_password = request.POST.get("psw")
+        
+        print("admin")
+        user = authenticate(request, username=customer_name, password=customer_password)
+        if user is not None:
+            login(request, user)
+            print(request.user.username)
+            return redirect("home")
+    return render(request, "login.html")
 
 
 def profile(request):
