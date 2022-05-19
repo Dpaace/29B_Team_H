@@ -9,5 +9,6 @@ urlpatterns = [
     path("profile", views.profile, name='profile'),
     path("adminlog",views.Aloginn),
     path("addbook",views.addbooks),
+    path("admindash",views.admindash),
 
 ]
