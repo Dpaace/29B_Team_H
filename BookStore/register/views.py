@@ -43,23 +43,26 @@ def loginn(request):
     return render(request, "signin/signin.html")
 
 
-def Aloginn(request):
-    if request.method == 'POST':
-        customer_name = request.POST.get("user_name")
-        customer_password = request.POST.get("psw")
-        
-        print("admin")
-        user = authenticate(request, username=customer_name, password=customer_password)
-        if user is not None:
-            login(request, user)
-            print(request.user.username)
-            return redirect("home")
-    return render(request, "login.html")
+
 
 
 def profile(request):
     return render(request, "User/profile.html")
 
 
-def admindash(request):
+
+def Aloginn(request):
+    if request.method == 'POST':
+        customer_name = request.POST.get("user_name")
+        customer_password = request.POST.get("psw")
+        print("admin")
+        user = authenticate(request, username=customer_name, password=customer_password)
+        if user is not None:
+            login(request, user)
+            print(request.user.username)
+            return redirect("home")
+    return render(request, "Admin/ADlogin.html")
+
+
+def adminDashboard(request):
     return render(request, "Admin/admindash.html")
