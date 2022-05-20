@@ -11,7 +11,7 @@ def addbooks(request):
     if request.method=="POST":
         form=add_book(request.POST, request.FILES)
         form.save()
-        return redirect("",name='home')
+        return redirect("admindash")
     return render(request, "admin/Add_book.html")
 
 
