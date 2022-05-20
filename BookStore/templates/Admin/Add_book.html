@@ -40,30 +40,39 @@
               {% csrf_token %}
               <h3>Add Book</h3>
               <span>Book Name</span>
-              <input type="text" name="b_name" placeholder="enter the books name" class="box" required />
+              <input type="text" name="b_name" placeholder="enter the books name" id="b_name"
+                class="box"  required/>
+              <!--Message Validation-->
+              <div class="message ml-4"></div>
+
               <span>Author</span>
-              <input type="text" name="auther" placeholder="enter the Authers  name" class="box" required />
+              <input type="text" name="auther" placeholder="enter the Authers  name" class="box" />
+              <!--Message Validation-->
+              <div class="message ml-4"></div>
               <span>Book Genre</span>
+
               <input class="list" list="Day of arrival" name="b_genre" placeholder="Enter the type of Book" />
               <datalist id="Day of arrival">
-
                 <option value=" Fiction"></option>
                 <option value="Nonfiction"></option>
                 <option value="Drama"></option>
                 <option value="Poetry"></option>
                 <option value="Folktale"></option>
-
               </datalist>
+              <!--Message Validation-->
+              <div class="message ml-4"></div>
               <span>Price</span>
-              <input type="number" name="b_price" min="0" placeholder="Enter the Book price" class="box" required />
+              <input type="number" name="b_price" min="0" placeholder="Enter the Book price" class="box" />
+              <!--Message Validation-->
+              <div class="message ml-4"></div>
               <span>Description</span>
-              <input type="text" name="b_desc" min="0" placeholder="Enter the Book description" class="box" required />
+              <input type="text" name="b_desc" min="0" placeholder="Enter the Book description" class="box" />
               <span>Image</span>
               <input type="file" name="b_pic" accept="image/png, image/jpg, image/jpeg" class="box3" style="
                     display: inline-block;
                     text-align: center;
                     color: rgb(12, 2, 2);
-                  " required />
+                  " />
               <input type="submit" value="Add Book" name="add_product" class="btn" />
             </form>
           </div>
@@ -74,5 +83,6 @@
 
 
 </body>
+<script src="{% static 'js/B_form.js' %}"></script>
 
 </html>
