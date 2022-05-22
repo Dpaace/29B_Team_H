@@ -17,12 +17,6 @@
 </head>
 
 <body>
-    <div class="header-1">
-        <div class="flex">
-
-            <p> New <a href="Register">Login</a> | <a href="Register">Register</a> </p>
-        </div>
-    </div>
 
     <!-- header section starts  -->
 
@@ -112,10 +106,10 @@
     <div class="account">
 
         <form action="">
-            <h3>Name: </h3>
-            <h3>Email: </h3>
+            <h3>Name: {{request.user.username}}</h3>
+            <h3>Email: {{request.user.email}} </h3>
             <a href="profile" class="btn">Edit Your Profile</a>
-            <a href="#" class="btn2">Log Out</a>
+            <a href="logout" class="btn2">Log Out</a>
 
 
         </form>

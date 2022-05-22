@@ -1,6 +1,8 @@
+{% extends 'User/user_nav.html' %}
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,19 +18,7 @@
 </head>
 <body>
     
-<!-- navbar section starts  -->
 
-<nav class="navbar">
-    <a href="profile.html"> <i class="fas fa-home"></i> <span>Profile</span> </a>
-    <a href="about.html"> <i class="fas fa-user"></i> <span>About</span> </a>
-    <a href="mybooks.html"> <i class="fas fa-briefcase"></i> <span>My Books</span> </a>
-    <a href="settings.html"> <i class="fas fa-cog"></i> <span>Settings</span> </a>
-    <a href="home.html"> <i class="fas fa-home"></i> <span>Back To Home</span> </a>
-
-
-</nav>
-
-<!-- navbar section ends -->
 
 <!-- home section starts  -->
 
@@ -56,3 +46,4 @@
 
 </body>
 </html>
+{% endblock content %}

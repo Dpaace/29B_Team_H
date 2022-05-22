@@ -1,6 +1,8 @@
+{% extends 'User/user_nav.html' %}
 <!DOCTYPE html>
 <html lang="en">
-
+{%load static %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,24 +13,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/user_css/style.css' %}">
 
 </head>
 
 <body>
 
-    <!-- navbar section starts  -->
 
-    <nav class="navbar">
-        <a href="profile.html"> <i class="fas fa-home"></i> <span>Profile</span> </a>
-        <a href="about.html"> <i class="fas fa-user"></i> <span>About</span> </a>
-        <a href="mybooks.html"> <i class="fas fa-briefcase"></i> <span>My Books</span> </a>
-        <a href="settings.html"> <i class="fas fa-cog"></i> <span>Settings</span> </a>
-        <a href="home.html"> <i class="fas fa-home"></i> <span>Back To Home</span> </a>
-    </nav>
-
-    <!-- navbar section ends -->
-
+  
     <!-- about section starts  -->
 
     <section class="about">
@@ -68,8 +60,8 @@
         </div>
 
     </section>
-
-
+{% endblock content %}
+   
 
 
 
