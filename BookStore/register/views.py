@@ -4,15 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from register.forms import *
 
 # Create your views here.
-def home(request):
-    return render(request, "home.html")
 
-def addbooks(request):
-    if request.method=="POST":
-        form=add_book(request.POST, request.FILES)
-        form.save()
-        return redirect("admindash")
-    return render(request, "admin/Add_book.html")
 
 
 
@@ -39,18 +31,29 @@ def loginn(request):
         if user is not None:
             login(request, user)
             print(request.user.username)
-            return redirect("home")
+            return redirect("/dash")
     return render(request, "signin/signin.html")
 
 
+def logout_page(request):
+    logout(request)
+    request.session.clear()
+    return render(request,"homepage.html")
 
 
 
-def profile(request):
-    return render(request, "User/profile.html")
+
+def maindash(request):
+    return render(request, "maindash.html")
+
+def home(request):
+    return render(request, "homepage.html")
 
 
 
+
+
+#ADMIn section
 def Aloginn(request):
     if request.method == 'POST':
         customer_name = request.POST.get("user_name")
@@ -66,3 +69,24 @@ def Aloginn(request):
 
 def adminDashboard(request):
     return render(request, "Admin/admindash.html")
+
+def addbooks(request):
+    if request.method=="POST":
+        form=add_book(request.POST, request.FILES)
+        form.save()
+        return redirect("admindash")
+    return render(request, "admin/Add_book.html")
+
+# profile page
+def profile(request):
+    return render(request, "User/profile.html")
+
+def mybook(request):
+    return render(request, "User/mybooks.html")
+
+def psetting(request):
+    return render(request, "User/settings.html")
+
+def about(request):
+    return render(request, "User/about.html")
+
