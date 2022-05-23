@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% load static %}
 
 
 <head>
@@ -11,11 +12,15 @@
 
     <title>admin dashboard</title>
 </head>
+{% for msg in messages %}
 
+          <strong>Hey!</strong> {{msg}}
+         
+        {% endfor %} 
 <body>
     <section class="container-fluid">
 
-
+        
 
         <div class="col  ">
             <div class="row ">
@@ -70,15 +75,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for addbook in dash %}
                         <tr>
                             <th scope="row"></th>
-                            <td><img height="100" width="100" src="" alt=""></td>
-                            <td>product_name</td>
-                            <td>product_price</td>
-                            <td>product_desc</td>
-                            <td> <a href="product_id" class="btn btn-primary">Edit</a></td>
-                            <td> <a href="product_id" class="btn btn-danger">Delete</a></td>
+                            <td><img height="100" width="100" src="{% static 'assets/' %}{{addbook.b_pic}}" alt=""></td>
+                            <td>{{addbook.b_name}}</td>
+                            <td>{{addbook.b_price}}</td>
+                            <td>{{addbook.b_desc}}</td>
+                            <td>{{addbook.b_genre}}</td>
+                            <td>{{addbook.author}}</td>
+                            <td> <a href="/edit/{{addbook.book_id}}" class="btn btn-primary">Edit</a></td>
+                            <td> <a href="/delete/{{addbook.book_id}}" class="btn btn-danger">Delete</a></td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
