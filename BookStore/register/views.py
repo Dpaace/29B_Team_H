@@ -19,6 +19,7 @@ def Register(request):
         psw = request.POST['psw']
         first = request.POST['first']
         last = request.POST['last']
+       
 
         user = User.objects.create_user(username=Username, email=email, password=psw, first_name=first, last_name=last)
         user.save()
@@ -47,7 +48,8 @@ def logout_page(request):
 
 
 def maindash(request):
-    return render(request, "maindash.html")
+    dash=AddBook.objects.raw("select * from addbook")
+    return render(request, "maindash.html",{'dash':dash})
 
 def home(request):
     return render(request, "homepage.html")
@@ -78,7 +80,7 @@ def addbooks(request):
     if request.method=="POST":
         form=add_book(request.POST, request.FILES)
         form.save()
-        return redirect("admindash")
+        return redirect("/admindash")
     return render(request, "admin/Add_book.html")
 
 def Bedit(request, p_id):
