@@ -8,6 +8,12 @@ urlpatterns = [
     path("loginn", views.loginn, name='loginn'),
     path("profile", views.profile, name='profile'),
     path("adminlog",views.Aloginn),
-    
-
+    path("addbook",views.addbooks),
+    path("admindash",views.adminDashboard),
+    path("dash",views.maindash),
+    path("mybook",views.mybook),
+    path("profile_setting",views.psetting),
+    path("about",views.about),
+    path("logout",views.logout_page),
 ]
+
