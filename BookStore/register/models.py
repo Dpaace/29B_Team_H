@@ -11,4 +11,4 @@ class AddBook(models.Model):
     b_pic= models.FileField(upload_to='books', blank=True)
 
     class Meta:
-        db_table="addBook"
+        db_table="addbook"

@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from register.forms import *
+from register.models import AddBook
+from django.contrib import messages
+import os
 
 # Create your views here.
 
@@ -68,7 +71,8 @@ def Aloginn(request):
 
 
 def adminDashboard(request):
-    return render(request, "Admin/admindash.html")
+    dash=AddBook.objects.raw("select * from addbook")
+    return render(request, "Admin/admindash.html",{'dash':dash})
 
 def addbooks(request):
     if request.method=="POST":
@@ -76,6 +80,28 @@ def addbooks(request):
         form.save()
         return redirect("admindash")
     return render(request, "admin/Add_book.html")
+
+def Bedit(request, p_id):
+    books=AddBook.objects.get(book_id=p_id)
+    
+    if request.method=="POST":
+        if len(request.FILES) !=0:
+            if len(books.b_pic)>0:
+                os.remove(books.b_pic.path)
+            books.b_pic=request.FILES['b_pic']
+        form= add_book(request.POST, instance=books)
+       
+        form.save()
+        messages.success(request,"data has been updated ")
+        return redirect("/admindash")
+    return render(request,"Admin/update_book.html",{'books':books})
+
+
+def Bdelete(request, p_id):
+    books=AddBook.objects.get(book_id=p_id)
+    books.delete()
+    messages.success(request,"data has been deleted ")
+    return redirect("/admindash")
 
 # profile page
 def profile(request):
