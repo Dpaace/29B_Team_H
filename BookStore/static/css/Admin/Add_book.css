@@ -8,6 +8,17 @@
   font-family: "Poppins", sans-serif;
 }
 
+.home-section{
+background-image: url("% static 'assets/bookbg.jpg' %");
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+/* height: 100%; */
+/* width: 100%; */
+filter: drop-shadow(2px 4px 8px #585858)
+}
+
+
 .home-section {
   position: relative;
   background:#b8f0f1;

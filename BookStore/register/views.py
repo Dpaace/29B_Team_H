@@ -11,8 +11,6 @@ def addbook(request):
     return render(request, "admin/Add_book.html")
 
 
-
-
 def Register(request):
     if request.method == 'POST':
         Username = request.POST['user_name']
@@ -25,7 +23,6 @@ def Register(request):
         user.save()
         return redirect("home")
     return render(request, "signin/signin.html")
-
 
 def loginn(request):
     if request.method == 'POST':
@@ -50,7 +47,7 @@ def Aloginn(request):
             login(request, user)
             print(request.user.username)
             return redirect("home")
-    return render(request, "login.html")
+    return render(request, "admin/ADlogin.html")
 
 
 def profile(request):
