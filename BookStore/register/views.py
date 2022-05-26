@@ -1,11 +1,15 @@
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from register.forms import *
 from register.models import AddBook
 from django.contrib import messages
+from django.template.loader import render_to_string
 import os
-
+from register.models import AddBook
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy,reverse
 # Create your views here.
 
 
@@ -49,6 +53,7 @@ def logout_page(request):
 
 def maindash(request):
     dash=AddBook.objects.raw("select * from addbook")
+    
     return render(request, "maindash.html",{'dash':dash})
 
 def home(request):
@@ -118,3 +123,36 @@ def psetting(request):
 def about(request):
     return render(request, "User/about.html")
 
+#bookmark
+def post_detail(request,id,slug):
+    post=get_object_or_404(AddBook,book_id=id,slug=slug)
+    print("hh")
+    is_favourite=False
+    if post.favourite.filter(id=request.user.id).exists():
+        is_favourite=True
+    context={
+        'post':post,
+        'is_favourite':is_favourite
+    }
+   
+    return HttpResponseRedirect(request.META['HTTP_REFERER'],{'post':post,'is_favourite':is_favourite})
+
+def fav_post(request,id):
+    post=get_object_or_404(AddBook, book_id=id)
+    fav=False
+    if post.favourite.filter(id=request.user.id).exists():
+        post.favourite.remove(request.user)
+        fav=True
+    else:
+        post.favourite.add(request.user)
+    context={
+        'post':post,
+        'fav':fav,
+    }
+   
+         
+    return HttpResponseRedirect(request.META['HTTP_REFERER'],context)
+
+def favourite_list(request): 
+    new=AddBook.newmanager.filter(favourite=request.user)
+    return render(request,"User/fav_list.html",{'new':new})

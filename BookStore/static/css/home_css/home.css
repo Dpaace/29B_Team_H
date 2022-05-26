@@ -569,6 +569,8 @@ section {
 .home {
   position: relative;
   background-color: #12344b;
+  height: 80rem;
+  
 }
 
 .home .slides-container .slide {
