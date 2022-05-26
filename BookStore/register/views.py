@@ -96,6 +96,11 @@ def Bedit(request, p_id):
         return redirect("/admindash")
     return render(request,"Admin/update_book.html",{'books':books})
 
+def viewbook(request):
+    books = AddBook.objects.all()
+    return render(request,"viewbook.html",{'books':books})
+
+
 
 def Bdelete(request, p_id):
     books=AddBook.objects.get(book_id=p_id)
