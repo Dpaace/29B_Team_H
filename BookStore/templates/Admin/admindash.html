@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <title>admin dashboard</title>
+</head>
+{% for msg in messages %}
+
+          <strong>Hey!</strong> {{msg}}
+         
+        {% endfor %} 
+<body>
+    <section class="container-fluid">
+
+        
+
+        <div class="col  ">
+            <div class="row ">
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-3 text-center py-4 bg-dark text-light my-2 mx-1"
+                    style="border-radius : 20px; border: 3px solid rgb(255, 255, 255);">
+                    <i class=" mb-2 " style="font-size:50px"></i>
+                    <h4>Users</h4><br>
+                </div>
+
+                <div class="col-sm-3 text-center py-4 bg-dark text-light my-2 mx-1"
+                    style="border-radius : 20px ; border: 3px solid rgb(255, 255, 255);">
+                    <i class=" mb-2" style="font-size:60px"></i>
+                    <h4>Total Book</h4><br>
+                </div>
+
+                <div class="col-sm-3 text-center b py-4 bg-dark text-light my-2 mx-1"
+                    style="border-radius : 20px ; border: 3px solid rgb(255, 255, 255);">
+                    <i class=" mb-2" style="font-size:60px"></i>
+                    <h4> No. of Order</h4><br>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col row">
+            <div class="col-sm-2 ">
+                <div class="list-group">
+                    <a href=" " class="list-group-item  py-3 my-2">
+                        <i class="" style="font-size:22px"></i>
+                        <span style="font-size:20px;">User</span>
+                    </a>
+                    <a href="addbook" class="list-group-item  py-3">
+                        <i class="" style="font-size:22px"></i>
+                        <span class="ps-lg-1" style="font-size:20px;">Add Book</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-10 bg-light">
+                <table class="table table-striped table-hover mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">Book ID</th>
+                            <th scope="col">Book Image</th>
+                            <th scope="col">Book Name</th>
+                            <th scope="col">Book Price</th>
+                            <th scope="col">Book Description</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for addbook in dash %}
+                        <tr>
+                            <th scope="row"></th>
+                            <td><img height="100" width="100" src="{% static 'assets/' %}{{addbook.b_pic}}" alt=""></td>
+                            <td>{{addbook.b_name}}</td>
+                            <td>{{addbook.b_price}}</td>
+                            <td>{{addbook.b_desc}}</td>
+                            <td>{{addbook.b_genre}}</td>
+                            <td>{{addbook.author}}</td>
+                            <td> <a href="/edit/{{addbook.book_id}}" class="btn btn-primary">Edit</a></td>
+                            <td> <a href="/delete/{{addbook.book_id}}" class="btn btn-danger">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
