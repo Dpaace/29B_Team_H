@@ -17,5 +17,6 @@ urlpatterns = [
     path("logout",views.logout_page),
     path("edit/<int:p_id>",views.Bedit),
     path("delete/<int:p_id>",views.Bdelete),
+    path("contact", views.contact),
 ]
 

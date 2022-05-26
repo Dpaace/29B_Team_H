@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -9,9 +10,6 @@ import os
 # Create your views here.
 
 
-
-
-
 def Register(request):
     if request.method == 'POST':
         Username = request.POST['user_name']
@@ -19,7 +17,7 @@ def Register(request):
         psw = request.POST['psw']
         first = request.POST['first']
         last = request.POST['last']
-       
+    
 
         user = User.objects.create_user(username=Username, email=email, password=psw, first_name=first, last_name=last)
         user.save()
@@ -92,7 +90,7 @@ def Bedit(request, p_id):
                 os.remove(books.b_pic.path)
             books.b_pic=request.FILES['b_pic']
         form= add_book(request.POST, instance=books)
-       
+    
         form.save()
         messages.success(request,"data has been updated ")
         return redirect("/admindash")
@@ -118,3 +116,5 @@ def psetting(request):
 def about(request):
     return render(request, "User/about.html")
 
+def contact(request):
+    return render(request, "User/contact_us.html")
