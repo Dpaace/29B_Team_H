@@ -15,8 +15,8 @@ urlpatterns = [
     path("profile_setting",views.psetting),
     path("about",views.about),
     path("logout",views.logout_page),
-    path("edit/<int:p_id>",views.Bedit),
-    path("delete/<int:p_id>",views.Bdelete),
-    path("contact", views.contact),
+    path("edit/<int:p_id>",views.Bedit, name='edit'),
+    path("delete/<int:p_id>",views.Bdelete, name='delete'),
+    path("contact", views.contact, name='contact'),
 ]
 
