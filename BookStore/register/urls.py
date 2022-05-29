@@ -21,5 +21,6 @@ urlpatterns = [
     path("favourite_list",views.favourite_list),
     path('<slug:post>',views.post_detail),
   
+    path("contact", views.contact),
 ]
 

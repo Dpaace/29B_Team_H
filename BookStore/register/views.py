@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
+=======
+from urllib import request
+from django.shortcuts import render, redirect
+>>>>>>> d5b3b54ff824d5bd7c98f53ed2ab4a0a34db151e
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from register.forms import *
@@ -13,9 +18,6 @@ from django.urls import reverse_lazy,reverse
 # Create your views here.
 
 
-
-
-
 def Register(request):
     if request.method == 'POST':
         Username = request.POST['user_name']
@@ -23,7 +25,7 @@ def Register(request):
         psw = request.POST['psw']
         first = request.POST['first']
         last = request.POST['last']
-       
+    
 
         user = User.objects.create_user(username=Username, email=email, password=psw, first_name=first, last_name=last)
         user.save()
@@ -97,7 +99,7 @@ def Bedit(request, p_id):
                 os.remove(books.b_pic.path)
             books.b_pic=request.FILES['b_pic']
         form= add_book(request.POST, instance=books)
-       
+    
         form.save()
         messages.success(request,"data has been updated ")
         return redirect("/admindash")
@@ -123,6 +125,7 @@ def psetting(request):
 def about(request):
     return render(request, "User/about.html")
 
+<<<<<<< HEAD
 #bookmark
 def post_detail(request,id,slug):
     post=get_object_or_404(AddBook,book_id=id,slug=slug)
@@ -156,3 +159,7 @@ def fav_post(request,id):
 def favourite_list(request): 
     new=AddBook.newmanager.filter(favourite=request.user)
     return render(request,"User/fav_list.html",{'new':new})
+=======
+def contact(request):
+    return render(request, "User/contact_us.html")
+>>>>>>> d5b3b54ff824d5bd7c98f53ed2ab4a0a34db151e
