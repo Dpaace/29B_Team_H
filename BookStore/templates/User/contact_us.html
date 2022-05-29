@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Book</title>
+    <title>Contact US</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -151,33 +151,35 @@
 
         <div class="row">
 
-            <form action="">
+            <form action="" method="POST">
+                {% csrf_token %}
                 <h3>Contact US</h3>
 
                 <div class="flex">
                     <div class="inputBox">
+                        <input type="text" placeholder="Your Name" name="c_id" value="{{user.id}}" id="" required>
                         <span>Name</span>
-                        <input type="text" placeholder="Your Name" name="" id="" required>
+                        <input type="text" placeholder="Your Name" name="c_name" id="" required>
                     </div>
                     <div class="inputBox">
                         <span>Phone Number</span>
-                        <input type="number" placeholder="Your Number" name="" id="" required>
+                        <input type="number" placeholder="Your Number" name="c_phone" id="" required>
                     </div>
                 </div>
 
                 <div class="flex">
                     <div class="inputBox">
                         <span>Address</span>
-                        <input type="text" placeholder="Your Address" name="" id="">
+                        <input type="text" placeholder="Your Address" name="c_adrs" id="">
                     </div>
                     <div class="inputBox">
                         <span>Email Address</span>
-                        <input type="email" placeholder="Your Email Address" name="" id="">
+                        <input type="email" placeholder="Your Email Address" name="c_email" id="">
                     </div>
                 </div>
                 <div class="flex">
                     <div class="inputBox">
-                        <textarea placeholder="More Message/Details" id="" cols="30" rows="10"></textarea>
+                        <textarea placeholder="More Message/Details" name="c_msg" id="" cols="30" rows="10"></textarea>
                     </div>
                     <div class="inputBox">
                         <iframe class="map"
@@ -185,8 +187,8 @@
                             allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-
-                <a href="#" class="btn"> Send Message <i class="fas fa-paper-plane"></i> </a>
+                <input type="submit" value="send message">
+                <a href="#" class="btn">Send Message <i class="fas fa-paper-plane"></i> </a>
             </form>
         </div>
 

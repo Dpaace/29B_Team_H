@@ -93,7 +93,7 @@
             </div>
         </div>
 
-
+        
 
         <h3 class="total"> total : <span>Nrs. 420.00</span> </h3>
 
@@ -117,45 +117,7 @@
 
     </div>
 
-    <!-- home section starts  -->
-
-    <section class="home">
-
-        <div class="slides-container">
-
-            <div class="slide">
-                <div class="content">
-
-                    <h3>Book Mandu</h3>
-                    <p>Buy second hand books online, old books, used books online in Nepal</p>
-                    <a href="#" class="btn">shop now</a>
-                </div>
-                <div class="image">
-                    <img src="{% static 'assets/home_img/pngwing.com (3).png' %}" alt="">
-                </div>
-            </div>
-            <div class="slide active">
-                <div class="content">
-                    <h3>Book Mandu</h3>
-                    <p>Nepal's first second-hand textbook marketplace
-                        Find costly textbooks for a great bargain price and help save the environment</p>
-                    <a href="#" class="btn">shop now</a>
-                </div>
-                <div class="image">
-                    <img src="{% static 'assets/home_img/book.png' %}">
-                </div>
-            </div>
-
-
-
-        </div>
-
-        <div id="slide-next" onclick="next()" class="fas fa-angle-right"></div>
-        <div id="slide-prev" onclick="prev()" class="fas fa-angle-left"></div>
-
-
-    </section>
-
+  
     <!-- home section ends -->
 
     <!-- book section starts  -->
@@ -164,44 +126,43 @@
 
     <section class="product" id="product">
 
-        <h1 class="title"> <span>our Books</span> <a href="shop.html">view all >></a> </h1>
+        <h1 class="title"> <span>Favourite Book</span> <a href="shop.html">view all >></a> </h1>
 
 
         <div class="box-container">
-            {% for addbook in dash %}
+            {% for addbook in new %}
 
             <div class="box">
 
-                <img src="{% static 'assets/' %}{{addbook.b_pic}}">
-                <!-- bookmark -->
-                <div id="fav-section">
-
-                    {% if fav %}
-                    <a href="/favourite_list">
-                        <i class="fas fa-heart fa-lg" id="fav" class="btn">Remove</i>
-                    </a>
-                    {% else %}
-                    <a href="/favourite/{{addbook.book_id}}" id="fav"class="btn">Add
-                        <i class="far fa-heart fa-lg"></i>
-                    </a>
-                    {% endif %}
-
-
-                </div>
-                <h3>{{addbook.b_name}}</h3>
-                <span>Condition: Good</span>
-                <div class=" quantity">
-                    <span>quantity : </span>
-                    <input type="number" min="1" max="1000" value="1">
-
-
-                </div>
-                <a href="#" class="btn">add to cart</a>
+            <img src="{% static 'assets/' %}{{addbook.b_pic}}">
+            <!-- bookmark -->
+            <div id="fav-section">
+              
+               
+           
+            <div>
+                 <a href="/favourite/{{addbook.book_id}}" class="btn btn-oouline-primary" >Remove <i class="fas fa-heart fa-lg" ></i>
+            </i>
+         </a>
+        </div>
+       
+           
 
             </div>
-            {% endfor %}
+            <h3>{{addbook.b_name}}</h3>
+            <span>Condition: Good</span>
+            <div class=" quantity">
+            <span>quantity : </span>
+            <input type="number" min="1" max="1000" value="1">
+            
+            
+            </div>
+            <a href="#" class="btn">add to cart</a>
+            
         </div>
-
+        {% endfor %}
+        </div>
+       
 
         <!-- <div class="box">
 
@@ -322,7 +283,7 @@
 
         </div> -->
 
-
+        
 
     </section>
 
@@ -369,10 +330,7 @@
 
     <!-- custom js file link  -->
     <script src="{% static 'js/home.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script typr="text/javascript">
-      
-    </script>
+
 </body>
 
 </html>
