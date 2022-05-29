@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
-=======
 from urllib import request
 from django.shortcuts import render, redirect
->>>>>>> d5b3b54ff824d5bd7c98f53ed2ab4a0a34db151e
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from register.forms import *
@@ -125,7 +122,14 @@ def psetting(request):
 def about(request):
     return render(request, "User/about.html")
 
-<<<<<<< HEAD
+def contact(request):
+    if request.method=="POST":
+        form=contact_form(request.POST)
+        form.save()
+        return redirect("/dash")
+
+    return render(request, "User/contact_us.html")
+
 #bookmark
 def post_detail(request,id,slug):
     post=get_object_or_404(AddBook,book_id=id,slug=slug)
@@ -159,7 +163,5 @@ def fav_post(request,id):
 def favourite_list(request): 
     new=AddBook.newmanager.filter(favourite=request.user)
     return render(request,"User/fav_list.html",{'new':new})
-=======
-def contact(request):
-    return render(request, "User/contact_us.html")
->>>>>>> d5b3b54ff824d5bd7c98f53ed2ab4a0a34db151e
+
+

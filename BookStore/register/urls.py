@@ -19,8 +19,9 @@ urlpatterns = [
     path("delete/<int:p_id>",views.Bdelete),
     path("favourite/<int:id>",views.fav_post),
     path("favourite_list",views.favourite_list),
+     path("contact", views.contact),
     path('<slug:post>',views.post_detail),
   
-    path("contact", views.contact),
+   
 ]
 

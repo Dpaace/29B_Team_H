@@ -20,3 +20,15 @@ class AddBook(models.Model):
     newmanager= NewManager() #custom manager
     class Meta:
         db_table="addbook"
+
+class Contact(models.Model):
+    contact_id=models.AutoField(auto_created=True, primary_key=True)
+    c_id=models.ForeignKey(User,on_delete=models.CASCADE,blank=True)
+    c_name=models.CharField(max_length=200, blank=True)
+    c_phone=models.IntegerField()
+    c_adrs=models.CharField(max_length=100, blank=True)
+    c_email=models.CharField(max_length=100, blank=True)
+    C_msg=models.CharField(max_length=300, blank=True)
+
+    class Meta:
+        db_table="contact"
