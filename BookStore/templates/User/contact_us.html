@@ -1,3 +1,5 @@
+{% extends 'nav.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,104 +18,7 @@
 </head>
 
 <body>
-    <!-- header section starts  -->
-
-    <header class="header">
-
-        <a href="home.html" class="logo"> <i class="fas fa-book"></i> Book Mandu </a>
-
-        <form action="" class="search-form">
-            <input type="search" placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-
-        <div class="icons">
-            <div id="menu-btn" class="fas fa-bars"></div>
-            <div id="search-btn" class="fas fa-search"></div>
-            <div id="cart-btn" class="fas fa-shopping-cart"></div>
-            <div id="login-btn" class="fas fa-user"></div>
-        </div>
-
-    </header>
-
-    <!-- header section ends  -->
-
-    <!-- closer btn  -->
-
-    <div id="closer" class="fas fa-times"></div>
-
-    <!-- navbar  -->
-
-    <nav class="navbar">
-        <a href="home.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About Us</a>
-        <a href="team.html">Our Team</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">contact</a>
-    </nav>
-    <section class="heading">
-        <h3>Contact Us</h3>
-        <p> <a href="home.html">Home</a> / <span>Contact Us</span> </p>
-    </section>
-
-    <!-- shopping cart  -->
-
-    <div class="shopping-cart">
-
-        <div class="box">
-            <i class="fas fa-times"></i>
-            <img src="img/OIP (1).jfif" alt="">
-            <div class="content">
-                <h3>Piercing The Darkness</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price">Nrs. 140.00 </span>
-            </div>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-times"></i>
-            <img src="img/OIP (2).jfif" alt="">
-            <div class="content">
-                <h3>A PHO Love Story</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price">Nrs. 140.00 </span>
-            </div>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-times"></i>
-            <img src="img/OIP.jfif" alt="">
-            <div class="content">
-                <h3>Born of Fury</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price">Nrs. 140.00 </span>
-            </div>
-        </div>
-
-
-        <h3 class="total"> total : <span>Nrs. 420.00</span> </h3>
-
-        <a href="#" class="btn">checkout cart</a>
-
-    </div>
-
-    <!-- login form  -->
-
-    <div class="account">
-
-        <form action="">
-            <h3>Name: </h3>
-            <h3>Email: </h3>
-            <a href="#" class="btn">Edit Your Profile</a>
-            <a href="#" class="btn2">Log Out</a>
-
-        </form>
-
-    </div>
+ 
 
 
     <!-- contact section starts  -->
@@ -199,43 +104,7 @@
 
 
 
-    <!-- footer section  -->
-
-    <section class="footer">
-
-        <div class="box-container">
-
-            <div class="box">
-                <h3>quick links</h3>
-                <a href="home.html"> <i class="fas fa-arrow-right"></i> home</a>
-                <a href="shop.html"> <i class="fas fa-arrow-right"></i> shop</a>
-                <a href="about.html"> <i class="fas fa-arrow-right"></i> about</a>
-                <a href="blog.html"> <i class="fas fa-arrow-right"></i> blog</a>
-                <a href="contact_us.html"> <i class="fas fa-arrow-right"></i> contact</a>
-            </div>
-
-            <div class="box">
-                <h3>extra links</h3>
-                <a href="$"> <i class="fas fa-arrow-right"></i> my order</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> login</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> my account</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> contact</a>
-            </div>
-
-            <div class="box">
-                <h3>extra links</h3>
-                <a href="#"> <i class="fa fa-map-marker"></i> Dillibazar</a>
-                <a href="#"> <i class="fa fa-envelope"></i> bookmandu@gmail.com</a>
-                <a href="#"> <i class="fa fa-phone"></i> 9860914588</a>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="credit">
-        created by Book Mandu | all rights reserved!
-    </section>
+    
 
     <!-- custom js file link  -->
     <script src="/static/js/home.js"></script>
@@ -243,3 +112,4 @@
 </body>
 
 </html>
+{% endblock %}

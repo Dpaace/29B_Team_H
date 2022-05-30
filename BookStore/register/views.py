@@ -142,8 +142,6 @@ def contact(request):
     return render(request, "User/contact_us.html")
 
 # bookmark
-
-
 def post_detail(request, id, slug):
     post = get_object_or_404(AddBook, book_id=id, slug=slug)
     print("hh")
@@ -160,15 +158,15 @@ def post_detail(request, id, slug):
 
 def fav_post(request, id):
     post = get_object_or_404(AddBook, book_id=id)
-    fav = False
+  
     if post.favourite.filter(id=request.user.id).exists():
         post.favourite.remove(request.user)
-        fav = True
+        
     else:
         post.favourite.add(request.user)
     context = {
         'post': post,
-        'fav': fav,
+        
     }
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'], context)
@@ -177,3 +175,14 @@ def fav_post(request, id):
 def favourite_list(request):
     new = AddBook.newmanager.filter(favourite=request.user)
     return render(request, "User/fav_list.html", {'new': new})
+
+
+#search bar
+def srch(request):
+    if request.method=="POST":
+        searched=request.POST['searched']
+        venues = AddBook.objects.filter(b_name__icontains=searched)
+        return render(request, "search.html",{'searched':searched,'venues':venues})
+    else:
+        return render(request,'search.html')
+
