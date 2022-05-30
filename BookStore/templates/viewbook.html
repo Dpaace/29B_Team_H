@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -121,35 +122,33 @@
     
     <!-- book section starts  -->
     <section class="book" id="book">
-
-        
         <div class="row-1">
-        
+            {% for book in books %}
             <div class="image">
-                <img src="img/calibre_cover.jpg" alt="">
+                <img src="/static/assets/{{book.b_pic}}" alt="">
             </div>
         
             <div class="content">
-                <h3>Book Name </h3>
+                <h3>Book name:</h3>
                 <h4>Details:</h4>
                 <div class="box-container">
                     <div class="box">
-                        <p> <span> Author: </span> Ashok GC </p>
+                        <p> <span> Author: </span> {{book.auther}} </p>
                         <p> <span> Book Condition: </span> Second Hand </p>
-                        <p> <span> Book Type: </span> Fight</p>
+                        <p> <span> Book Genre: </span> {{book.b_genre}}</p>
 
                     </div>
                     <div class="box">
-                        <p> <span> Book Price: </span> Nrs. 600 </p>
+                        <p> <span> Book Price: </span> {{book.b_price}} </p>
                         <p> <span> Available Pieces: </span> 2 </p>
 
                     </div>
-                    <P>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, illum adipisci aperiam corporis eveniet beatae aliquid praesentium itaque, fuga neque alias accusamus sunt eos provident expedita reprehenderit optio, ab esse!</P>
+                    <P>{{book.b_desc}}</P>
                     <a href="#" class="btn"> Add to cart <i class="fas fa-shopping-basket"></i> </a>
                 </div> 
 
             </div>
-            
+            {% endfor %}
 
         
         </div>
