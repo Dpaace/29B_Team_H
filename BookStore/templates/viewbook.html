@@ -123,9 +123,8 @@
     <!-- book section starts  -->
     <section class="book" id="book">
         <div class="row-1">
-            {% for book in books %}
             <div class="image">
-                <img src="/static/assets/{{book.b_pic}}" alt="">
+                <img src="/static/assets/{{books.b_pic}}" alt="">
             </div>
         
             <div class="content">
@@ -133,23 +132,21 @@
                 <h4>Details:</h4>
                 <div class="box-container">
                     <div class="box">
-                        <p> <span> Author: </span> {{book.auther}} </p>
+                        <p> <span> Author: </span> {{books.auther}} </p>
                         <p> <span> Book Condition: </span> Second Hand </p>
-                        <p> <span> Book Genre: </span> {{book.b_genre}}</p>
+                        <p> <span> Book Genre: </span> {{books.b_genre}}</p>
 
                     </div>
                     <div class="box">
-                        <p> <span> Book Price: </span> {{book.b_price}} </p>
+                        <p> <span> Book Price: </span> {{books.b_price}} </p>
                         <p> <span> Available Pieces: </span> 2 </p>
 
                     </div>
-                    <P>{{book.b_desc}}</P>
+                    <P>{{books.b_desc}}</P>
                     <a href="#" class="btn"> Add to cart <i class="fas fa-shopping-basket"></i> </a>
                 </div> 
 
             </div>
-            {% endfor %}
-
         
         </div>
         

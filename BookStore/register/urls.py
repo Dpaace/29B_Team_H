@@ -18,12 +18,12 @@ urlpatterns = [
     path("edit/<int:p_id>", views.Bedit),
     path("delete/<int:p_id>", views.Bdelete),
     path("contact", views.contact),
-    path("bookdesc", views.viewbook),
+    path("bookdesc/<int:p_id>", views.viewbook),
     path("favourite/<int:id>", views.fav_post),
     path("favourite_list", views.favourite_list),
     path("contact", views.contact),
     path('searched', views.srch),
-    
+    path("delacc/<int:id>", views.acc_del),
+    # path('<slug:post>', views.post_detail),
 
-    path('<slug:post>', views.post_detail),
 ]

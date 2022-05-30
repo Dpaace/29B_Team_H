@@ -103,8 +103,8 @@ def Bedit(request, p_id):
     return render(request, "Admin/update_book.html", {'books': books})
 
 
-def viewbook(request):
-    books = AddBook.objects.all()
+def viewbook(request, p_id):
+    books = AddBook.objects.get(book_id=p_id)
     return render(request, "viewbook.html", {'books': books})
 
 
@@ -125,8 +125,9 @@ def mybook(request):
     return render(request, "User/mybooks.html")
 
 
-def psetting(request):
-    return render(request, "User/settings.html")
+def psetting(request, u_id):
+    user = User.objects.get(u_id = u_id)
+    return render(request, "User/settings.html", {'user': user})
 
 
 def about(request):
@@ -158,7 +159,7 @@ def post_detail(request, id, slug):
 
 def fav_post(request, id):
     post = get_object_or_404(AddBook, book_id=id)
-  
+
     if post.favourite.filter(id=request.user.id).exists():
         post.favourite.remove(request.user)
         
@@ -186,3 +187,8 @@ def srch(request):
     else:
         return render(request,'search.html')
 
+def acc_del(request, id):
+    user = User.objects.get(id = id)
+    user.delete()
+    messages.success(request, "your account has been deleted ")
+    return redirect("/")
