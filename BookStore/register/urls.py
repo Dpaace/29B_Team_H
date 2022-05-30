@@ -12,7 +12,7 @@ urlpatterns = [
     path("admindash", views.adminDashboard),
     path("dash", views.maindash, name='dash'),
     path("mybook", views.mybook),
-    path("profile_setting", views.psetting),
+    path("profile_setting/<int:u_id>", views.psetting),
     path("about", views.about),
     path("logout", views.logout_page),
     path("edit/<int:p_id>", views.Bedit),
@@ -23,6 +23,4 @@ urlpatterns = [
     path("favourite_list", views.favourite_list),
     path("contact", views.contact),
     path('<slug:post>', views.post_detail),
-
-
 ]

@@ -177,3 +177,4 @@ def fav_post(request, id):
 def favourite_list(request):
     new = AddBook.newmanager.filter(favourite=request.user)
     return render(request, "User/fav_list.html", {'new': new})
+
