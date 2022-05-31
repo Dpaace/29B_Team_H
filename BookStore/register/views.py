@@ -125,9 +125,8 @@ def mybook(request):
     return render(request, "User/mybooks.html")
 
 
-def psetting(request, u_id):
-    user = User.objects.get(u_id = u_id)
-    return render(request, "User/settings.html", {'user': user})
+def psetting(request):
+    return render(request, "User/settings.html")
 
 
 def about(request):
