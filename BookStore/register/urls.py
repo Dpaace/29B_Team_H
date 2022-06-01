@@ -24,6 +24,7 @@ urlpatterns = [
     path("contact", views.contact),
     path('searched', views.srch),
     path("delacc/<int:id>", views.acc_del),
+    path('blogs',views.blog),
     # path('<slug:post>', views.post_detail),
 
 ]

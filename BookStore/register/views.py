@@ -40,6 +40,10 @@ def loginn(request):
             login(request, user)
             print(request.user.username)
             return redirect("/dash")
+        else:
+            print("not validate")
+            messages.error(request, "Not Validate account ")
+   
     return render(request, "signin/signin.html")
 
 
@@ -71,6 +75,8 @@ def Aloginn(request):
             login(request, user)
             print(request.user.username)
             return redirect("home")
+    else:
+        messages.error(request, "data has been updated ")
     return render(request, "Admin/ADlogin.html")
 
 
@@ -182,7 +188,8 @@ def srch(request):
     if request.method=="POST":
         searched=request.POST['searched']
         venues = AddBook.objects.filter(b_name__icontains=searched)
-        return render(request, "search.html",{'searched':searched,'venues':venues})
+        dash = AddBook.objects.raw("select * from addbook")
+        return render(request, "search.html",{'searched':searched,'venues':venues,'dash':dash})
     else:
         return render(request,'search.html')
 
@@ -191,3 +198,6 @@ def acc_del(request, id):
     user.delete()
     messages.success(request, "your account has been deleted ")
     return redirect("/")
+
+def blog(request):
+    return render(request,'blogs.html')

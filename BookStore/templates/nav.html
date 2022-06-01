@@ -28,8 +28,9 @@
         <form action="/searched" method="post" class="search-form">
             {% csrf_token %}
             <input type="search" name="searched" placeholder="search here..." id="search-box">
-            <button type="submit" class="fas fa-search"></button>
-            <label for="search-box" class="fas fa-search"></label>
+            <button type="submit"></button>
+            <label  class="fas fa-search"></label>
+            
         </form>
 
         <div class="icons">
@@ -54,7 +55,7 @@
         <a href="shop.html">Shop</a>
         <a href="about.html">About Us</a>
         <a href="team.html">Our Team</a>
-        <a href="blog.html">Blog</a>
+        <a href="/blogs">Blog</a>
         <a href="/contact">contact</a>
     </nav>
 
