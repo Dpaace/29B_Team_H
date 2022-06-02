@@ -133,6 +133,16 @@ def Bdelete(request, p_id):
     messages.success(request, "data has been deleted ")
     return redirect("/admindash")
 
+#user detail
+def customers(request):
+    users=User.objects.filter(is_superuser=False)
+    return render(request,'Admin/customers.html',{'users':users})
+
+def cdelete(request, p_id):
+    users = User.objects.get(id=p_id)
+    users.delete()
+    messages.success(request, "data has been deleted ")
+    return render(request,'Admin/customers.html')
 # profile page
 
 
@@ -159,6 +169,8 @@ def contact(request):
         return redirect("/dash")
 
     return render(request, "User/contact_us.html")
+
+
 
 # bookmark
 def post_detail(request, id, slug):

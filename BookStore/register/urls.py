@@ -26,7 +26,9 @@ urlpatterns = [
     path("delacc/<int:id>", views.acc_del),
     path('blogs',views.blog),
     path('fiction',views.fiction),
-    path('nonfiction', views.nonfiction)
+    path('nonfiction', views.nonfiction),
+    path('customers',views.customers),
+    path("cdelete/<int:p_id>",views.cdelete),
     # path('<slug:post>', views.post_detail),
 
 ]
