@@ -17,6 +17,7 @@ from django.urls import reverse_lazy, reverse
 
 def Register(request):
     if request.method == 'POST':
+        print("register")
         Username = request.POST['user_name']
         email = request.POST['email']
         psw = request.POST['psw']
@@ -55,8 +56,20 @@ def logout_page(request):
 
 def maindash(request):
     dash = AddBook.objects.raw("select * from addbook")
+    fiction=AddBook.objects.filter(b_genre="Fiction")
+    return render(request, "maindash.html", {'dash': dash,'fiction':fiction})
 
-    return render(request, "maindash.html", {'dash': dash})
+#genre tempalates
+def fiction(request):
+    dash = AddBook.objects.raw("select * from addbook")
+    fiction=AddBook.objects.filter(b_genre="Fiction")
+    return render(request, "genre/fiction.html", {'dash': dash,'fiction':fiction})
+
+def nonfiction(request):
+    dash = AddBook.objects.raw("select * from addbook")
+    nonfiction=AddBook.objects.filter(b_genre="Nonfiction")
+    return render(request, "genre/nonfiction.html", {'dash': dash,'nonfiction':nonfiction})
+
 
 
 def home(request):
