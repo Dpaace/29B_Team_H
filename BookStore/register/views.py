@@ -12,24 +12,40 @@ import os
 from register.models import AddBook
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+def home(request):
+    return render(request, "homepage.html")
 
 def Register(request):
     if request.method == 'POST':
-        print("register")
         Username = request.POST['user_name']
         email = request.POST['email']
         psw = request.POST['psw']
+        cpsw = request.POST['con_psw']
         first = request.POST['first']
         last = request.POST['last']
-
-        user = User.objects.create_user(
-            username=Username, email=email, password=psw, first_name=first, last_name=last)
-        user.save()
-        return redirect("home")
-    return render(request, "signin/signin.html")
-
+        if psw == cpsw:
+            if User.objects.filter(username=Username).exists():
+                    messages.error(request, 'Username already exists')
+                    return redirect('register')
+            else:
+                if User.objects.filter(email=email).exists():
+                        messages.error(request, 'Email already exists')
+                        return redirect('register')
+                else:
+                    user = User.objects.create_user(
+                    username=Username, email=email, password=psw, first_name=first, last_name=last)
+                    user.save()
+                    messages.success( request, 'You are registered successfully')
+                    # return redirect('signin/signin.html')
+                    return redirect("home")
+        else:
+            messages.error(request, 'Password do not match')
+            return redirect('register')
+    else:
+        return render(request, "signin/signin.html")
 
 def loginn(request):
     if request.method == 'POST':
@@ -39,27 +55,37 @@ def loginn(request):
                             password=customer_password)
         if user is not None:
             login(request, user)
-            print(request.user.username)
-            return redirect("/dash")
+            return redirect("dash")
         else:
-            print("not validate")
-            messages.error(request, "Not Validate account ")
-   
+            messages.error(request, "Invalid login credentials")
+            return redirect('loginn')
     return render(request, "signin/signin.html")
-
 
 def logout_page(request):
     logout(request)
     request.session.clear()
-    return render(request, "homepage.html")
+    return redirect("home")
+    # return render(request, "homepage.html")
 
-
+@login_required(login_url='loginn')
 def maindash(request):
     dash = AddBook.objects.raw("select * from addbook")
     fiction=AddBook.objects.filter(b_genre="Fiction")
     return render(request, "maindash.html", {'dash': dash,'fiction':fiction})
 
-#genre tempalates
+
+
+@login_required
+def afterlogin_view(request):
+    if request.user.is_superuser:
+        return redirect('admindash')
+    else:
+        messages.error(request, "Invalid login credentials")
+        return redirect('adminlog')
+
+
+
+# genre tempalates
 def fiction(request):
     dash = AddBook.objects.raw("select * from addbook")
     fiction=AddBook.objects.filter(b_genre="Fiction")
@@ -72,30 +98,50 @@ def nonfiction(request):
 
 
 
-def home(request):
-    return render(request, "homepage.html")
+
 
 
 # ADMIn section
-def Aloginn(request):
-    if request.method == 'POST':
-        customer_name = request.POST.get("user_name")
-        customer_password = request.POST.get("psw")
-        print("admin")
-        user = authenticate(request, username=customer_name,
-                            password=customer_password)
-        if user is not None:
-            login(request, user)
-            print(request.user.username)
-            return redirect("home")
-    else:
-        messages.error(request, "data has been updated ")
+# def Aloginn(request):
+#     if request.method == 'POST':
+#         customer_name = request.POST.get("user_name")
+#         customer_password = request.POST.get("psw")
+#         print("admin")
+#         user = authenticate(request, username=customer_name,
+#                             password=customer_password)
+#         if user is not None:
+#             login(request, user)
+#             print(request.user.username)
+#             return redirect("home")
+#     else:
+#         messages.error(request, "data has been updated ")
+#     return render(request, "Admin/ADlogin.html")
+
+
+# @login_required(login_url='afterlogin')
+# def Aloginn(request):
+#     if request.method == 'POST':
+#         customer_name = request.POST.get("user_name")
+#         customer_password = request.POST.get("psw")
+#         print("admin")
+#         user = authenticate(request, username=customer_name,
+#                             password=customer_password)
+#         if user.is_superuser :
+#             login(request, user)
+#             print(request.user.username)
+#             return redirect("admindash")
+#     # else:
+#     #     messages.error(request, "data has been updated ")
     return render(request, "Admin/ADlogin.html")
 
-
+# @login_required(login_url='afterlogin')
 def adminDashboard(request):
-    dash = AddBook.objects.raw("select * from addbook")
-    return render(request, "Admin/admindash.html", {'dash': dash})
+    if request.user.is_superuser:
+        dash = AddBook.objects.raw("select * from addbook")
+        return render(request, "Admin/admindash.html", {'dash': dash})
+    else:
+        # messages.error(request, "Invalid login credentials")
+        return redirect('adminlog')
 
 
 def addbooks(request):
@@ -133,7 +179,7 @@ def Bdelete(request, p_id):
     messages.success(request, "data has been deleted ")
     return redirect("/admindash")
 
-#user detail
+# user detail
 def customers(request):
     users=User.objects.filter(is_superuser=False)
     return render(request,'Admin/customers.html',{'users':users})
@@ -208,7 +254,7 @@ def favourite_list(request):
     return render(request, "User/fav_list.html", {'new': new})
 
 
-#search bar
+# search bar
 def srch(request):
     if request.method=="POST":
         searched=request.POST['searched']

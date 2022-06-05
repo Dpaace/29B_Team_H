@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'BookStore.wsgi.application'
 
+LOGIN_REDIRECT_URL = '/afterlogin'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -127,6 +128,14 @@ STATICFILES_DIRS =[os.path.join(BASE_DIR,'static')]
 #file upload url and root
 MEDIA_URL="/assets/"
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/assets')
+
+
+# Messages
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
