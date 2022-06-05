@@ -31,13 +31,13 @@ urlpatterns = [
     path("favourite/<int:id>", views.fav_post),
     path("favourite_list", views.favourite_list),
     path("contact", views.contact),
-    path('searched', views.srch),
     path("delacc/<int:id>", views.acc_del),
-    path('blogs',views.blog),
     path('fiction',views.fiction),
     path('nonfiction', views.nonfiction),
-    path('customers',views.customers),
-    path("cdelete/<int:p_id>",views.cdelete),
+    path('customers',views.customers, name='customers'),
+    path('blogs',views.blog, name='blogs'),
+    path('searched', views.srch, name='searched'),
+    path("cdelete/<int:p_id>",views.cdelete, name='cdelete'),
     # path('<slug:post>', views.post_detail),
 
 ]
