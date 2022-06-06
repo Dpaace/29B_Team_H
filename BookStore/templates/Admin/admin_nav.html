@@ -1,57 +1,68 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8" />
-  <title> Admin Dashboard</title>
-
-
-  <link rel="stylesheet" href="{% static 'css/Admin/customer.css' %}" />
+  <title>Book Store Admin Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/Admin/admin_style.css' %}" />
 
   <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-<title>admin dashboard</title>
 </head>
-{% for msg in messages %}
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+
+      <div class="logo_name">Book Store</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="/addbook" class="active">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Add Products</span>
+        </a>
+        <span class="tooltip">Add Product</span>
+      </li>
+      <li>
+        <a href="/admindash">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Book Stores</span>
+        </a>
+        <span class="tooltip">Book Stores</span>
+      </li>
+      <li>
+        <a href="/customers">
+          <i class="bx bx-user"></i>
+          <span class="links_name">Customers</span>
+        </a>
+        <span class="tooltip">Customers</span>
+      </li>
+      <li>
+
+      <li class="profile">
+        <div class="profile-details">
+          <div class="name_job">
+            <div class="name">Admin</div>
+            <div class="job">Logout</div>
+          </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+  {% for msg in messages %}
 
   <strong>Hey!</strong> {{msg}}
-  
-  {% endfor %} 
-<body>
-<section class="container-fluid">
 
-  
+  {% endfor %}
 
-  <div class="col" style="background-color: #488ebd;">
-      <div class="row ">
-          <div class="col-sm-2">
+ 
+    
+    {% block content %} {% endblock %}
 
-          </div>
-          <div class="col-sm-3 text-center py-4  text-light my-2 mx-1"
-              style="border-radius : 20px; border: 3px solid rgb(255, 255, 255); background-color: #0e3e5c;">
-              <i class=" mb-2 " style="font-size:50px"></i>
-              <a href="/customers"><h4>Users</h4><br></a>
-          </div>
+</body>
 
-          <div class="col-sm-3 text-center py-4  text-light my-2 mx-1"
-              style="border-radius : 20px ; border: 3px solid rgb(255, 255, 255); background-color: #0e3e5c;">
-              <i class=" mb-2" style="font-size:60px"></i>
-              <a href="/admindash"><h4>Total Book</h4><br></a>
-          </div>
-
-          <div class="col-sm-3 text-center b py-4  text-light my-2 mx-1"
-              style="border-radius : 20px ; border: 3px solid rgb(255, 255, 255); background-color: #0e3e5c;">
-              <i class=" mb-2" style="font-size:60px"></i>
-              <a href="/addbook"><h4>Total Book</h4><br></a>
-
-          </div>
-      </div>
-  </div>
-{% block content %} {% endblock %}
-  </section>
-  </body>
-  </html>
+</html>
