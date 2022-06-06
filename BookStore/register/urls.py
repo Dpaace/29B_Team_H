@@ -27,7 +27,7 @@ urlpatterns = [
     path("edit/<int:p_id>", views.Bedit),
     path("delete/<int:p_id>", views.Bdelete),
     path("contact", views.contact),
-    path("bookdesc/<int:p_id>", views.viewbook),
+    path("bookdesc/<slug>", views.viewbook),
     path("favourite/<int:id>", views.fav_post),
     path("favourite_list", views.favourite_list),
     path("contact", views.contact),
@@ -38,6 +38,6 @@ urlpatterns = [
     path('nonfiction', views.nonfiction),
     path('customers',views.customers),
     path("cdelete/<int:p_id>",views.cdelete),
-    # path('<slug:post>', views.post_detail),
+   
 
 ]

@@ -36,6 +36,19 @@
             </div>
         
             <div class="content">
+                {% if is_favourite %}
+                <a href="/favourite_list">
+                    <!-- <i class="fas fa-heart fa-lg" id="fav" class="btn">Remove</i> -->
+                    <a href="/favourite/{{books.book_id}}" id="fav"class="btn">Remove
+                        <i class="fas fa-heart fa-lg"></i>
+                </a>
+                {% else %}
+                <a href="/favourite/{{books.book_id}}" id="fav"class="btn">Add
+                    <i class="far fa-heart fa-lg"></i>
+                </a>
+                {% endif %}
+
+
                 <h3>Book name:</h3>
                 <h4>Details:</h4>
                 <div class="box-container">

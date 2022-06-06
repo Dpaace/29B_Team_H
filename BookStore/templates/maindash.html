@@ -76,11 +76,11 @@
 
             <div class="box">
 
-                <a href="/bookdesc/{{addbook.book_id}}"><img src="{% static 'assets/' %}{{addbook.b_pic}}"></a>
+                <a href="/bookdesc/{{addbook.New_slug}}"><img src="{% static 'assets/' %}{{addbook.b_pic}}"></a>
                 <!-- bookmark -->
-                <div id="fav-section">
+                <!-- <div id="fav-section">
 
-                    {% if fav %}
+                    {% if is_favourite %}
                     <a href="/favourite_list">
                         <i class="fas fa-heart fa-lg" id="fav" class="btn">Remove</i>
                     </a>
@@ -91,7 +91,7 @@
                     {% endif %}
 
 
-                </div>
+                </div> -->
                 <h3>{{addbook.b_name}}</h3>
                 <span>Condition: Good</span>
                 <div class=" quantity">

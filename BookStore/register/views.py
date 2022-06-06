@@ -71,7 +71,7 @@ def logout_page(request):
 def maindash(request):
     dash = AddBook.objects.raw("select * from addbook")
     fiction=AddBook.objects.filter(b_genre="Fiction")
-    return render(request, "maindash.html", {'dash': dash,'fiction':fiction})
+    return render(request, "maindash.html", {'dash': dash,'fiction':fiction,})
 
 
 
@@ -168,11 +168,6 @@ def Bedit(request, p_id):
     return render(request, "Admin/update_book.html", {'books': books})
 
 
-def viewbook(request, p_id):
-    books = AddBook.objects.get(book_id=p_id)
-    return render(request, "viewbook.html", {'books': books})
-
-
 def Bdelete(request, p_id):
     books = AddBook.objects.get(book_id=p_id)
     books.delete()
@@ -218,21 +213,20 @@ def contact(request):
 
 
 
-# bookmark
-def post_detail(request, id, slug):
-    post = get_object_or_404(AddBook, book_id=id, slug=slug)
+#details about each book
+def viewbook(request, slug):
+    books = get_object_or_404(AddBook,New_slug=slug)
     print("hh")
-    is_favourite = False
-    if post.favourite.filter(id=request.user.id).exists():
+    is_favourite = bool
+    if books.favourite.filter(id=request.user.id).exists():
         is_favourite = True
     context = {
-        'post': post,
+        'books': books,
         'is_favourite': is_favourite
     }
-
-    return HttpResponseRedirect(request.META['HTTP_REFERER'], {'post': post, 'is_favourite': is_favourite})
-
-
+    return render(request, "viewbook.html", {'books': books, 'is_favourite': is_favourite})
+    
+#adding into your favourite
 def fav_post(request, id):
     post = get_object_or_404(AddBook, book_id=id)
 
@@ -247,7 +241,6 @@ def fav_post(request, id):
     }
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'], context)
-
 
 def favourite_list(request):
     new = AddBook.newmanager.filter(favourite=request.user)
