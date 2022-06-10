@@ -760,6 +760,19 @@ section {
   padding: 0.5rem 0;
 }
 
+.book .row-1 .content span {
+  margin-top: 1rem;
+  color: rgb(0, 182, 15);
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+}
+.book .row-1 .content span2 {
+  margin-top: 1rem;
+  color: rgb(182, 0, 0);
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+}
+
 .book .row-1 .content .box-container {
   display: flex;
   flex-wrap: wrap;

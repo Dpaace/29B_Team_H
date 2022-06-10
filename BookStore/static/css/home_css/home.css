@@ -9,7 +9,6 @@
   outline: none;
   border: none;
   text-decoration: none;
-  text-transform: capitalize;
   -webkit-transition: .2s linear;
   transition: .2s linear;
 }
@@ -144,6 +143,15 @@ section {
   background: #03517ede;
 }
 
+.btn3 {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .9rem 3rem;
+  font-size: 1.7rem;
+  background: #099744;
+  color: #fff;
+  cursor: pointer;
+}
 /*  */
 .header-1 {
   background-color: #142C3C;
@@ -707,6 +715,10 @@ section {
 
 .product .box-container .box h3 {
   color: var(--black);
+  font-size: 2.5rem;
+}
+.product .box-container .box .btn3 {
+  align-items: left;
   font-size: 2.5rem;
 }
 
