@@ -5,13 +5,6 @@
   --black: #fff;
   --light-color: #ddd;
   --bg-color: #222;
-  --blue:#2980b9;
-  --red:tomato;
-  --orange:orange;
-  --black:#333;
-  --white:#fff;
-  --bg-color:#eee;
-   --dark-bg:rgba(0,0,0,.7);
   --border: 0.1rem solid rgba(221, 221, 221, 0.4);
   --box-shadow: 0.4rem 0.4rem 1rem rgb(7, 115, 129),
     -0.4rem -0.4rem 1rem rgb(202, 204, 204);
@@ -265,7 +258,7 @@
 }
 .home-section .text {
   display: inline-block;
-  color: #050000;
+  color: #000405;
   font-size: 3rem;
   text-align: center;
   /* font-weight: 500; */
@@ -287,7 +280,7 @@
   margin: 1rem auto;
   width: 15rem;
   text-align: center;
-  background: #0a7981;
+  background: #0a7981;  /*mathi ko batta*/
   color: #000808;
   border-radius: 0.5rem;
   padding: 2rem;
@@ -329,10 +322,10 @@
   font-size: 32px;
   height: 50px;
   width: 50px;
-  background: #cce5ff;
+  background: #d9dbdd;
   line-height: 50px;
   text-align: center;
-  color: #66b0ff;
+  color: #000203;
   border-radius: 12px;
   margin: -15px 0 0 6px;
 }
@@ -367,16 +360,14 @@
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
   margin: 1rem auto;
-  max-width: 120rem;
-  background: #11101ded;
+  max-width: 70rem;
+  background: #0a7981; /*tala ko batta*/
   border-radius: 0.5rem;
   box-shadow: var(--box-shadow);
   padding: 2rem;
-  margin-bottom: 10rem;
 }
 .home-content .sales-boxes .sales-details .add-product-form span {
   margin-top: 1rem;
-  max-width: 80rem;
   color: #f8f8f8;
   font-size: 1.2rem;
   display: flex;
@@ -476,134 +467,11 @@
   transition: all 0.3s ease;
 }
 .sales-boxes .box .button a:hover {
-  background: #0d3073;
-}
-.sales-boxes .sales-details table{
-   width: 100%;
-   text-align: center;
-}
-
-.sales-boxes .sales-details table thead th{
-   padding:1.5rem;
-   font-size: 1.8rem;
-   background-color: var(--black);
-   color:var(--white);
-}
-
-.sales-boxes .sales-details table td{
-   padding:1.5rem;
-   font-size: 1.5rem;
-   color:#0ea1b4
-}
-
-.sales-boxes .sales-details table td:first-child{
-   padding:0;
-}
-
-.sales-boxes .sales-details table tr:nth-child(even){
-   background-color: var(--bg-color);
-}
-
-.sales-boxes .sales-details .empty{
-   margin-bottom: 2rem;
-   text-align: center;
-   background-color: var(--bg-color);
-   color:var(--black);
-   font-size: 2rem;
-   padding:1.5rem;
-}
-
-.option-btn,
-.delete-btn{
-   display: block;
-   width: 100%;
-   text-align: center;
-   background-color: var(--blue);
-   color:var(--white);
-   font-size: 1.7rem;
-   padding:1.2rem 3rem;
-   border-radius: .5rem;
-   cursor: pointer;
-   margin-top: 1rem;
-}
-
-.option-btn:hover,
-.delete-btn:hover{
-   background-color: #29d9d5;
-}
-
-.option-btn i,
-.delete-btn i{
-   padding-right: .5rem;
-}
-
-.option-btn{
-   background-color: var(--orange);
-}
-.delete-btn{
-    margin-top: 0;
-    background-color: var(--red);
-}
-@media (max-width: 1290px) {
-  .home-section{
-    width: 100rem
-    /* left: 60px; */
-  }
-  .sidebar.active ~ .home-section{
-    /* width: calc(100% - 220px); */
-    overflow: hidden;
-    left: 220px;
-  }
-  .home-section nav{
-    width: calc(100% - 60px);
-    left: 60px;
-  }
-  .sidebar.active ~ .home-section nav{
-    width: calc(100% - 220px);
-    left: 220px;
-  }
-}
-
-@media (max-width: 1190px) {
-  .home-content .sales-boxes{
-    flex-direction: column;
-  }
-  .home-content .sales-boxes .box{
-    width: 100%;
-    overflow-x: scroll;
-    margin-bottom: 30px;
-  }
-  .home-content .sales-boxes .top-sales{
-    margin: 0;
-  }
-  .home-section{
-    width: 100%;
-  }
+  background: #425881;
 }
 
 @media (max-width: 420px) {
   .sidebar li .tooltip {
     display: none;
   }
-  .home-section{
-    width: 100%;
-  }
-
-}
-
-@media (max-width:768px){
-   .sales-boxes .sales-details{
-      overflow-x: scroll;
-   }
-
-   .sales-boxes .sales-details table{
-      width: 90rem;
-   }
-   .btn{
-
-   }
-   .home-content .sales-boxes .sales-details{
-    width: 100%;
-  }
-
 }

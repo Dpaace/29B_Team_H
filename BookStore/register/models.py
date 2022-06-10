@@ -19,6 +19,8 @@ class AddBook(models.Model):
     New_slug=AutoSlugField(populate_from='b_name',unique=True,null=True,default=None)
     objects=models.Manager() #default manager
     newmanager= NewManager() #custom manager
+    status = models.BooleanField(default=False, blank=True)
+
     class Meta:
         db_table="addbook"
 
