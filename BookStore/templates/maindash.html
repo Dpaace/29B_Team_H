@@ -33,7 +33,7 @@
 
                     <h3>Book Mandu</h3>
                     <p>Buy second hand books online, old books, used books online in Nepal</p>
-                    <a href="#" class="btn">shop now</a>
+                    <a href="#" class="btn">Shop Now</a>
                 </div>
                 <div class="image">
                     <img src="{% static 'assets/home_img/pngwing.com (3).png' %}" alt="">
@@ -44,7 +44,7 @@
                     <h3>Book Mandu</h3>
                     <p>Nepal's first second-hand textbook marketplace
                         Find costly textbooks for a great bargain price and help save the environment</p>
-                    <a href="#" class="btn">shop now</a>
+                    <a href="#" class="btn">Shop Now</a>
                 </div>
                 <div class="image">
                     <img src="{% static 'assets/home_img/book.png' %}">
@@ -95,13 +95,10 @@
                 <h3>{{addbook.b_name}}</h3>
                 <span>Condition: Good</span>
                 <div class=" quantity">
-                    <span>quantity : </span>
+                    <span>Quantity : </span>
                     <input type="number" min="1" max="1000" value="1">
                 </div>
-                {% if book.stock <= 0 %}
-                    {% else %}
-                        <a href="#" class="btn">add to cart</a>
-                {% endif %}
+                <a href="#" class="btn">Add to Cart</a>
             </div>
             {% endfor %}
         </div>

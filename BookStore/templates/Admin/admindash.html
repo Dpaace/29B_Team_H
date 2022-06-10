@@ -50,8 +50,9 @@
                 <th scope="col">Book Name</th>
                 <th scope="col">Book Price</th>
                 <th scope="col">Book Description</th>
-                <th scope="col">genre</th>
-                <th scope="col">author</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Author</th>
+                <th scope="col">Quantity</th>
                 <th scope="col">Update</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Status</th>
@@ -67,6 +68,7 @@
                     <td>{{addbook.b_desc}}</td>
                     <td>{{addbook.b_genre}}</td>
                     <td>{{addbook.auther}}</td>
+                    <td>{{addbook.quantity}}</td>
                     <td> <a href="/edit/{{addbook.book_id}}" class="btn btn-primary">Edit</a></td>
                     <td> <a href="/delete/{{addbook.book_id}}" class="btn btn-danger">Delete</a></td>
                     {% if addbook.status %}

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -65,40 +65,49 @@
 
         <div class="box">
             <i class="fas fa-times"></i>
-            <img src="{% static 'asstes/home_img/OIP (1).jfif' %}" alt="">
+            <img src="{% static 'assets/books/OIP_1.jfif' %}" alt="">
             <div class="content">
                 <h3>Piercing The Darkness</h3>
-                <span class="quantity"> 1 </span>
+                <form action="">
+                    <span>Quantity: </span>
+                    <input type="number" name="" value="1" id="" />
+                </form>
                 <span class="multiply"> x </span>
                 <span class="price">Nrs. 140.00 </span>
             </div>
         </div>
 
-        <div class="box">
-            <i class="fas fa-times"></i>
-            <img src="img/OIP (2).jfif" alt="">
-            <div class="content">
-                <h3>A PHO Love Story</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price">Nrs. 140.00 </span>
-            </div>
-        </div>
+        
 
         <div class="box">
             <i class="fas fa-times"></i>
-            <img src="img/OIP.jfif" alt="">
+            <img src="{% static 'assets/books/OIP_1.jfif' %}" alt="">
             <div class="content">
                 <h3>Born of Fury</h3>
-                <span class="quantity"> 1 </span>
+                <form action="">
+                    <span>Quantity: </span>
+                    <input type="number" name="" value="1" id="" />
+                </form>
                 <span class="multiply"> x </span>
                 <span class="price">Nrs. 140.00 </span>
             </div>
         </div>
 
+        <div class="box">
+            <i class="fas fa-times"></i>
+            <img src="{% static 'assets/books/OIP_1.jfif' %}" alt="">
+            <div class="content">
+                <h3>A PHO Love Story</h3>
+                <form action="">
+                    <span>Quantity: </span>
+                    <input type="number" name="" value="1" id="" />
+                </form>
+                <span class="multiply"> x </span>
+                <span class="price">Nrs. 140.00 </span>
+            </div>
+        </div>
 
-
-        <h3 class="total"> total : <span>Nrs. 420.00</span> </h3>
+        <h3 class="total"> Total : <span>Nrs. 420.00</span> </h3>
 
         <a href="#" class="btn">checkout cart</a>
 
@@ -129,25 +138,24 @@
         <div class="box-container">
 
             <div class="box">
-                <h3>quick links</h3>
-                <a href="/dash"> <i class="fas fa-arrow-right"></i> home</a>
-                <a href="shop.html"> <i class="fas fa-arrow-right"></i> shop</a>
-                <a href="about.html"> <i class="fas fa-arrow-right"></i> about</a>
-                <a href="team.html"> <i class="fas fa-arrow-right"></i> team</a>
-                <a href="blog.html"> <i class="fas fa-arrow-right"></i> blog</a>
-                <a href="/contact"> <i class="fas fa-arrow-right"></i> contact</a>
+                <h3>Quick Links</h3>
+                <a href="/dash"> <i class="fas fa-arrow-right"></i> Home</a>
+                <a href="shop.html"> <i class="fas fa-arrow-right"></i> Shop</a>
+                <a href="about.html"> <i class="fas fa-arrow-right"></i> About</a>
+                <a href="team.html"> <i class="fas fa-arrow-right"></i> Team</a>
+                <a href="blog.html"> <i class="fas fa-arrow-right"></i> Blog</a>
+                <a href="/contact"> <i class="fas fa-arrow-right"></i> Contact</a>
             </div>
 
             <div class="box">
-                <h3>extra links</h3>
-                <a href="#"> <i class="fas fa-arrow-right"></i> my order</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> login</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> my account</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> terms of user</a>
+                <h3>Extra Links</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> My order</a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Login</a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> My account</a>
             </div>
 
             <div class="box">
-                <h3>extra links</h3>
+                <h3>Extra Links</h3>
                 <a href="#"> <i class="fa fa-map-marker"></i> Dillibazar</a>
                 <a href="#"> <i class="fa fa-envelope"></i> bookmandu@gmail.com</a>
                 <a href="#"> <i class="fa fa-phone"></i> 9880327811</a>
@@ -158,7 +166,7 @@
     </section>
 
     <section class="credit">
-        created by Book Mandu | all rights reserved!
+        Created by Book Mandu | All Rights Reserved!
     </section>
 
     </body>

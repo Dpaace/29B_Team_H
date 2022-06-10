@@ -216,6 +216,7 @@ def contact(request):
 #details about each book
 def viewbook(request, slug):
     books = get_object_or_404(AddBook,New_slug=slug)
+    
     print("hh")
     is_favourite = bool
     if books.favourite.filter(id=request.user.id).exists():
