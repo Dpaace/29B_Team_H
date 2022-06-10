@@ -1,4 +1,3 @@
-from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from urllib import request
 from django.shortcuts import render, redirect
@@ -13,7 +12,11 @@ from register.models import AddBook
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+
+
 # Create your views here.
+
 
 def home(request):
     return render(request, "homepage.html")
@@ -265,3 +268,10 @@ def acc_del(request, id):
 
 def blog(request):
     return render(request,'blogs.html')
+
+
+#start add to cart function
+
+def updateItem(request):
+    print("hhh")
+    return JsonResponse('responseData', safe=False)

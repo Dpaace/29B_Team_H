@@ -38,6 +38,9 @@ urlpatterns = [
     path('nonfiction', views.nonfiction),
     path('customers',views.customers),
     path("cdelete/<int:p_id>",views.cdelete),
+
+    #add to cart
+    path('update_item/',views.updateItem, name='update_item')
    
 
 ]

@@ -14,6 +14,28 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{% static 'css/home_css/home.css' %}">
 
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+
+        function getcookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    //Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+
+            }
+            return cookieValue;
+        }
+        var csrftoken = getCookie('csrftoken');
+
+    </script>
 </head>
 
 <body>
@@ -29,8 +51,8 @@
             {% csrf_token %}
             <input type="search" name="searched" placeholder="search here..." id="search-box">
             <button type="submit"></button>
-            <label  class="fas fa-search"></label>
-            
+            <label class="fas fa-search"></label>
+
         </form>
 
         <div class="icons">
@@ -121,7 +143,7 @@
     </div>
     {% block content %}{% endblock content %}
 
-    
+
     <!-- footer section  -->
 
     <section class="footer">
@@ -160,6 +182,7 @@
     <section class="credit">
         created by Book Mandu | all rights reserved!
     </section>
+    <script type='text/javascript' src="{% static 'js/cart.js' %}"></script>
+</body>
 
-    </body>
-    </html>
+</html>
