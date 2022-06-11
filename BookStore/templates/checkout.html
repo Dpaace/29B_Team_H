@@ -18,3 +18,39 @@
     {% endfor %}
 total_item={{order.get_cart_items}}
 total-price={{order.get_cart_total}}
+
+<form action=""  method="post" >
+    {% csrf_token %}
+    <label for="name">name</label><br>
+    <input type="text" value="{{order.customer_id}}"name="customer"><br>
+    
+    <label for="lname">transaction_id</label><br>
+    <input type="text"  name="transaction_id"><br>
+    <input type="submit"  value="continue"><br>
+
+  </form>
+<form action=""  method="post" >
+    {% csrf_token %}
+    <label for="name">First name:</label><br>
+    <input type="text" value="{{order.customer_id}}"name="customer"><br>
+    <label for="lname">order:</label><br>
+    <input type="text"  value="{{order.id}}" name="order"><br>
+    <label for="lname">Address</label><br>
+    <input type="text"  name="address"><br>
+    <label for="lname">Phone</label><br>
+    <input type="text"  name="phone"><br>
+    <input type="submit"  value="submit"><br>
+
+  </form>
+  <script>
+    var url='/process_order/'
+    fetch(url,{
+        method:'POST',
+        header:{
+            'Content-Type':'applicaion/json',
+            'X-CSRFToken':csrftoken,
+
+        },
+        body:JSON.stringify({'form':userFormData,'shipping':shippingInfo})
+    })
+  </script>

@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from contextlib import nullcontext
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from .models import *
 import json
-
+import datetime
+from .forms import *
 # Create your views here.
 #start add to cart function
 def cart(request):
@@ -15,6 +17,19 @@ def checkout(request):
     customer = request.user.customer
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
+  
+    if request.method == "POST":
+
+        form = shipping(request.POST)
+        transaction_id=datetime.datetime.now().timestamp()
+        order.transaction_id=transaction_id
+        if transaction_id != None:
+            order.complete= True
+            order.save()
+
+        form.save()
+        return redirect("/dash")
+    
 
     return render(request,'checkout.html',{'items':items,'order':order})
 
@@ -44,4 +59,14 @@ def updateItem(request):
         orderItem.delete()
         
     return JsonResponse('responseData', safe=False)
+
+
+def processOrder(request):
+    transaction_id=datetime.datetime.now().timestamp()
+    date=json.loads(request.body)
+
+    customer=request.user.customer
+  
+    return JsonResponse('paymennt sucessful', safe=False)
+
 
