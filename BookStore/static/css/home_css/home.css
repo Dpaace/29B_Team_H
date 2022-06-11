@@ -274,6 +274,15 @@ section {
 .header .icons div:hover {
   color: #1b6fa7;
 }
+.header .icons > *{
+  margin-left: 2rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #fdfdfd;
+}
+.header .icons > *:hover{
+  color: #1b6fa7;
+}
 
 #search-btn {
   display: none;
