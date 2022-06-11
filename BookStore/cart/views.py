@@ -8,13 +8,13 @@ from .forms import *
 # Create your views here.
 #start add to cart function
 def cart(request):
-    customer = request.user.customer
+    customer = request.user
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
     return render(request, "cart.html", {'items':items,'order':order})
 
 def checkout(request):
-    customer = request.user.customer
+    customer = request.user
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
   
@@ -41,7 +41,7 @@ def updateItem(request):
     print("Action:",action)
     print("productId:", productId)
 
-    customer =request.user.customer
+    customer =request.user
     product= AddBook.objects.get(book_id=productId)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
@@ -65,7 +65,7 @@ def processOrder(request):
     transaction_id=datetime.datetime.now().timestamp()
     date=json.loads(request.body)
 
-    customer=request.user.customer
+    customer=request.user
   
     return JsonResponse('paymennt sucessful', safe=False)
 
