@@ -58,10 +58,8 @@
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
             <div id="search-btn" class="fas fa-search"></div>
-            <div id="cart-btn" class="fas fa-shopping-cart"></div>
-            <div><a href="/cart" class="fas fa-shopping-cart">cart</a></div>
-            <h1>cart-items{{cartItems}}</h1>
-            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <!-- <h1>cart-items{{cartItems}}</h1> -->
+            <a href="/cart"><i class="fas fa-shopping-cart"><span style="color:Red">({{cartItems}})</span></i></a>
             <div id="login-btn" class="fas fa-user"></div>
         </div>
 
@@ -85,6 +83,7 @@
     </nav>
 
     <!-- shopping cart  -->
+    
 
     <div class="shopping-cart">
 
@@ -166,6 +165,9 @@
             Created by Book Mandu | All Rights Reserved!
         </section>
         <script type='text/javascript' src="{% static 'js/cart.js' %}"></script>
+        <script src="{% static 'js/home.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </body>
 
 </html>

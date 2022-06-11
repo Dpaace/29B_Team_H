@@ -11,12 +11,14 @@ def cart(request):
     customer = request.user
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
-    return render(request, "cart.html", {'items':items,'order':order})
+    cartItems = order.get_cart_items
+    return render(request, "cart/cart.html", {'items':items,'order':order,'cartItems':cartItems})
 
 def checkout(request):
     customer = request.user
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
+    cartItems = order.get_cart_items
   
     if request.method == "POST":
 
@@ -31,7 +33,7 @@ def checkout(request):
         return redirect("/dash")
     
 
-    return render(request,'checkout.html',{'items':items,'order':order})
+    return render(request,'cart/checkout.html',{'items':items,'order':order, 'cartItems':cartItems})
 
 def updateItem(request):
     data = json.loads(request.body)
@@ -55,11 +57,25 @@ def updateItem(request):
     
     orderItem.save()
 
+   
     if orderItem.quantity <=0:
         orderItem.delete()
         
     return JsonResponse('responseData', safe=False)
 
+
+def remove_order(request, p_id):
+    orders = OrderItem.objects.filter(product_id=p_id)
+    orders.delete()
+ 
+    return redirect("/dash")
+
+#to remove all items from cart
+def delete_order(request, p_id):
+    orders = Order.objects.filter(id=p_id)
+    orders.delete()
+ 
+    return redirect("/dash")
 
 def processOrder(request):
     transaction_id=datetime.datetime.now().timestamp()

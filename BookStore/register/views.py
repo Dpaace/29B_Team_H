@@ -72,11 +72,12 @@ def logout_page(request):
 
 @login_required(login_url='loginn')
 def maindash(request):
-     #ADD_cart function 
+    #ADD_cart function 
     customer = request.user
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
     cartItems = order.get_cart_items
+    #add_cart funtion end
     dash = AddBook.objects.raw("select * from addbook")
    
     
@@ -105,43 +106,6 @@ def nonfiction(request):
     nonfiction=AddBook.objects.filter(b_genre="Nonfiction")
     return render(request, "genre/nonfiction.html", {'dash': dash,'nonfiction':nonfiction})
 
-
-
-
-
-
-# ADMIn section
-# def Aloginn(request):
-#     if request.method == 'POST':
-#         customer_name = request.POST.get("user_name")
-#         customer_password = request.POST.get("psw")
-#         print("admin")
-#         user = authenticate(request, username=customer_name,
-#                             password=customer_password)
-#         if user is not None:
-#             login(request, user)
-#             print(request.user.username)
-#             return redirect("home")
-#     else:
-#         messages.error(request, "data has been updated ")
-#     return render(request, "Admin/ADlogin.html")
-
-
-# @login_required(login_url='afterlogin')
-# def Aloginn(request):
-#     if request.method == 'POST':
-#         customer_name = request.POST.get("user_name")
-#         customer_password = request.POST.get("psw")
-#         print("admin")
-#         user = authenticate(request, username=customer_name,
-#                             password=customer_password)
-#         if user.is_superuser :
-#             login(request, user)
-#             print(request.user.username)
-#             return redirect("admindash")
-#     # else:
-#     #     messages.error(request, "data has been updated ")
-    return render(request, "Admin/ADlogin.html")
 
 # @login_required(login_url='afterlogin')
 def adminDashboard(request):
