@@ -362,12 +362,13 @@ section {
   color: var(--two);
 }
 
+
 .shopping-cart {
   position: fixed;
   top: 0;
   right: -101%;
   z-index: 1000;
-  width: 35rem;
+  width: 55rem;
   height: 100vh;
   background: var(--one);
   padding: 2rem;
@@ -423,7 +424,7 @@ section {
 }
 
 .shopping-cart .box img {
-  height: 8rem;
+  height: 12rem;
 }
 
 .shopping-cart .box .content h3 {
@@ -457,6 +458,30 @@ section {
   text-align: center;
   background-color: #0f5c69;
   color: var(--three);
+}
+.shopping-cart .box .content form {
+  padding: 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.shopping-cart .box .content form span {
+  font-size: 1.8rem;
+  color: rgb(255, 255, 255);
+}
+
+.shopping-cart .box .content form input {
+  width: 7rem;
+  padding: .5rem 1rem;
+  color: rgb(255, 255, 255);
+  border-radius: .5rem;
+  background: rgba(83, 214, 247, 0.52);
+  font-size: 1.5rem;
 }
 
 .account {
@@ -756,6 +781,19 @@ section {
 .book .row-1 .content p {
   margin-top: 1rem;
   color: rgb(255, 255, 255);
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+}
+
+.book .row-1 .content span {
+  margin-top: 1rem;
+  color: rgb(0, 182, 15);
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+}
+.book .row-1 .content span2 {
+  margin-top: 1rem;
+  color: rgb(182, 0, 0);
   font-size: 1.7rem;
   padding: 0.5rem 0;
 }

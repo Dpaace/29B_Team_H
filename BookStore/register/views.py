@@ -12,7 +12,7 @@ from register.models import AddBook
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from cart.models import *
 
 
 # Create your views here.
@@ -72,9 +72,15 @@ def logout_page(request):
 
 @login_required(login_url='loginn')
 def maindash(request):
+     #ADD_cart function 
+    customer = request.user.customer
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    items =order.orderitem_set.all()
+    cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
-    fiction=AddBook.objects.filter(b_genre="Fiction")
-    return render(request, "maindash.html", {'dash': dash,'fiction':fiction,})
+   
+    
+    return render(request, "maindash.html", {'dash': dash,'cartItems':cartItems})
 
 
 
@@ -219,6 +225,7 @@ def contact(request):
 #details about each book
 def viewbook(request, slug):
     books = get_object_or_404(AddBook,New_slug=slug)
+    
     print("hh")
     is_favourite = bool
     if books.favourite.filter(id=request.user.id).exists():
@@ -268,10 +275,3 @@ def acc_del(request, id):
 
 def blog(request):
     return render(request,'blogs.html')
-
-
-#start add to cart function
-
-def updateItem(request):
-    print("hhh")
-    return JsonResponse('responseData', safe=False)

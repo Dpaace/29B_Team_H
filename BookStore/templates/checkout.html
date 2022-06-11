@@ -1,0 +1,20 @@
+{% load static %}
+{% for item in items %}
+<div class="box">
+    <i class="fas fa-times"></i>
+    <img style="width:100; height:100"src="{% static 'assets/' %}{{item.product.b_pic}}" alt="">
+    <div class="content">
+        <h3>{{item.product.b_name}}</h3>
+        <h3>{{item.product.b_price}}</h3>
+
+        <form action="">
+            <span>Quantity: </span>
+            <input type="number" name="" value="{{item.quantity}}" id="" />
+        </form>
+        <span class="multiply"> x </span>
+        <span class="price">Nrs{{item.get_total}} </span>
+        
+    </div>
+    {% endfor %}
+total_item={{order.get_cart_items}}
+total-price={{order.get_cart_total}}

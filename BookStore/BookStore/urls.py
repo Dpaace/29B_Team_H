@@ -23,4 +23,5 @@ urlpatterns = [
     # Below path for using Django's Default Admin Panel
     path('admin/', admin.site.urls),
     path('',include('register.urls')),
+     path('',include('cart.urls')),
 ]
