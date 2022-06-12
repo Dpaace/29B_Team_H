@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'register',
     'cart',
+    'bootstrapform',
     
 ]
 
@@ -137,6 +138,18 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+#Email setting
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'hello.world.deepace@gmail.com'
+EMAIL_HOST_PASSWORD = 'miyewbabmozzcamg'
+# EMAIL_USE_SSL =False
+# ACCOUNT_EMAIL_VERIFICATION ='none'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
