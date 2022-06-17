@@ -58,7 +58,12 @@ class ShippingAddress(models.Model):
     address=models.CharField(max_length=200, null=True)
     date_added=models.DateTimeField(auto_now_add=True)
     phone=models.IntegerField(default=0, null=True, blank=True)
+    total_price= models.IntegerField(default=0, null=True, blank=True)
+    purchased_books=models.CharField(max_length=1000, null=True)
+    status=models.BooleanField(default=False, null=True, blank=False)
 
     def __str_(self):
         return self.address
+
+    
 

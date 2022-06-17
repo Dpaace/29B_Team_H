@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -65,25 +66,29 @@
     <!-- placed orders section starts-->
 
     <section class="placed-orders">
-
+        {% for order in orders %}
         <div class="box-container">
-
+                {{order.order.id}}
             <div class="box">
-                <p> Placed on : <span>25th Dec 22022</span> </p>
-                <p> Name : <span>Ashok GC</span> </p>
-                <p> Number : <span>989898989</span> </p>
-                <p> Email : <span>A2gmail.com</span> </p>
-                <p> Address : <span>Full Address</span> </p>
+                <p> Placed on : <span>{{order.date_added}}</span> </p>
+                <p> Name : <span>{{user.first_name}} {{user.last_name}}</span> </p>
+                <p> Number : <span>{{order.phone}}</span> </p>
+                <p> Address : <span>{{order.address}}</span> </p>
                 <p> Payment Method : <span>Cash on Delivery</span> </p>
-                <p> Your Orders : <span>Love, Warrior</span> </p>
-                <p> Total Price : <span>Nrs.2500/-</span> </p>
-                <p> Payment Status : <span>Done</span> </p>
+                <p> Total Price : <span>Nrs.{{order.total_price}}/-</span> </p>
+            </p><a href="/orderbook_display/{{order.order.id}}">details of purchased book</a></p>
+            <p> Payment Status : <span>Done</span> </p>
             </div>
-
+            
         </div>
+        {% endfor %}
 
     </section>
+ 
 
+                   
+            
+           
 
     <!-- placed orders section ends -->
 

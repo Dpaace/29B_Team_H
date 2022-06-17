@@ -1,6 +1,7 @@
 from dataclasses import fields
 from django import forms
 from .models import AddBook, Contact
+from cart.models import *
 
 
 
@@ -20,3 +21,8 @@ class contact_form(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ("__all__")
+
+class shipping_order(forms.ModelForm):
+    class Meta:
+        model =ShippingAddress
+        fields = ['status']
