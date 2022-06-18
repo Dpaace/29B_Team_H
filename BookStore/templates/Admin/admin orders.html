@@ -46,10 +46,14 @@
 
 
     <!-- orders section starts-->
-
+    {% for order in orders %}
+    1
+    {% endfor %}
     <section class="orders">
-        {% for order in orders %}
+       
         <div class="box-container">
+            {% for order in orders %}
+            
             <div class="box">
                 {{order.id}} 
                 <p> User id : <span>
@@ -70,12 +74,7 @@
                 <p> Address : <span>
                        {{order.address}}
                     </span> </p>
-                <p> Total products : <span>
-                   <p> <div  data-product="{{order.order.id}}" data-action="show"  value="show" name="update_order" class="show-btn">show</div></p>
-                       {% for item in books %}
-                       {{s.product.b_name}}
-                       {% endfor %}
-                    </span> </p>
+                <p> Total products : {{order.purchased_books}}<span>
                 <p> Total price : <span>Nrs.
                         Nrs. {{order.total_price}}
                     </span> </p>
@@ -102,9 +101,11 @@
                         <div  data-product="{{order.id}}" data-action="update"  value="update" onclick="return confirm('order complete?');"name="update_order" class="option-btn">pending</div>
                         {% endif %}
                     </form>
+                   
             </div>
             {% endfor %}
         </div>
+      
     </section>
 
 
