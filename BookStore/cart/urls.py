@@ -10,6 +10,6 @@ urlpatterns = [
     path('remove_order/<int:p_id>',views.remove_order, name='remove_order'),
     path('delete_order/<int:p_id>',views.delete_order, name='delete_order'),
     
-   
+
 
 ]
