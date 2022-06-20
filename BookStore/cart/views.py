@@ -14,12 +14,13 @@ def cart(request):
     cartItems = order.get_cart_items
     return render(request, "cart/cart.html", {'items':items,'order':order,'cartItems':cartItems})
 
+# checkout function
 def checkout(request):
     customer = request.user
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
     cartItems = order.get_cart_items
-  
+
     if request.method == "POST":
 
         form = shipping(request.POST)
@@ -57,7 +58,7 @@ def updateItem(request):
     
     orderItem.save()
 
-   
+
     if orderItem.quantity <=0:
         orderItem.delete()
         
@@ -67,22 +68,44 @@ def updateItem(request):
 def remove_order(request, p_id):
     orders = OrderItem.objects.filter(product_id=p_id)
     orders.delete()
- 
+
     return redirect("/dash")
 
 #to remove all items from cart
 def delete_order(request, p_id):
     orders = Order.objects.filter(id=p_id)
     orders.delete()
- 
+
     return redirect("/dash")
 
+#processes order
 def processOrder(request):
     transaction_id=datetime.datetime.now().timestamp()
     date=json.loads(request.body)
-
     customer=request.user
-  
+
     return JsonResponse('paymennt sucessful', safe=False)
 
 
+
+#display orders done by user
+def order_display(request,id):
+    orders=ShippingAddress.objects.filter(customer_id=id)
+    order2=Order.objects.filter(customer_id=id)
+    order3=OrderItem.objects.filter(order_id=id)
+    
+
+
+    # cartItems = order.get_cart_items
+    
+    return render(request,'orders.html',{'orders':orders,'order2':order2,'order3':order3})#
+
+#display books detail user had purchased
+def Orderbook_details(request,id):
+    orders=ShippingAddress.objects.filter(customer_id=id)
+    order2=Order.objects.filter(customer_id=id)
+    order3=OrderItem.objects.filter(order_id=id)
+
+    # cartItems = order.get_cart_items
+    
+    return render(request,'show_books.html',{'orders':orders,'order2':order2,'order3':order3})#

@@ -9,7 +9,7 @@ class shipping(forms.ModelForm):
         model =ShippingAddress
         fields = ("__all__")
 
-class shipping(forms.ModelForm):
-    class Meta:
-        model =ShippingAddress
-        fields = ("__all__")
+# class shipping(forms.ModelForm):
+#     class Meta:
+#         model =ShippingAddress
+#         fields = ("__all__")

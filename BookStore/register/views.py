@@ -13,7 +13,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
 from cart.models import *
-
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 
@@ -125,7 +126,7 @@ def addbooks(request):
     return render(request, "admin/Add_book.html")
 
 
-def Bedit(request, p_id):
+def Bedit(request, p_id): #book_edit
     books = AddBook.objects.get(book_id=p_id)
 
     if request.method == "POST":
@@ -141,25 +142,62 @@ def Bedit(request, p_id):
     return render(request, "Admin/update_book.html", {'books': books})
 
 
-def Bdelete(request, p_id):
+def Bdelete(request, p_id): #book_delete
     books = AddBook.objects.get(book_id=p_id)
     books.delete()
     messages.success(request, "data has been deleted ")
     return redirect("/admindash")
 
+#display all orders on admin page
+def user_order(request): #Show_order
+    orders=ShippingAddress.objects.raw("select * from cart_shippingaddress")
+    order3=OrderItem.objects.raw("select * from cart_orderitem ")
+    return render(request,'admin/admin orders.html',{'orders':orders,'order3':order3})
+
+#update the status of shippping order
+def delivery_update(request):
+    data = json.loads(request.body)
+    orderId=data['orderId']
+    action=data['action']
+    
+    print("Action:",action)
+    print("orderId:", orderId)
+  
+    delivery=ShippingAddress.objects.get(id=orderId)
+    if action == 'update':
+        delivery.status=True
+        print('success')
+        delivery.save()
+    return JsonResponse("complete order", safe=False,)
+
+#display book_details purchased by customer on admin side
+def show_products(request):
+    data = json.loads(request.body)
+    orderId=data['itemsid']
+    action=data['action']
+    
+    print("Action:",action)
+    print("orderId:", orderId)
+
+    if action == "show":
+     books=OrderItem.objects.filter(order_id=orderId)
+     return render(request,'admin/admin orders.html',{'books':books})
+
+  
+    return JsonResponse({'books':books}, safe=False,)
+
 # user detail
 def customers(request):
     users=User.objects.filter(is_superuser=False)
-    return render(request,'Admin/customers.html',{'users':users})
+    return render(request,'Admin/customers.html',{'users':users,})
 
 def cdelete(request, p_id):
     users = User.objects.get(id=p_id)
     users.delete()
     messages.success(request, "data has been deleted ")
     return render(request,'Admin/customers.html')
+
 # profile page
-
-
 def profile(request):
     return render(request, "User/profile.html")
 

@@ -62,6 +62,9 @@ urlpatterns = [
     path('nonfiction', views.nonfiction),
     path('customers',views.customers),
     path("cdelete/<int:p_id>",views.cdelete),
+    path('user_order',views.user_order, name="user_order"),
+    path('delivery_update/',views.delivery_update, name='delivery_update'),
+    path('show_products/',views.show_products, name='show_products'),
 
    
 
