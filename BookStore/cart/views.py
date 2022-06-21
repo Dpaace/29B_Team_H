@@ -106,4 +106,10 @@ def Orderbook_details(request,id):
    
     # cartItems = order.get_cart_items
     
-    return render(request,'show_books.html',{'orders':orders,'order2':order2,'order3':order3})#
+    return render(request,'show_books.html',{'orders':orders,'order2':order2,'order3':order3})
+    
+#delete order by user
+def order_delete(request,id):
+    user = Order.objects.get(id= id)
+    user.delete()
+    return redirect("/dash")

@@ -1,6 +1,9 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +14,7 @@
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{% static 'css/orders/orders.css' %}">
 
@@ -19,24 +23,7 @@
 <body>
     <!-- header section starts  -->
 
-    <header class="header">
-
-
-        <a href="home.html" class="logo"> <i class="fas fa-book"></i> Book Mandu </a>
-
-        <form action="" class="search-form">
-            <input type="search" placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-
-        <div class="icons">
-            <div id="menu-btn" class="fas fa-bars"></div>
-            <div id="search-btn" class="fas fa-search"></div>
-            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            <div id="login-btn" class="fas fa-user"></div>
-        </div>
-
-    </header>
+   
 
     <!-- header section ends  -->
 
@@ -46,29 +33,18 @@
 
     <!-- navbar  -->
 
-    <nav class="navbar">
-        <a href="home.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="orders.html">Orders</a>
-        <a href="about.html">About Us</a>
-        <a href="team.html">Our Team</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">contact</a>
-
-
-    </nav>
+    
     <section class="heading">
         <h3>Placed Orders</h3>
-        <p> <a href="home.html">Home</a> / <span>Orders</span> </p>
+        <p> <a href="/dash">Home</a> / <span>Orders</span> </p>
     </section>
 
 
     <!-- placed orders section starts-->
-
+    {% for order in orders %}
     <section class="placed-orders">
-        {% for order in orders %}
+       
         <div class="box-container">
-                {{order.order.id}}
             <div class="box">
                 <p> Placed on : <span>{{order.date_added}}</span> </p>
                 <p> Name : <span>{{user.first_name}} {{user.last_name}}</span> </p>
@@ -76,14 +52,29 @@
                 <p> Address : <span>{{order.address}}</span> </p>
                 <p> Payment Method : <span>Cash on Delivery</span> </p>
                 <p> Total Price : <span>Nrs.{{order.total_price}}/-</span> </p>
-            </p><a href="/orderbook_display/{{order.order.id}}">details of purchased book</a></p>
+            <a style="font-size:20px; color:rgb(98, 143, 188)" href="/orderbook_display/{{order.order.id}}">details of purchased book</a>
+            {% if order.status %}
             <p> Payment Status : <span>Done</span> </p>
+            {% else %}
+            <p> Payment Status : <span>pending</span> <span>  <a href="/delete_order/{{order.order.id}}" style="background-color: red; display: inline-block;
+                margin-top: 1rem;
+                padding: 1rem 3rem;
+                cursor: pointer;
+                color: var(--white);
+                font-size: 1.8rem;
+                border-radius: 0.5rem;
+                text-transform: capitalize;" 
+                onclick="return confirm('Are you sure?');" class="delete-btn">order cancel</a></span>  </p>
+
+            {% endif %}
+            
             </div>
             
         </div>
-        {% endfor %}
+     
 
     </section>
+    {% endfor %}
  
 
                    
@@ -92,43 +83,8 @@
 
     <!-- placed orders section ends -->
 
-    <!-- footer section  -->
-
-    <section class="footer">
-
-        <div class="box-container">
-
-            <div class="box">
-                <h3>Quick Links</h3>
-                <a href="home.html"> <i class="fas fa-arrow-right"></i> Home</a>
-                <a href="shop.html"> <i class="fas fa-arrow-right"></i> Shop</a>
-                <a href="about.html"> <i class="fas fa-arrow-right"></i> About</a>
-                <a href="blog.html"> <i class="fas fa-arrow-right"></i> Blog</a>
-                <a href="contact_us.html"> <i class="fas fa-arrow-right"></i> Contact</a>
-            </div>
-
-            <div class="box">
-                <h3>Extra Links</h3>
-                <a href="$"> <i class="fas fa-arrow-right"></i> my order</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> login</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> my account</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> contact</a>
-            </div>
-
-            <div class="box">
-                <h3>Extra Links</h3>
-                <a href="#"> <i class="fa fa-map-marker"></i> Dillibazar</a>
-                <a href="#"> <i class="fa fa-envelope"></i> bookmandu@gmail.com</a>
-                <a href="#"> <i class="fa fa-phone"></i> 9860914588</a>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="credit">
-        Created by Book Mandu | all rights reserved!
-    </section>
+   
+  
 
     <!-- custom js file link  -->
     <script src="js/home.js"></script>
@@ -136,3 +92,4 @@
 </body>
 
 </html>
+{% endblock %}
