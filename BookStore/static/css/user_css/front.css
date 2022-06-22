@@ -210,8 +210,8 @@ body {
 	width: 50%;
 	left: 20%;
 	padding: 20px 20px 20px 40px;
-	opacity: 0;
-	transition: 0.5s;
+	opacity: 0; 
+    transition: 0.5s; 
 	visibility: hidden;
 }
 

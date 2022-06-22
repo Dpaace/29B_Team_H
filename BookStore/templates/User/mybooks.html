@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="{% static 'css/user_cssstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user_css/style.css' %}">
+  
 
 </head>
 
@@ -23,20 +24,30 @@
     <!-- mybooks section starts  -->
 
     <section class="mybooks">
+        
 
         <h1 class="heading"> <span>My</span> Books </h1>
 
-        <div class="box-container">
-
-            <div class="box">
-                <img src="images/books/calibre_cover.jpg" alt="">
-                <div class="content">
-                    <h3>Warrior Rising</h3>
-                    <p>Nice Book bla bla</p>
-                    <a href="#">Edit</a>
-                    <a href="#">Delete</a>
+        <section class="placed-orders">
+            {% for order in orders %}
+            <div class="box-container">
+                    {{order.order.id}}
+                <div class="box">
+                    <p> Placed on : <span>{{order.date_added}}</span> </p>
+                    <p> Name : <span>{{user.first_name}} {{user.last_name}}</span> </p>
+                    <p> Number : <span>{{order.phone}}</span> </p>
+                    <p> Address : <span>{{order.address}}</span> </p>
+                    <p> Payment Method : <span>Cash on Delivery</span> </p>
+                    <p> Total Price : <span>Nrs.{{order.total_price}}/-</span> </p>
+                </p><a href="/orderbook_display/{{order.order.id}}">details of purchased book</a></p>
+                <p> Payment Status : <span>Done</span> </p>
                 </div>
+                
             </div>
+            {% endfor %}
+    
+        </section>
+   
 
             <div class="box">
                 <img src="images/books/ebf4e9056090c7318dcbeb944934b703.jpg" alt="">
@@ -49,7 +60,7 @@
             </div>
 
             <div class="box">
-                <img src="images/books/the-curse-9781451672008_xlg.jpg" alt="">
+                <img src="{% static 'assets/home_img/pngwing.com (3).png' %}"alt="">
                 <div class="content">
                     <h3>The Curse</h3>
                     <p>Nice Book</p>
@@ -94,6 +105,7 @@
 
     </section>
 
+   
     <!-- mybooks section ends -->
 
 </body>
