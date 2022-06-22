@@ -1,8 +1,8 @@
 {% extends 'nav.html' %}
-<!DOCTYPE html>
-<html lang="en">
 {% block content %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
  
     <section class="heading">
         <h3>Book Details</h3>
-        <p> <a href="home.html">Home</a> / <span>Book Details</span> </p>
+        <p> <a href="/dash">Home</a> / <span>Book Details</span> </p>
     </section>
 
     
@@ -51,7 +51,7 @@
 
                 <h3>{{books.b_name}}:</h3>
                 {% if books.quantity != 0%}
-                <span>Available</span>
+                <p><span>Available</span></p>
                 {% else %}
                 <!-- or -->
                 <span2>Out of Stock</span2>
@@ -72,7 +72,7 @@
                     </div>
                     <P>{{books.b_desc}}</P>
                     {% if books.quantity != 0 %}
-                    <a href="#" class="btn"> Add to cart <i class="fas fa-shopping-basket"></i> </a>
+                    <a data-product="{{books.book_id}}" data-action="add" class="btn update-cart"> Add to cart <i class="fas fa-shopping-basket"></i> </a>
                     {%else%}
                     <a href="#" class="btn"> Out of Stock <i class="fas fa-shopping-basket"></i> </a>
                     {% endif %}

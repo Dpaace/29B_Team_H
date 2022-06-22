@@ -62,7 +62,7 @@
                     <input type="text" class="box" placeholder="Address" name="address"><br>
                     <input type="text"  class="box" placeholder="phone"name="phone"><br>
                     <input type="text"  name="total_price" value="{{order.get_cart_total}}" hidden><br>
-                    <input type="text"  name="status" vlaue="false" hidden><br>
+                    <input type="text"  name="status" value="false" hidden><br>
                     {% for item in items %}
                     <input type="text"  name="purchased_books" value="{{item.product.b_name}}({{item.quantity}})," hidden><br>
                     {% endfor %}

@@ -230,8 +230,11 @@ def contact(request):
 #details about each book
 def viewbook(request, slug):
     books = get_object_or_404(AddBook,New_slug=slug)
+    customer = request.user
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    items =order.orderitem_set.all()
+    cartItems = order.get_cart_items
     
-    print("hh")
     is_favourite = bool
     if books.favourite.filter(id=request.user.id).exists():
         is_favourite = True
@@ -239,7 +242,7 @@ def viewbook(request, slug):
         'books': books,
         'is_favourite': is_favourite
     }
-    return render(request, "viewbook.html", {'books': books, 'is_favourite': is_favourite})
+    return render(request, "viewbook.html", {'books': books, 'is_favourite': is_favourite,'cartItems':cartItems})
     
 #adding into your favourite
 def fav_post(request, id):

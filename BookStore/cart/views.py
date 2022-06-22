@@ -21,18 +21,16 @@ def checkout(request):
     cartItems = order.get_cart_items
   
     if request.method == "POST":
-
-        form = shipping(request.POST)
-        transaction_id=datetime.datetime.now().timestamp()
-        order.transaction_id=transaction_id
-        if transaction_id != None:
-            order.complete= True
+            form = shipping(request.POST)
+            transaction_id=datetime.datetime.now().timestamp()
+            order.transaction_id=transaction_id
+            if transaction_id != None:
+                order.complete= True
             order.save()
 
-        form.save()
-        return redirect("/dash")
-    
-
+            form.save()
+            return redirect("/dash")
+      
     return render(request,'cart/checkout.html',{'items':items,'order':order, 'cartItems':cartItems})
 
 def updateItem(request):
@@ -91,9 +89,6 @@ def order_display(request,id):
     orders=ShippingAddress.objects.filter(customer_id=id)
     order2=Order.objects.filter(customer_id=id)
     order3=OrderItem.objects.filter(order_id=id)
-    
-
-   
     # cartItems = order.get_cart_items
     
     return render(request,'orders.html',{'orders':orders,'order2':order2,'order3':order3})#
