@@ -14,7 +14,7 @@ urlpatterns = [
 
 
 
-    #Passeord Reset Section
+    # Passeord Reset Section
     path('password_reset/',
          auth_views.PasswordResetView.as_view(
              template_name='password/password_reset_form.html'),
@@ -29,7 +29,7 @@ urlpatterns = [
          auth_views.PasswordResetConfirmView.as_view(
              template_name='password/password_reset_confirm.html'),
          name='password_reset_confirm'),
-         
+
     path('reset/done/',
          auth_views.PasswordResetCompleteView.as_view(
              template_name='password/password_reset_complete.html'),
@@ -42,12 +42,12 @@ urlpatterns = [
     # path("adminlog", views.Aloginn, name='adminlog'),
     path("admindash", views.adminDashboard, name='admindash'),
     path("addbook", views.addbooks, name='addbook'),
-    
-    
+
+
     path("mybook", views.mybook),
     path("profile_setting", views.psetting),
     path("about", views.about),
-    
+
     path("edit/<int:p_id>", views.Bedit),
     path("delete/<int:p_id>", views.Bdelete),
     path("contact", views.contact),
@@ -57,15 +57,16 @@ urlpatterns = [
     path("contact", views.contact),
     path('searched', views.srch),
     path("delacc/<int:id>", views.acc_del),
-    path('blogs',views.blog),
-    path('fiction',views.fiction),
+    path('blogs', views.blog),
+    path('fiction', views.fiction),
     path('nonfiction', views.nonfiction),
-    path('customers',views.customers),
-    path("cdelete/<int:p_id>",views.cdelete),
-    path('user_order',views.user_order, name="user_order"),
-    path('delivery_update/',views.delivery_update, name='delivery_update'),
-    path('show_products/',views.show_products, name='show_products'),
+    path('customers', views.customers),
+    path("cdelete/<int:p_id>", views.cdelete),
+    path('user_order', views.user_order, name="user_order"),
+    path('delivery_update/', views.delivery_update, name='delivery_update'),
+    path('show_products/', views.show_products, name='show_products'),
+    path('update_prof', views.updateProf),
 
-   
+
 
 ]

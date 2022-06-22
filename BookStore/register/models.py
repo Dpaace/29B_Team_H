@@ -37,3 +37,6 @@ class Contact(models.Model):
 
     class Meta:
         db_table="contact"
+
+
+# class Filter(models.Model):

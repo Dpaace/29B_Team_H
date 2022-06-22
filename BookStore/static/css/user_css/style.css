@@ -416,7 +416,7 @@ section {
 }
 
 .settings .row form .inputBox input {
-  width: 49%;
+  width: 100%;
 }
 
 .settings .row form .inputBox input, .settings .row form textarea {

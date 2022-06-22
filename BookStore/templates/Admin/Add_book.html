@@ -17,7 +17,7 @@
 <body>
 
   <section class="home-section">
-    
+
     <div class="home-content">
       <div class="overview-boxes">
         <div class="box">
@@ -40,8 +40,7 @@
               {% csrf_token %}
               <h3>Add Book</h3>
               <span>Book Name</span>
-              <input type="text" name="b_name" placeholder="enter the books name" id="b_name"
-                class="box"  required/>
+              <input type="text" name="b_name" placeholder="enter the books name" id="b_name" class="box" required />
               <!--Message Validation-->
               <div class="message ml-4"></div>
 
@@ -60,6 +59,15 @@
                 <option value="Folktale"></option>
                 <option value="literature"></option>
                 <option value="Romance"></option>
+                <option value="Sci-fi"></option>
+                <option value="Biography"></option>
+                <option value="Psychological"></option>
+                <option value="Mystery"></option>
+                <option value="Thriller"></option>
+                <option value="Philosophical"></option>
+                <option value="Spiritual"></option>
+                <option value="Crime fiction"></option>
+                <option value="Children's literature"></option>
               </datalist>
               <!--Message Validation-->
               <div class="message ml-4"></div>
@@ -72,7 +80,7 @@
               <span>Quantity</span>
               <input type="number" name="b_desc" min="0" placeholder="Enter book quantity" class="box" />
               <!-- slug -->
-            
+
               <!--  -->
               <span>Image</span>
               <input type="file" name="b_pic" accept="" class="box3" style="

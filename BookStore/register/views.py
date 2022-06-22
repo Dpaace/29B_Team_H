@@ -201,6 +201,9 @@ def cdelete(request, p_id):
 def profile(request):
     return render(request, "User/profile.html")
 
+def updateProf(request):
+    return render(request, "User/update_profile.html")
+
 
 def mybook(request):
     return render(request, "User/mybooks.html")

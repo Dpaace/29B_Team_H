@@ -1,0 +1,67 @@
+{% extends 'User/user_nav.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/user_css/style.css' %}">
+
+</head>
+
+<body>
+    <!-- setting section starts  -->
+
+    <section class="settings" id="settings">
+
+        <h1 class="heading"> <span>Update Your</span> Profile </h1>
+
+        <div class="row">
+            <form action="">
+                <h3>Change Your Information</h3>
+                    <p>Username</p>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Username">
+                    </div>
+                    <p>Phone Number</p>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Phone Password">
+                    </div>
+                    <p>Email</p>
+                    <div class="inputBox">
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <p>Nationality</p>
+                    <div class="inputBox ">
+                        <input type="text" placeholder="Nationality">
+                    </div>
+                    <p>Address</p>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Address">
+                    </div>
+                    <p>Language</p>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Language">
+                    </div>
+
+                <a href="#" class="btn"> Update<i class="fas fa-edit"></i> </a>
+            </form>
+        </div>
+
+    </section>
+
+    <!-- settings section ends -->
+
+</body>
+
+</html>
+{% endblock content %}
