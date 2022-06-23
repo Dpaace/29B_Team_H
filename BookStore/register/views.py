@@ -22,6 +22,7 @@ import json
 def home(request):
     return render(request, "homepage.html")
 
+
 def Register(request):
     if request.method == 'POST':
         Username = request.POST['user_name']
@@ -32,17 +33,18 @@ def Register(request):
         last = request.POST['last']
         if psw == cpsw:
             if User.objects.filter(username=Username).exists():
-                    messages.error(request, 'Username already exists')
-                    return redirect('register')
+                messages.error(request, 'Username already exists')
+                return redirect('register')
             else:
                 if User.objects.filter(email=email).exists():
-                        messages.error(request, 'Email already exists')
-                        return redirect('register')
+                    messages.error(request, 'Email already exists')
+                    return redirect('register')
                 else:
                     user = User.objects.create_user(
-                    username=Username, email=email, password=psw, first_name=first, last_name=last)
+                        username=Username, email=email, password=psw, first_name=first, last_name=last)
                     user.save()
-                    messages.success( request, 'You are registered successfully')
+                    messages.success(
+                        request, 'You are registered successfully')
                     # return redirect('signin/signin.html')
                     return redirect("home")
         else:
@@ -50,6 +52,7 @@ def Register(request):
             return redirect('register')
     else:
         return render(request, "signin/signin.html")
+
 
 def loginn(request):
     if request.method == 'POST':
@@ -65,25 +68,26 @@ def loginn(request):
             return redirect('loginn')
     return render(request, "signin/signin.html")
 
+
 def logout_page(request):
     logout(request)
     request.session.clear()
     return redirect("home")
     # return render(request, "homepage.html")
 
+
 @login_required(login_url='loginn')
 def maindash(request):
-    #ADD_cart function 
+    # ADD_cart function
     customer = request.user
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    items =order.orderitem_set.all()
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
     cartItems = order.get_cart_items
-    #add_cart funtion end
+    # add_cart funtion end
     dash = AddBook.objects.raw("select * from addbook")
-   
-    
-    return render(request, "maindash.html", {'dash': dash,'cartItems':cartItems})
 
+    return render(request, "maindash.html", {'dash': dash, 'cartItems': cartItems})
 
 
 @login_required
@@ -95,20 +99,39 @@ def afterlogin_view(request):
         return redirect('adminlog')
 
 
-
 # genre tempalates
 def fiction(request):
     dash = AddBook.objects.raw("select * from addbook")
-    fiction=AddBook.objects.filter(b_genre="Fiction")
-    return render(request, "genre/fiction.html", {'dash': dash,'fiction':fiction})
+    fiction = AddBook.objects.filter(b_genre="Fiction")
+    return render(request, "genre/fiction.html", {'dash': dash, 'fiction': fiction})
+
 
 def nonfiction(request):
     dash = AddBook.objects.raw("select * from addbook")
-    nonfiction=AddBook.objects.filter(b_genre="Nonfiction")
-    return render(request, "genre/nonfiction.html", {'dash': dash,'nonfiction':nonfiction})
+    nonfiction = AddBook.objects.filter(b_genre="Nonfiction")
+    return render(request, "genre/nonfiction.html", {'dash': dash, 'nonfiction': nonfiction})
 
+
+def philosophical(request):
+    dash = AddBook.objects.raw("select * from addbook")
+    philosophical = AddBook.objects.filter(b_genre="philosophical")
+    return render(request, "genre/philosophical.html", {'dash': dash, 'philosophical': philosophical})
+
+
+def thriller(request):
+    dash = AddBook.objects.raw("select * from addbook")
+    thriller = AddBook.objects.filter(b_genre="thriller")
+    return render(request, "genre/thriller.html", {'dash': dash, 'thriller': thriller})
+
+
+def romance(request):
+    dash = AddBook.objects.raw("select * from addbook")
+    romance = AddBook.objects.filter(b_genre="romance")
+    return render(request, "genre/romance.html", {'dash': dash, 'romance': romance})
 
 # @login_required(login_url='afterlogin')
+
+
 def adminDashboard(request):
     if request.user.is_superuser:
         dash = AddBook.objects.raw("select * from addbook")
@@ -126,7 +149,7 @@ def addbooks(request):
     return render(request, "admin/Add_book.html")
 
 
-def Bedit(request, p_id): #book_edit
+def Bedit(request, p_id):  # book_edit
     books = AddBook.objects.get(book_id=p_id)
 
     if request.method == "POST":
@@ -142,68 +165,79 @@ def Bedit(request, p_id): #book_edit
     return render(request, "Admin/update_book.html", {'books': books})
 
 
-def Bdelete(request, p_id): #book_delete
+def Bdelete(request, p_id):  # book_delete
     books = AddBook.objects.get(book_id=p_id)
     books.delete()
     messages.success(request, "data has been deleted ")
     return redirect("/admindash")
 
-#display all orders on admin page
-def user_order(request): #Show_order
-    orders=ShippingAddress.objects.raw("select * from cart_shippingaddress")
-    order3=OrderItem.objects.raw("select * from cart_orderitem ")
-    return render(request,'admin/admin orders.html',{'orders':orders,'order3':order3})
+# display all orders on admin page
 
-#update the status of shippping order
+
+def user_order(request):  # Show_order
+    orders = ShippingAddress.objects.raw("select * from cart_shippingaddress")
+    order3 = OrderItem.objects.raw("select * from cart_orderitem ")
+    return render(request, 'admin/admin orders.html', {'orders': orders, 'order3': order3})
+
+# update the status of shippping order
+
+
 def delivery_update(request):
     data = json.loads(request.body)
-    orderId=data['orderId']
-    action=data['action']
-    
-    print("Action:",action)
+    orderId = data['orderId']
+    action = data['action']
+
+    print("Action:", action)
     print("orderId:", orderId)
-  
-    delivery=ShippingAddress.objects.get(id=orderId)
+
+    delivery = ShippingAddress.objects.get(id=orderId)
     if action == 'update':
-        delivery.status=True
+        delivery.status = True
         print('success')
         delivery.save()
     return JsonResponse("complete order", safe=False,)
 
-#display book_details purchased by customer on admin side
+# display book_details purchased by customer on admin side
+
+
 def show_products(request):
     data = json.loads(request.body)
-    orderId=data['itemsid']
-    action=data['action']
-    
-    print("Action:",action)
+    orderId = data['itemsid']
+    action = data['action']
+
+    print("Action:", action)
     print("orderId:", orderId)
 
     if action == "show":
-     books=OrderItem.objects.filter(order_id=orderId)
-     return render(request,'admin/admin orders.html',{'books':books})
+        books = OrderItem.objects.filter(order_id=orderId)
+        return render(request, 'admin/admin orders.html', {'books': books})
 
-  
-    return JsonResponse({'books':books}, safe=False,)
+    return JsonResponse({'books': books}, safe=False,)
 
 def completeOrder(request):
     orders=ShippingAddress.objects.filter(status=True)
     return render(request,'Admin/completed_order.html',{'orders':orders})
 
 # user detail
+
+
 def customers(request):
-    users=User.objects.filter(is_superuser=False)
-    return render(request,'Admin/customers.html',{'users':users,})
+    users = User.objects.filter(is_superuser=False)
+    return render(request, 'Admin/customers.html', {'users': users, })
+
 
 def cdelete(request, p_id):
     users = User.objects.get(id=p_id)
     users.delete()
     messages.success(request, "data has been deleted ")
-    return render(request,'Admin/customers.html')
+    return render(request, 'Admin/customers.html')
 
 # profile page
+
+
 def profile(request):
     return render(request, "User/profile.html")
+
 
 def updateProf(request):
     return render(request, "User/update_profile.html")
@@ -230,8 +264,7 @@ def contact(request):
     return render(request, "User/contact_us.html")
 
 
-
-#details about each book
+# details about each book
 def viewbook(request, slug):
     books = get_object_or_404(AddBook,New_slug=slug)
     customer = request.user
@@ -254,15 +287,16 @@ def fav_post(request, id):
 
     if post.favourite.filter(id=request.user.id).exists():
         post.favourite.remove(request.user)
-        
+
     else:
         post.favourite.add(request.user)
     context = {
         'post': post,
-        
+
     }
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'], context)
+
 
 def favourite_list(request):
     new = AddBook.newmanager.filter(favourite=request.user)
@@ -271,19 +305,21 @@ def favourite_list(request):
 
 # search bar
 def srch(request):
-    if request.method=="POST":
-        searched=request.POST['searched']
+    if request.method == "POST":
+        searched = request.POST['searched']
         venues = AddBook.objects.filter(b_name__icontains=searched)
         dash = AddBook.objects.raw("select * from addbook")
-        return render(request, "search.html",{'searched':searched,'venues':venues,'dash':dash})
+        return render(request, "search.html", {'searched': searched, 'venues': venues, 'dash': dash})
     else:
-        return render(request,'search.html')
+        return render(request, 'search.html')
+
 
 def acc_del(request, id):
-    user = User.objects.get(id = id)
+    user = User.objects.get(id=id)
     user.delete()
     messages.success(request, "your account has been deleted ")
     return redirect("/")
 
+
 def blog(request):
-    return render(request,'blogs.html')
+    return render(request, 'blogs.html')

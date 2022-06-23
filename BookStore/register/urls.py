@@ -58,8 +58,13 @@ urlpatterns = [
     path('searched', views.srch),
     path("delacc/<int:id>", views.acc_del),
     path('blogs', views.blog),
+    
     path('fiction', views.fiction),
     path('nonfiction', views.nonfiction),
+    path('philosophical', views.philosophical),
+    path('thriller', views.thriller),
+    path('romance', views.romance),
+
     path('customers', views.customers),
     path("cdelete/<int:p_id>", views.cdelete),
     path('user_order', views.user_order, name="user_order"),

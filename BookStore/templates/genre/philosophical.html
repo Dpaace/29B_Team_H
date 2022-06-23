@@ -15,8 +15,8 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{% static 'css/home_css/viewbook.css' %}">
-      <!-- custom css file link  -->
-      <link rel="stylesheet" href="{% static 'css/blog_css/blog.css' %}">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/blog_css/blog.css' %}">
 
 </head>
 
@@ -28,7 +28,7 @@
     <section class="blogs">
 
         <div class="box-container">
-            {% for addbook in fiction %}
+            {% for addbook in philosophical %}
             <div class="box">
                 <div class="image">
                     <a href="/bookdesc/{{addbook.book_id}}"><img  style="height:20rem; width:19rem"src="{% static 'assets/' %}{{addbook.b_pic}}"></a>
