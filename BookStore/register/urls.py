@@ -21,7 +21,7 @@ urlpatterns = [
          name='password_reset'),
 
     path('password_reset/done/',
-         auth_views.PasswordResetDoneView.as_view(git
+         auth_views.PasswordResetDoneView.as_view(
              template_name='password/password_reset_done.html'),
          name='password_reset_done'),
 
@@ -58,8 +58,13 @@ urlpatterns = [
     path('searched', views.srch),
     path("delacc/<int:id>", views.acc_del),
     path('blogs', views.blog),
+    
     path('fiction', views.fiction),
     path('nonfiction', views.nonfiction),
+    path('philosophical', views.philosophical),
+    path('thriller', views.thriller),
+    path('romance', views.romance),
+
     path('customers', views.customers),
     path("cdelete/<int:p_id>", views.cdelete),
     path('user_order', views.user_order, name="user_order"),
