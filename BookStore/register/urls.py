@@ -58,6 +58,7 @@ urlpatterns = [
     path('searched', views.srch),
     path("delacc/<int:id>", views.acc_del),
     path('blogs', views.blog),
+    path("range", views.price_range),
     
     path('fiction', views.fiction),
     path('nonfiction', views.nonfiction),
@@ -77,6 +78,5 @@ urlpatterns = [
     path('delivery_update/',views.delivery_update, name='delivery_update'),
     path('show_products/',views.show_products, name='show_products'),
     path("mybook", views.mybook),
-
 
 ]
