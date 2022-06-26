@@ -59,7 +59,7 @@ urlpatterns = [
     path("delacc/<int:id>", views.acc_del),
     path('blogs', views.blog),
     path("range", views.price_range),
-    
+
     path('fiction', views.fiction),
     path('nonfiction', views.nonfiction),
     path('philosophical', views.philosophical),
@@ -72,11 +72,12 @@ urlpatterns = [
     path('delivery_update/', views.delivery_update, name='delivery_update'),
     path('show_products/', views.show_products, name='show_products'),
     path('update_prof', views.updateProf),
-    path('customers',views.customers),
-    path("cdelete/<int:p_id>",views.cdelete),
-    path('user_order',views.user_order, name="user_order"),
-    path('delivery_update/',views.delivery_update, name='delivery_update'),
-    path('show_products/',views.show_products, name='show_products'),
+    path('customers', views.customers),
+    path("cdelete/<int:p_id>", views.cdelete),
+    path('user_order', views.user_order, name="user_order"),
+    path('delivery_update/', views.delivery_update, name='delivery_update'),
+    path('show_products/', views.show_products, name='show_products'),
     path("mybook", views.mybook),
+    path('completeOrder', views.completeOrder)
 
 ]

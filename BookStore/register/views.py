@@ -214,6 +214,10 @@ def show_products(request):
 
     return JsonResponse({'books': books}, safe=False,)
 
+def completeOrder(request):
+    orders=ShippingAddress.objects.filter(status=True)
+    return render(request,'Admin/completed_order.html',{'orders':orders})
+
 # user detail
 
 
