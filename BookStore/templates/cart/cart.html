@@ -27,7 +27,12 @@
         <p> <a href="/dash">Home</a> / <span>Cart</span> </p>
     </section>
 
+    <!-- message show -->
+    {% for msg in messages %}
 
+    <strong>Hey!</strong> {{msg}}
+    
+    {% endfor %} 
     <!-- cart section starts-->
 
     <section class="products">

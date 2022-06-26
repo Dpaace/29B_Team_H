@@ -1,6 +1,7 @@
 from contextlib import nullcontext
 from django.shortcuts import render,redirect
 from django.http import JsonResponse
+from django.contrib import messages
 from .models import *
 import json
 import datetime
@@ -48,11 +49,19 @@ def updateItem(request):
     orderItem, created =OrderItem.objects.get_or_create(order=order, product=product)
 
     if action == 'add':
-        orderItem.quantity=(orderItem.quantity + 1)
+        if  orderItem.quantity==product.quantity:
+            print("stock full")
+            messages.error(request, "out of stock")
+        else:
+            orderItem.quantity=(orderItem.quantity + 1)
+     
+            
+            
     
     elif action == 'remove':
         orderItem.quantity=(orderItem.quantity - 1)
-    
+
+  
     orderItem.save()
 
    

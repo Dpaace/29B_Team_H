@@ -57,14 +57,14 @@
                 <a href="update_address.html" class="btn">Update Address <i class="fas fa-edit"></i></a> -->
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input type="text" value="{{order.customer_id}}" name="customer" hidden><br>
-                    <input type="text" value="{{order.id}}" name="order" hidden><br>
+                    <input type="text" value="{{order.customer_id}}" name="customer" ><br>
+                    <input type="text" value="{{order.id}}" name="order"><br>
                     <input type="text" class="box" placeholder="Address" name="address"><br>
                     <input type="text"  class="box" placeholder="phone"name="phone"><br>
-                    <input type="text"  name="total_price" value="{{order.get_cart_total}}" hidden><br>
-                    <input type="text"  name="status" value="false" hidden><br>
+                    <input type="text"  name="total_price" value="{{order.get_cart_total}}"><br>
+                    <input type="text"  name="status" value="false"><br>
                     {% for item in items %}
-                    <input type="text"  name="purchased_books" value="{{item.product.b_name}}({{item.quantity}})," hidden><br>
+                    <input type="text"  name="purchased_books" value="{{item.product.b_name}}({{item.quantity}})," ><br>
                     {% endfor %}
                     <select  class="box" required>
                         <option value="" disabled selected>Select Payment Method</option>
