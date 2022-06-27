@@ -76,8 +76,8 @@ urlpatterns = [
     path('user_order',views.user_order, name="user_order"),
     path('delivery_update/',views.delivery_update, name='delivery_update'),
     path('show_products/',views.show_products, name='show_products'),
-    path("mybook", views.mybook),
-    path('completeOrder',views.completeOrder)
+    path("mybook", views.mybook, name='mybook'),
+    path('completeOrder',views.completeOrder, name='completeOrder')
 
 
 ]
