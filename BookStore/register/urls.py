@@ -59,6 +59,7 @@ urlpatterns = [
     path("delacc/<int:id>", views.acc_del),
     path('blogs', views.blog),
     path("range", views.price_range),
+    path('shop', views.shop),
 
     path('fiction', views.fiction),
     path('nonfiction', views.nonfiction),

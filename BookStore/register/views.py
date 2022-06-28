@@ -324,6 +324,9 @@ def acc_del(request, id):
 def blog(request):
     return render(request, 'blogs.html')
 
+def shop(request):
+    return render(request, 'shop.html')
+
 
 def price_range(request):
     if request.method == "POST":
