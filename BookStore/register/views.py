@@ -1,3 +1,4 @@
+from pickle import FALSE
 from django.shortcuts import get_object_or_404, render, redirect
 from urllib import request
 from django.shortcuts import render, redirect
@@ -210,7 +211,9 @@ def show_products(request):
 
     if action == "show":
         books = OrderItem.objects.filter(order_id=orderId)
-        return render(request, 'admin/admin orders.html', {'books': books})
+        
+
+
 
     return JsonResponse({'books': books}, safe=False,)
 
@@ -243,8 +246,14 @@ def updateProf(request):
     return render(request, "User/update_profile.html")
 
 
-def mybook(request):
-    return render(request, "User/mybooks.html")
+def mybook(request,id):
+    orders=ShippingAddress.objects.filter(customer_id=id)
+    order2=Order.objects.filter(customer_id=id)
+    order3=OrderItem.objects.filter(order_id=id)
+    # cartItems = order.get_cart_items
+    
+    return render(request,'User/mybooks.html',{'orders':orders,'order2':order2,'order3':order3})
+   
 
 
 def psetting(request):

@@ -71,7 +71,7 @@
                     <td>{{addbook.quantity}}</td>
                     <td> <a href="/edit/{{addbook.book_id}}" class="btn btn-primary">Edit</a></td>
                     <td> <a href="/delete/{{addbook.book_id}}" class="btn btn-danger">Delete</a></td>
-                    {% if addbook.status %}
+                    {% if addbook.quantity >= 1 %}
                     <td><small class="badge">in-stock</small></td>
                     {%else%}
                     <td><small class="badge">out-of-stock</small></td>

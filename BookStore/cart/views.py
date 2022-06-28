@@ -17,6 +17,7 @@ def cart(request):
 
 def checkout(request):
     customer = request.user
+    
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
     cartItems = order.get_cart_items
@@ -28,6 +29,9 @@ def checkout(request):
             if transaction_id != None:
                 order.complete= True
             order.save()
+
+            cartItems.quantity
+            
 
             form.save()
             return redirect("/dash")
@@ -54,10 +58,6 @@ def updateItem(request):
             messages.error(request, "out of stock")
         else:
             orderItem.quantity=(orderItem.quantity + 1)
-     
-            
-            
-    
     elif action == 'remove':
         orderItem.quantity=(orderItem.quantity - 1)
 
@@ -67,10 +67,12 @@ def updateItem(request):
    
     if orderItem.quantity <=0:
         orderItem.delete()
+
+
         
     return JsonResponse('responseData', safe=False)
 
-
+# to remove
 def remove_order(request, p_id):
     orders = OrderItem.objects.filter(product_id=p_id)
     orders.delete()
