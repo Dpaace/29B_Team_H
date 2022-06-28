@@ -43,7 +43,6 @@ urlpatterns = [
     path("admindash", views.adminDashboard, name='admindash'),
     path("addbook", views.addbooks, name='addbook'),
 
-
     path("mybook", views.mybook),
     path("profile_setting", views.psetting),
     path("about", views.about),
@@ -86,7 +85,7 @@ urlpatterns = [
     path('delivery_update/', views.delivery_update, name='delivery_update'),
     path('show_products/', views.show_products, name='show_products'),
     path("mybook", views.mybook),
-    path('completeOrder', views.completeOrder)
+    path('completeOrder', views.completeOrder),
 
 ]
     

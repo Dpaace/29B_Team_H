@@ -11,6 +11,7 @@ class add_book(forms.ModelForm):
         fields = ("__all__")
 
 
+
 class update_book(forms.ModelForm):
     class Meta:
         model = AddBook

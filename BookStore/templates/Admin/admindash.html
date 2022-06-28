@@ -1,93 +1,53 @@
 {% extends 'Admin/admin_nav.html' %}
-{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
 
-<head>
-  <meta charset="UTF-8" />
-  <title> Admin Dashboard</title>
+{% block content %}
 
-
-  <link rel="stylesheet" href="{% static 'css/Admin/customer.css' %}" />
-
-  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-<title>admin dashboard</title>
-</head>
 {% for msg in messages %}
 
   <strong>Hey!</strong> {{msg}}
   
   {% endfor %} 
-<body>
 
 
-  
-  <section class="home-section">
-
-    <div class="home-content">
-      <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Customers</div>
-            <div class="number">4</div>
-          </div>
+<div class="col-md-10">
+        <table class="table table-primary table-striped table-hover mt-3">
+          <thead>
+            <th scope="col">Book ID</th>
+            <th scope="col">Book Image</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Book Price</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Status</th>
+          </thead>
+            <tbody>
+              {% for addbook in dash %}
+              <tr>
+                  <th scope="row"></th>
+                  <td><img height="100" width="100" src="{% static 'assets/' %}{{addbook.b_pic}}" alt=""></td>
+                  <td>{{addbook.b_name}}</td>
+                  <td>{{addbook.b_price}}</td>
+                  <td>{{addbook.b_genre}}</td>
+                  <td>{{addbook.auther}}</td>
+                  <td>{{addbook.quantity}}</td>
+                  <td> <a href="/edit/{{addbook.book_id}}" class="btn btn-primary">Edit</a></td>
+                  <td> <a href="/delete/{{addbook.book_id}}" class="btn btn-danger">Delete</a></td>
+                  {% if addbook.quantity >= 1 %}
+                  <td><small class="badge">in-stock</small></td>
+                  {%else%}
+                  <td><small class="badge">out-of-stock</small></td>
+                  {% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+        <div class="col-lg-3">
+            <a href="/addbook" class="btn btn-lg bg-warning"> Add Product</a>
         </div>
-      </div>
-
-      <div class="sales-boxes">
-        <div class="recent-sales box">
-          <div class="title">Customer's List</div>
-          <div class="sales-details">
-            <table>
-              <thead>
-                <th scope="col">Book ID</th>
-                <th scope="col">Book Image</th>
-                <th scope="col">Book Name</th>
-                <th scope="col">Book Price</th>
-                <th scope="col">Book Description</th>
-                <th scope="col">Genre</th>
-                <th scope="col">Author</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
-                <th scope="col">Status</th>
-              </thead>
-
-              <tbody>
-                {% for addbook in dash %}
-                <tr>
-                    <th scope="row"></th>
-                    <td><img height="100" width="100" src="{% static 'assets/' %}{{addbook.b_pic}}" alt=""></td>
-                    <td>{{addbook.b_name}}</td>
-                    <td>{{addbook.b_price}}</td>
-                    <td>{{addbook.b_desc}}</td>
-                    <td>{{addbook.b_genre}}</td>
-                    <td>{{addbook.auther}}</td>
-                    <td>{{addbook.quantity}}</td>
-                    <td> <a href="/edit/{{addbook.book_id}}" class="btn btn-primary">Edit</a></td>
-                    <td> <a href="/delete/{{addbook.book_id}}" class="btn btn-danger">Delete</a></td>
-                    {% if addbook.quantity >= 1 %}
-                    <td><small class="badge">in-stock</small></td>
-                    {%else%}
-                    <td><small class="badge">out-of-stock</small></td>
-                    {% endif %}
-                </tr>
-                {% endfor %}
-
-              </tbody> 
-            </table>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-
-</body>
-
-</html>
+</div>
 {% endblock %}

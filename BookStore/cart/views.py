@@ -30,7 +30,7 @@ def checkout(request):
                 order.complete= True
             order.save()
 
-            cartItems.quantity
+            # cartItems.quantity
             
 
             form.save()

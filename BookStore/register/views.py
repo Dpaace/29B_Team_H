@@ -115,7 +115,7 @@ def nonfiction(request):
 
 def philosophical(request):
     dash = AddBook.objects.raw("select * from addbook")
-    philosophical = AddBook.objects.filter(b_genre="philosophical")
+    philosophical = AddBook.objects.filter(b_genre="Philosophical")
     return render(request, "genre/philosophical.html", {'dash': dash, 'philosophical': philosophical})
 
 
@@ -211,15 +211,14 @@ def show_products(request):
 
     if action == "show":
         books = OrderItem.objects.filter(order_id=orderId)
-        
-
-
 
     return JsonResponse({'books': books}, safe=False,)
 
 def completeOrder(request):
     orders=ShippingAddress.objects.filter(status=True)
     return render(request,'Admin/completed_order.html',{'orders':orders})
+
+
 
 # user detail
 
