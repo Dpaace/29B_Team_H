@@ -36,22 +36,22 @@
                 <div class="box-container">
 
                     <div class="box">
-                        <h3> <span>Name : </span> {{user.first_name}} {{user.last_name}}</h3>
-                        <h3> <span>Phone Number : </span> +977 9880327811 </h3>
+                        <h3> <span>Name : </span> {{request.user.first_name}} {{request.user.last_name}}</h3>
+                        <h3> <span>Phone Number : </span> {{details.phone_num}} </h3>
                         <h3> <span>Email : </span> {{request.user.email}}</h3>
-                        <h3> <span>Occupation : </span> Student </h3>
+                        <h3> <span>Occupation : </span> {{details.occupation}} </h3>
                     </div>
 
                     <div class="box">
-                        <h3> <span>Nationality : </span> Nepali </h3>
-                        <h3> <span>Address : </span> Kathmandu, Nepal </h3>
-                        <h3> <span>Language : </span> Nepali, Hindi, English </h3>
+                        <h3> <span>Nationality : </span> {{details.nationality}} </h3>
+                        <h3> <span>Address : </span> {{details.address}} </h3>
+                        <h3> <span>Language : </span> {{details.language}}</h3>
                     </div>
 
 
 
                 </div>
-                <a href="/update_prof" class="btn"> Update <i class="fas fa-edit"></i> </a>
+                <a href="/updateProf/{{user.id}}" class="btn"> Update <i class="fas fa-edit"></i> </a>
 
 
             </div>
@@ -61,8 +61,6 @@
 
     </section>
 {% endblock content %}
-   
-
 
 
 </body>

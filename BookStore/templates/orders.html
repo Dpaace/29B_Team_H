@@ -23,7 +23,7 @@
 <body>
     <!-- header section starts  -->
 
-   
+
 
     <!-- header section ends  -->
 
@@ -33,7 +33,7 @@
 
     <!-- navbar  -->
 
-    
+
     <section class="heading">
         <h3>Placed Orders</h3>
         <p> <a href="/dash">Home</a> / <span>Orders</span> </p>
@@ -43,7 +43,7 @@
     <!-- placed orders section starts-->
     {% for order in orders %}
     <section class="placed-orders">
-       
+
         <div class="box-container">
             <div class="box">
                 <p> Placed on : <span>{{order.date_added}}</span> </p>
@@ -52,39 +52,40 @@
                 <p> Address : <span>{{order.address}}</span> </p>
                 <p> Payment Method : <span>Cash on Delivery</span> </p>
                 <p> Total Price : <span>Nrs.{{order.total_price}}/-</span> </p>
-            <a style="font-size:20px; color:rgb(98, 143, 188)" href="/orderbook_display/{{order.order.id}}">details of purchased book</a>
-            {% if order.status %}
-            <p> Payment Status : <span>Done</span> </p>
-            {% else %}
-            <p> Payment Status : <span>pending</span> <span>  <a href="/delete_order/{{order.order.id}}" style="background-color: red; display: inline-block;
+                <a style="font-size:20px; color:rgb(98, 143, 188)" href="/orderbook_display/{{order.order.id}}">details
+                    of purchased book</a>
+                {% if order.status %}
+                <p> Payment Status : <span>Done</span> </p>
+                {% else %}
+                <p> Payment Status : <span>pending</span> <span> <a href="/delete_order/{{order.order.id}}" style="background-color: red; display: inline-block;
                 margin-top: 1rem;
                 padding: 1rem 3rem;
                 cursor: pointer;
                 color: var(--white);
                 font-size: 1.8rem;
                 border-radius: 0.5rem;
-                text-transform: capitalize;" 
-                onclick="return confirm('Are you sure?');" class="delete-btn">order cancel</a></span>  </p>
+                text-transform: capitalize;" onclick="return confirm('Are you sure?');" class="delete-btn">order
+                            cancel</a></span> </p>
 
-            {% endif %}
-            
+                {% endif %}
+
             </div>
-            
+
         </div>
-     
+
 
     </section>
     {% endfor %}
- 
 
-                   
-            
-           
+
+
+
+
 
     <!-- placed orders section ends -->
 
-   
-  
+
+
 
     <!-- custom js file link  -->
     <script src="js/home.js"></script>

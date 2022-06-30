@@ -21,7 +21,7 @@ def checkout(request):
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items =order.orderitem_set.all()
     cartItems = order.get_cart_items
-  
+
     if request.method == "POST":
             form = shipping(request.POST)
             transaction_id=datetime.datetime.now().timestamp()

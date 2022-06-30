@@ -26,36 +26,46 @@
         <h1 class="heading"> <span>Update Your</span> Profile </h1>
 
         <div class="row">
-            <form action="" method="post">
+            <form action="" method="POST">
                 {% csrf_token %}
                 <h3>Change Your Information</h3>
                     <p>Username</p>
                     <div class="inputBox">
-                        <input type="text" value="{{user.first_name}} {{user.last_name}}">
+                        <input type="text" value="{{user.first_name}} {{user.last_name}}" >
+                        <input type="hidden" value="{{user.id}}" name="id">
                     </div>
                     <p>Phone Number</p>
                     <div class="inputBox"> 
-                        <input type="text" placeholder="Phone Password" placeholder="phone number">
+                        <input type="text" placeholder="Phone number" value="{{details.phone_num}}" name="phone_num">
                     </div>
                     
                     <p>Nationality</p>
                     <div class="inputBox ">
-                        <input type="text" placeholder="Nationality">
-                    </div>
-                    <p>Address</p>
-                    <div class="inputBox">
-                        <input type="text" placeholder="Address">
-                    </div>
-                    <p>Language</p>
-                    <div class="inputBox">
-                        <input type="text" placeholder="Language">
-                    </div>
-                    <p>Occupation</p>
-                    <div class="inputBox">
-                        <input type="text" placeholder="Occupation">
+                        <input type="text" placeholder="Nationality" value="{{details.nationality}}" name="nationality">
                     </div>
 
-                <a href="/about" class="btn"> Update<i class="fas fa-edit"></i> </a>
+                    <p>Address</p>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Address" value="{{details.address}}" name="address">
+                    </div>
+
+                    <p>Language</p>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Language" value="{{details.language}}" name="language">
+                    </div>
+
+                    <p>Occupation</p>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Occupation" value="{{details.occupation}}" name="occupation">
+                    </div>
+
+                    <p>Profile picture</p>
+                    <div>
+                        <input type="file"  name="customer_picture" value="{{details.customer_picture}}" >
+                    </div>
+                    
+                <!-- <a href="/about" class="btn"> Update<i class="fas fa-edit"></i> </a> -->
+                <button class="btn" value="submit" type="submit"> Submit <i class="fas fa-edit"></i> </button>
             </form>
         </div>
 

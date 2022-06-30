@@ -39,4 +39,16 @@ class Contact(models.Model):
         db_table="contact"
 
 
-# class Filter(models.Model):
+class UserP(models.Model):
+    user_id = models.AutoField(auto_created=True, primary_key=True)
+    id = models.ForeignKey(User, on_delete= models.CASCADE)
+    username = models.CharField(max_length=100, blank=True)
+    phone_num = models.CharField(max_length=100, blank=True)
+    nationality = models.CharField(max_length=100, blank=True)
+    address = models.CharField(max_length=100, blank=True)
+    language = models.CharField(max_length=100, blank=True)
+    occupation=models.CharField(max_length=100, blank=True)
+    customer_picture = models.FileField(upload_to='photos/', blank=True)
+
+    class Meta:
+        db_table = 'user_tbl'

@@ -45,7 +45,7 @@ urlpatterns = [
 
     path("mybook", views.mybook),
     path("profile_setting", views.psetting),
-    path("about", views.about),
+    path("about/", views.about),
 
     path("edit/<int:p_id>", views.Bedit),
     path("delete/<int:p_id>", views.Bdelete),
@@ -71,7 +71,9 @@ urlpatterns = [
     path('user_order', views.user_order, name="user_order"),
     path('delivery_update/', views.delivery_update, name='delivery_update'),
     path('show_products/', views.show_products, name='show_products'),
-    path('update_prof', views.updateProf),
+    path('addDetails/<int:userid>', views.addDetails),
+    path('updateProf/<int:id>', views.updateProf),
+
     path('customers',views.customers),
     path("cdelete/<int:p_id>",views.cdelete),
     path('user_order',views.user_order, name="user_order"),

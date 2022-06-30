@@ -33,11 +33,11 @@
 			<p> {{user.first_name}} {{user.last_name}}</p>
             <p>{{user.email}}</p>
             
-            <a href="/about" class="btn"> More Details <i class="fas fa-info"></i> </a>
+            <a href="/addDetails/{{user.id}}" class="btn"> Add info <i class="fas fa-info"></i> </a>
 
 			<!-- <a href="about.html" class="btn">More Details</a> -->
 		</div>
-        <img src="{% static 'assets/user_images/1.png' %}"class="product_img">
+        <img src="{% static 'assets/user_images/1.png' %}"class="product_img" >
 	</div>
 
 </section>

@@ -10,12 +10,13 @@ from django.contrib import messages
 from django.template.loader import render_to_string
 import os
 from register.models import AddBook
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
 from cart.models import *
 from django.http import JsonResponse
 import json
+from . import models
 
 # Create your views here.
 
@@ -241,9 +242,21 @@ def profile(request):
     return render(request, "User/profile.html")
 
 
-def updateProf(request):
-    return render(request, "User/update_profile.html")
+def addDetails(request, userid):
+    customer = models.User.objects.get(id = userid)
+    if request.method == "POST":
+        forms = Update_form(request.POST, request.FILES)
+        forms.save()
+        return redirect("/profile")
+    return render(request, "User/addDetails.html", {'customer': customer})
 
+def updateProf(request, id):
+    details = UserP.objects.get(id = id)
+    if request.method == "POST":
+        forms = Update_form(request.POST, request.FILES, instance = details )
+        forms.save()
+        return redirect("/about")
+    return render(request, 'User/updateProf.html', {'details': details})
 
 def mybook(request,id):
     orders=ShippingAddress.objects.filter(customer_id=id)
@@ -252,7 +265,7 @@ def mybook(request,id):
     # cartItems = order.get_cart_items
     
     return render(request,'User/mybooks.html',{'orders':orders,'order2':order2,'order3':order3})
-   
+
 
 
 def psetting(request):
@@ -260,7 +273,9 @@ def psetting(request):
 
 
 def about(request):
-    return render(request, "User/about.html")
+    details = UserP.objects.get(id = request.user.id)
+    print(details)
+    return render(request, "User/about.html", {'details':details})
 
 
 def contact(request):
