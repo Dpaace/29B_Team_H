@@ -72,7 +72,8 @@
                     </div>
                     <P>{{books.b_desc}}</P>
                     {% if books.quantity != 0 %}
-                    <a data-product="{{books.book_id}}" data-action="add" class="btn update-cart"> Add to cart <i class="fas fa-shopping-basket"></i> </a>
+                    <a data-product="{{books.book_id}}" data-action="add" 
+                    class="btn update-cart"> Add to cart <i class="fas fa-shopping-basket"></i> </a>
                     {%else%}
                     <a href="#" class="btn"> Out of Stock <i class="fas fa-shopping-basket"></i> </a>
                     {% endif %}
