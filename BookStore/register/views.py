@@ -345,6 +345,6 @@ def price_range(request):
 
 def team(request):
     return render(request, "ourteam/ourteam.html")
-def about(request):
+def aboutus(request):
     return render(request, "About/about.html")
 

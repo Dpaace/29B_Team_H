@@ -87,7 +87,7 @@ urlpatterns = [
     path("mybook", views.mybook),
     path('completeOrder', views.completeOrder),
     path('team', views.team),
-    path('about', views.about),
+    path('aboutus', views.aboutus),
 
 ]
     
