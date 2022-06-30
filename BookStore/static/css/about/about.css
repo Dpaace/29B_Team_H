@@ -486,42 +486,89 @@ section {
   }
 }
 
-
-.about-section{
-  background: url(photo-1589998059171-988d887df646.jpg) no-repeat left;
-  background-size: 60%;
-  background-color: #0d3957;
-  overflow: hidden;
-  padding: 100px 0;
+.about{
+  background-color: #12344b;
 }
-
-.inner-container{
-  width: 55%;
-  float: right;
-  background-color: #fdfdfd;
-  padding: 150px;
-}
-
-.inner-container h1{
-  margin-bottom: 30px;
-  font-size: 30px;
-  font-weight: 900;
-}
-
-.text{
-  font-size: 13px;
-  color: #545454;
-  line-height: 30px;
-  text-align: justify;
-  margin-bottom: 40px;
-}
-
-.skills{
+.about .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  font-weight: 700;
-  font-size: 13px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
 }
+
+.about .row .image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.about .row .image img {
+  width: 100%;
+  border-radius: .5rem;
+}
+
+.about .row .content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.about .row .content h3 {
+  font-size: 3.5rem;
+  color: #29d9d5;
+  line-height: 2;
+}
+
+.about .row .content p {
+  font-size: 1.7rem;
+  line-height: 2.5;
+  color: rgb(255, 255, 255);
+  padding: 1rem 0;
+}
+
+.about .icons-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.about .icons-container .icons {
+  padding: 3rem 2rem;
+  border-radius: .5rem;
+  border: 0.2rem solid #333;
+  background-color: #29d9d5;
+  text-align: center;
+  cursor: pointer;
+}
+
+.about .icons-container .icons:hover {
+  background: #094974;
+}
+
+
+
+.about .icons-container .icons:hover h3 {
+  color: #fff;
+}
+
+.about .icons-container .icons img {
+  height: 7rem;
+  margin-bottom: 1rem;
+}
+
+.about .icons-container .icons h3 {
+  font-size: 1.7rem;
+  color: #333;
+}
+
 
 .heading2 {
   text-align: center;
@@ -629,13 +676,6 @@ section {
     left: auto;
     right: 8rem;
   }
-  .about-section{
-    background-size: 100%;
-    padding: 100px 40px;
-}
-.inner-container{
-    width: 100%;
-}
 }
 
 @media (max-width: 768px) {
@@ -685,12 +725,6 @@ section {
   .team2 .content span {
     font-size: 2.5rem;
   }
-  .about-section{
-    padding: 0;
-}
-  .inner-container{
-    padding: 60px;
-}
 }
 
 @media (max-width: 450px) {
