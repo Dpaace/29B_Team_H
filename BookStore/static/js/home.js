@@ -96,3 +96,40 @@ rangeInput.forEach(input =>{
         }
     });
 });
+
+
+var typed = new Typed('.typing-text',{
+    strings : ['Scrum Master | Tester'],
+    loop : true,
+    typeSpeed : 50
+})
+var typed = new Typed('.typing-text1',{
+    strings : ['Frontend Developer'], 
+    loop : true,
+    typeSpeed : 50
+})
+var typed = new Typed('.typing-text2',{
+    strings : ['Frontend Developer'], 
+    loop : true,
+    typeSpeed : 50
+})
+var typed = new Typed('.typing-text3',{
+    strings : ['Frontend Developer'], 
+    loop : true,
+    typeSpeed : 50
+})
+var typed = new Typed('.typing-text4',{
+    strings : ['Backend Developer'], 
+    loop : true,
+    typeSpeed : 50
+})
+var typed = new Typed('.typing-text5',{
+    strings : ['Backend Developer'], 
+    loop : true,
+    typeSpeed : 50
+})
+var typed = new Typed('.typing-text6',{
+    strings : ['Frontend Developer'], 
+    loop : true,
+    typeSpeed : 50
+})

@@ -86,6 +86,8 @@ urlpatterns = [
     path('show_products/', views.show_products, name='show_products'),
     path("mybook", views.mybook),
     path('completeOrder', views.completeOrder),
+    path('team', views.team),
+    path('about', views.about),
 
 ]
     
