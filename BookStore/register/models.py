@@ -48,7 +48,7 @@ class UserP(models.Model):
     address = models.CharField(max_length=100, blank=True)
     language = models.CharField(max_length=100, blank=True)
     occupation=models.CharField(max_length=100, blank=True)
-    customer_picture = models.FileField(upload_to='photos/', blank=True)
+    customer_picture =  models.FileField(upload_to='profile', blank=True)
 
     class Meta:
         db_table = 'user_tbl'

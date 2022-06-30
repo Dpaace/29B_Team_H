@@ -234,7 +234,9 @@ def cdelete(request, p_id):
 
 
 def profile(request):
-    return render(request, "User/profile.html")
+    details = UserP.objects.get(id = request.user.id)
+    c_id=request.user.id
+    return render(request, "User/profile.html",{'details':details,'c_id':c_id})
 
 
 def addDetails(request, userid):
@@ -268,8 +270,9 @@ def psetting(request):
 
 
 def about(request):
+    
     details = UserP.objects.get(id = request.user.id)
-    print(details)
+
     return render(request, "User/about.html", {'details':details})
 
 
