@@ -22,7 +22,8 @@ from . import models
 
 
 def home(request):
-    return render(request, "homepage.html")
+    dash = AddBook.objects.raw("select * from addbook")
+    return render(request, "homepage.html",{"dash":dash})
 
 
 def Register(request):
@@ -150,8 +151,8 @@ def addbooks(request):
         return redirect("/admindash")
     return render(request, "admin/Add_book.html")
 
-
-def Bedit(request, p_id):  # book_edit
+#to update the books by admin
+def Bedit(request, p_id):  
     books = AddBook.objects.get(book_id=p_id)
 
     if request.method == "POST":
@@ -166,24 +167,20 @@ def Bedit(request, p_id):  # book_edit
         return redirect("/admindash")
     return render(request, "Admin/update_book.html", {'books': books})
 
-
-def Bdelete(request, p_id):  # book_delete
+#to delete the books by admin
+def Bdelete(request, p_id):  
     books = AddBook.objects.get(book_id=p_id)
     books.delete()
     messages.success(request, "data has been deleted ")
     return redirect("/admindash")
 
 # display all orders on admin page
-
-
 def user_order(request):  # Show_order
     orders = ShippingAddress.objects.raw("select * from cart_shippingaddress")
     order3 = OrderItem.objects.raw("select * from cart_orderitem ")
     return render(request, 'admin/admin orders.html', {'orders': orders, 'order3': order3})
 
 # update the status of shippping order
-
-
 def delivery_update(request):
     data = json.loads(request.body)
     orderId = data['orderId']
@@ -200,8 +197,6 @@ def delivery_update(request):
     return JsonResponse("complete order", safe=False,)
 
 # display book_details purchased by customer on admin side
-
-
 def show_products(request):
     data = json.loads(request.body)
     orderId = data['itemsid']
@@ -281,8 +276,12 @@ def about(request):
 def contact(request):
     if request.method == "POST":
         form = contact_form(request.POST)
-        form.save()
-        return redirect("/dash")
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect("/dash")
+            except:
+                print("Invalid")
 
     return render(request, "User/contact_us.html")
 
@@ -357,4 +356,9 @@ def price_range(request):
         
     
         return render(request, 'price_range.html')
+
+def team(request):
+    return render(request, "ourteam/ourteam.html")
+def aboutus(request):
+    return render(request, "About/about.html")
 

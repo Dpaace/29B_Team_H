@@ -76,39 +76,15 @@
     <nav class="navbar">
         <a href="/dash">Home</a>
         <a href="/shop">Shop</a>
+<<<<<<< HEAD
         <a href="/about/{{user.id}}">About Us</a>
+=======
+        <a href="/aboutus">About Us</a>
+>>>>>>> e629ca24a6a200d01465e72c54544dd7aa6c2798
         <a href="/team">Our Team</a>
         <a href="/blogs">Blog</a>
         <a href="/contact">contact</a>
     </nav>
-
-    <!-- shopping cart  -->
-    
-
-    <div class="shopping-cart">
-
-        {% for item in item %}
-        <div class="box">
-            
-            <i class="fas fa-times"></i>
-            <img src="" alt="">
-            <div class="content">
-                <h3>hello</h3>
-                <form action="">
-                    <span>Quantity: </span>
-                    <input type="number" name="" value="1" id="" />
-                </form>
-                <span class="multiply"> x </span>
-                <span class="price">Nrs. 140.00 </span>
-
-            </div>
-            {% endfor %}
-            <h3 class="total"> Total : <span>Nrs. 420.00</span> </h3>
-
-            <a href="#" class="btn">checkout cart</a>
-         
-        </div>
-
         <!-- login form  -->
 
         <div class="account">
@@ -137,18 +113,20 @@
                 <div class="box">
                     <h3>Quick Links</h3>
                     <a href="/dash"> <i class="fas fa-arrow-right"></i> Home</a>
-                    <a href="shop.html"> <i class="fas fa-arrow-right"></i> Shop</a>
+                    <a href="/shop"> <i class="fas fa-arrow-right"></i> Shop</a>
                     <a href="about.html"> <i class="fas fa-arrow-right"></i> About</a>
                     <a href="team.html"> <i class="fas fa-arrow-right"></i> Team</a>
-                    <a href="blog.html"> <i class="fas fa-arrow-right"></i> Blog</a>
+                    <a href="/about"> <i class="fas fa-arrow-right"></i> About</a>
+                    <a href="/team"> <i class="fas fa-arrow-right"></i> Team</a>
+                    <a href="/blogs"> <i class="fas fa-arrow-right"></i> Blog</a>
                     <a href="/contact"> <i class="fas fa-arrow-right"></i> Contact</a>
                 </div>
 
                 <div class="box">
                     <h3>Extra Links</h3>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> My order</a>
+                    <a href="/order_display/{{user.id}}"> <i class="fas fa-arrow-right"></i> My order</a>
                     <a href="#"> <i class="fas fa-arrow-right"></i> Login</a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> My account</a>
+                    <a href="/profile"> <i class="fas fa-arrow-right"></i> My account</a>
                 </div>
 
                 <div class="box">
