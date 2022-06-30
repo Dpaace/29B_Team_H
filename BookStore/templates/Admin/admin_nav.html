@@ -1,76 +1,27 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+{% extends 'admin/base.html' %}
+        {% block content %}
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-3 text-center py-4 bg-secondary text-light" style="border-radius : 30px; ">
+                    <i class="fa-solid fa-user text-light mb-2" style="font-size:50px"></i>
+                    <h4>Total No. Customer</h4><br>
+                    <label>{{totaluser}}</label>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Book Store Admin Dashboard</title>
-  <link rel="stylesheet" href="{% static 'css/Admin/admin_style.css' %}" />
+                </div>
+                <div class="col-1"></div>
+                <div class="col-md-3 text-center py-4 bg-secondary text-light " style="border-radius : 30px ">
+                    <i class="fa-brands fa-product-hunt text-light mb-2" style="font-size:60px"></i>
+                    <h4>Total No. Books</h4><br>
+                    <label>{{totalproduct}}</label>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-md-3 text-center b py-4 bg-secondary text-light" style="border-radius : 30px ">
+                    <i class="fa-solid fa-truck text-light mb-2" style="font-size:60px"></i>
+                    <h4>Total No. Order</h4><br>
+                    <label>{{totalorder}}</label>
 
-  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
+                </div>
 
-<body>
-  <div class="sidebar">
-    <div class="logo-details">
-
-      <div class="logo_name">Book Store</div>
-      <i class="bx bx-menu" id="btn"></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-        <a href="/addbook" class="active">
-          <i class="bx bx-grid-alt"></i>
-          <span class="links_name">Add Products</span>
-        </a>
-        <span class="tooltip">Add Product</span>
-      </li>
-      <li>
-        <a href="/admindash">
-          <i class="bx bx-grid-alt"></i>
-          <span class="links_name">Book Stores</span>
-        </a>
-        <span class="tooltip">Book Stores</span>
-      </li>
-      <li>
-        <a href="/customers">
-          <i class="bx bx-user"></i>
-          <span class="links_name">Customers</span>
-        </a>
-        <span class="tooltip">Customers</span>
-      </li>
-      <li>
-        <li>
-          <a href="/user_order">
-            order
-            <span class="links_name">orders</span>
-          </a>
-          <span class="tooltip">order</span>
-        </li>
-        <li>
-
-      <li class="profile">
-        <div class="profile-details">
-          <div class="name_job">
-            <div class="name">Admin</div>
-            <div class="job">Logout</div>
-          </div>
+            </div>
         </div>
-        <i class="bx bx-log-out" id="log_out"></i>
-      </li>
-    </ul>
-  </div>
-  {% for msg in messages %}
-
-  <strong>Hey!</strong> {{msg}}
-
-  {% endfor %}
-
- 
-    
-    {% block content %} {% endblock %}
-
-</body>
-
-</html>
+        {% endblock %}

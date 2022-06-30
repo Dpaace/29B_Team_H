@@ -116,7 +116,7 @@ def nonfiction(request):
 
 def philosophical(request):
     dash = AddBook.objects.raw("select * from addbook")
-    philosophical = AddBook.objects.filter(b_genre="philosophical")
+    philosophical = AddBook.objects.filter(b_genre="Philosophical")
     return render(request, "genre/philosophical.html", {'dash': dash, 'philosophical': philosophical})
 
 
@@ -212,6 +212,8 @@ def show_products(request):
 def completeOrder(request):
     orders=ShippingAddress.objects.filter(status=True)
     return render(request,'Admin/completed_order.html',{'orders':orders})
+
+
 
 # user detail
 
@@ -328,3 +330,20 @@ def acc_del(request, id):
 
 def blog(request):
     return render(request, 'blogs.html')
+
+def shop(request):
+    return render(request, 'shop.html')
+
+
+def price_range(request):
+    if request.method == "POST":
+        price = request.POST('')
+        
+    
+        return render(request, 'price_range.html')
+
+def team(request):
+    return render(request, "ourteam/ourteam.html")
+def aboutus(request):
+    return render(request, "About/about.html")
+

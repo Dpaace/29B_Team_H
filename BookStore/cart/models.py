@@ -65,5 +65,5 @@ class ShippingAddress(models.Model):
     def __str_(self):
         return self.address
 
-    
+
 

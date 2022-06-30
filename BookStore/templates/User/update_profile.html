@@ -26,20 +26,18 @@
         <h1 class="heading"> <span>Update Your</span> Profile </h1>
 
         <div class="row">
-            <form action="">
+            <form action="" method="post">
+                {% csrf_token %}
                 <h3>Change Your Information</h3>
                     <p>Username</p>
                     <div class="inputBox">
-                        <input type="text" placeholder="Username">
+                        <input type="text" value="{{user.first_name}} {{user.last_name}}">
                     </div>
                     <p>Phone Number</p>
-                    <div class="inputBox">
-                        <input type="text" placeholder="Phone Password">
+                    <div class="inputBox"> 
+                        <input type="text" placeholder="Phone Password" placeholder="phone number">
                     </div>
-                    <p>Email</p>
-                    <div class="inputBox">
-                        <input type="email" placeholder="Email">
-                    </div>
+                    
                     <p>Nationality</p>
                     <div class="inputBox ">
                         <input type="text" placeholder="Nationality">
@@ -52,8 +50,12 @@
                     <div class="inputBox">
                         <input type="text" placeholder="Language">
                     </div>
+                    <p>Occupation</p>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Occupation">
+                    </div>
 
-                <a href="#" class="btn"> Update<i class="fas fa-edit"></i> </a>
+                <a href="/about" class="btn"> Update<i class="fas fa-edit"></i> </a>
             </form>
         </div>
 

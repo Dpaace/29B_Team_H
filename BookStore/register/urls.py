@@ -43,7 +43,6 @@ urlpatterns = [
     path("admindash", views.adminDashboard, name='admindash'),
     path("addbook", views.addbooks, name='addbook'),
 
-
     path("mybook", views.mybook),
     path("profile_setting", views.psetting),
     path("about", views.about),
@@ -58,7 +57,9 @@ urlpatterns = [
     path('searched', views.srch),
     path("delacc/<int:id>", views.acc_del),
     path('blogs', views.blog),
-    
+    path("range", views.price_range),
+    path('shop', views.shop),
+
     path('fiction', views.fiction),
     path('nonfiction', views.nonfiction),
     path('philosophical', views.philosophical),
@@ -77,5 +78,17 @@ urlpatterns = [
     path('delivery_update/',views.delivery_update, name='delivery_update'),
     path('show_products/',views.show_products, name='show_products'),
     path("mybook/<int:id>", views.mybook),
-    path('completeOrder',views.completeOrder)
+    path('completeOrder',views.completeOrder),
+    path('customers', views.customers),
+    path("cdelete/<int:p_id>", views.cdelete),
+    path('user_order', views.user_order, name="user_order"),
+    path('delivery_update/', views.delivery_update, name='delivery_update'),
+    path('show_products/', views.show_products, name='show_products'),
+    path("mybook", views.mybook),
+    path('completeOrder', views.completeOrder),
+    path('team', views.team),
+    path('aboutus', views.aboutus),
+
 ]
+    
+
