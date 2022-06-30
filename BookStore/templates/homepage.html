@@ -127,141 +127,26 @@
 
     <section class="product" id="product">
 
-        <h1 class="title"> <span>our Books</span> <a href="shop.html">view all >></a> </h1>
+       
 
 
         <div class="box-container">
 
+            {% for addbook in dash %}
+
             <div class="box">
 
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}"">
-            <h3>Piercing The Darkness</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
+                <a href="/bookdesc/{{addbook.New_slug}}"><img src="{% static 'assets/' %}{{addbook.b_pic}}"></a>
+                <h3>{{addbook.b_name}}</h3>
+                <span>Condition: Good</span>
+              
+                <a data-product="{{addbook.book_id}}" data-action="add" class="btn update-cart">add to
+                    cart</a>
+                    
             </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
+            {% endfor %}
 
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>A PHO Love Story</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
-        </div>
-        <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Born of Fury</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
-        </div>
-        <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>His Beloved Bride</h3>
-            <span>Condition: Good</span>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
-        </div>
-        <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
-        </div>
-        <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
-        </div>
-        <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
-        </div>
-        <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
-        </div>
-        <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Child of a MAD GOD</h3>
-            <span>Condition: Good</span>
-            <div class=" quantity">
-            <span>quantity : </span>
-            <input type="number" min="1" max="1000" value="1">
-
-        </div>
-        <a href="#" class="btn">add to cart</a>
-        </div>
-
+        
         </div>
 
         

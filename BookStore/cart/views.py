@@ -30,7 +30,7 @@ def checkout(request):
                 order.complete= True
             order.save()
 
-            cartItems.quantity
+            # cartItems.quantity
             
 
             form.save()
@@ -77,7 +77,7 @@ def remove_order(request, p_id):
     orders = OrderItem.objects.filter(product_id=p_id)
     orders.delete()
  
-    return redirect("/dash")
+    return redirect("/cart")
 
 #to remove all items from cart
 def delete_order(request, p_id):
