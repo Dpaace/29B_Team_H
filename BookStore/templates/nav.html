@@ -92,6 +92,7 @@
             <form action="">
                 <h3>Name: {{request.user.username}}</h3>
                 <h3>Email: {{request.user.email}} </h3>
+                <a href="/addDetails/{{user.id}}" class="btn"> Add info <i class="fas fa-info"></i> </a>
                 <a href="/profile" class="btn">Edit Your Profile</a>
                 <a href="/favourite_list" class="btn">favourite</a>
                 <a href="/order_display/{{user.id}}" class="btn">your order</a>

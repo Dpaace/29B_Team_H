@@ -259,8 +259,10 @@ def cdelete(request, p_id):
 
 
 def profile(request):
+    
     details = UserP.objects.get(id = request.user.id)
     c_id=request.user.id
+   
     return render(request, "User/profile.html",{'details':details,'c_id':c_id})
 
 
