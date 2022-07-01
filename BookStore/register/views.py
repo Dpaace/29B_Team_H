@@ -104,33 +104,58 @@ def afterlogin_view(request):
 
 # genre tempalates
 def fiction(request):
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
     fiction = AddBook.objects.filter(b_genre="Fiction")
-    return render(request, "genre/fiction.html", {'dash': dash, 'fiction': fiction})
+    return render(request, "genre/fiction.html", {'dash': dash, 'fiction': fiction,'cartItems': cartItems})
 
 
 def nonfiction(request):
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
     nonfiction = AddBook.objects.filter(b_genre="Nonfiction")
-    return render(request, "genre/nonfiction.html", {'dash': dash, 'nonfiction': nonfiction})
+    return render(request, "genre/nonfiction.html", {'dash': dash, 'nonfiction': nonfiction,'cartItems': cartItems})
 
 
 def philosophical(request):
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
     philosophical = AddBook.objects.filter(b_genre="Philosophical")
-    return render(request, "genre/philosophical.html", {'dash': dash, 'philosophical': philosophical})
+    return render(request, "genre/philosophical.html", {'dash': dash, 'philosophical': philosophical,'cartItems': cartItems})
 
 
 def thriller(request):
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
     thriller = AddBook.objects.filter(b_genre="thriller")
-    return render(request, "genre/thriller.html", {'dash': dash, 'thriller': thriller})
+    return render(request, "genre/thriller.html", {'dash': dash, 'thriller': thriller,'cartItems': cartItems})
 
 
 def romance(request):
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
     romance = AddBook.objects.filter(b_genre="romance")
-    return render(request, "genre/romance.html", {'dash': dash, 'romance': romance})
+    return render(request, "genre/romance.html", {'dash': dash, 'romance': romance,'cartItems': cartItems})
 
 # @login_required(login_url='afterlogin')
 
@@ -234,7 +259,9 @@ def cdelete(request, p_id):
 
 
 def profile(request):
-    return render(request, "User/profile.html")
+    details = UserP.objects.get(id = request.user.id)
+    c_id=request.user.id
+    return render(request, "User/profile.html",{'details':details,'c_id':c_id})
 
 
 def addDetails(request, userid):
@@ -268,8 +295,9 @@ def psetting(request):
 
 
 def about(request):
+    
     details = UserP.objects.get(id = request.user.id)
-    print(details)
+
     return render(request, "User/about.html", {'details':details})
 
 
@@ -321,8 +349,13 @@ def fav_post(request, id):
 
 
 def favourite_list(request):
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
     new = AddBook.newmanager.filter(favourite=request.user)
-    return render(request, "User/fav_list.html", {'new': new})
+    return render(request, "User/fav_list.html", {'new': new,'cartItems': cartItems})
 
 
 # search bar

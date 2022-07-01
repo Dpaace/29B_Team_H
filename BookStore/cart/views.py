@@ -96,12 +96,17 @@ def processOrder(request):
 
 #display orders done by user
 def order_display(request,id):
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
     orders=ShippingAddress.objects.filter(customer_id=id)
     order2=Order.objects.filter(customer_id=id)
     order3=OrderItem.objects.filter(order_id=id)
     # cartItems = order.get_cart_items
     
-    return render(request,'orders.html',{'orders':orders,'order2':order2,'order3':order3})#
+    return render(request,'orders.html',{'orders':orders,'order2':order2,'order3':order3,'cartItems': cartItems})#
 
 #display books detail user had purchased
 def Orderbook_details(request,id):
