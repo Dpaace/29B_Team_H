@@ -121,7 +121,7 @@ def nonfiction(request):
     items = order.orderitem_set.all()
     cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
-    nonfiction = AddBook.objects.filter(b_genre="Nonfiction")
+    nonfiction = AddBook.objects.filter(b_genre="Non-Fiction")
     return render(request, "genre/nonfiction.html", {'dash': dash, 'nonfiction': nonfiction,'cartItems': cartItems})
 
 
@@ -143,7 +143,7 @@ def thriller(request):
     items = order.orderitem_set.all()
     cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
-    thriller = AddBook.objects.filter(b_genre="thriller")
+    thriller = AddBook.objects.filter(b_genre="Thriller")
     return render(request, "genre/thriller.html", {'dash': dash, 'thriller': thriller,'cartItems': cartItems})
 
 
@@ -154,7 +154,7 @@ def romance(request):
     items = order.orderitem_set.all()
     cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
-    romance = AddBook.objects.filter(b_genre="romance")
+    romance = AddBook.objects.filter(b_genre="Romance")
     return render(request, "genre/romance.html", {'dash': dash, 'romance': romance,'cartItems': cartItems})
 
 # @login_required(login_url='afterlogin')
@@ -380,7 +380,15 @@ def blog(request):
     return render(request, 'blogs.html')
 
 def shop(request):
-    return render(request, 'shop.html')
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
+    # add_cart funtion end
+    dash = AddBook.objects.raw("select * from addbook")
+
+    return render(request, 'shop.html', {'dash': dash, 'cartItems': cartItems})
 
 
 def price_range(request):
