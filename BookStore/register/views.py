@@ -282,13 +282,11 @@ def updateProf(request, id):
         return redirect("/about")
     return render(request, 'User/updateProf.html', {'details': details})
 
-def mybook(request,id):
-    orders=ShippingAddress.objects.filter(customer_id=id)
-    order2=Order.objects.filter(customer_id=id)
-    order3=OrderItem.objects.filter(order_id=id)
+def mybook(request):
+    new = AddBook.newmanager.filter(favourite=request.user)
     # cartItems = order.get_cart_items
     
-    return render(request,'User/mybooks.html',{'orders':orders,'order2':order2,'order3':order3})
+    return render(request,'User/mybooks.html',{'new':new})
 
 
 

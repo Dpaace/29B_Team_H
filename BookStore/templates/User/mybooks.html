@@ -40,18 +40,18 @@
     <h1 class="heading"> <span>My</span> Books </h1>
 
     <div class="box-container">
-        
+        {% for addbook in new %}
         <div class="box">
              <div class="box">
-            <img src="images/books/ebf4e9056090c7318dcbeb944934b703.jpg" alt="">
+            <img src="{% static 'assets/' %}{{addbook.b_pic}}" alt="">
             <div class="content">
-                <h3>Dragon Haven</h3>
+                <h3>{{addbook.b_name}}</h3>
                 <p>Nice Book</p>
                 <a href="#">Edit</a>
                 <a href="#">Delete</a>
             </div>
         </div>
-            
+            {% endfor %}
         </div>
 
      <div class="box">
