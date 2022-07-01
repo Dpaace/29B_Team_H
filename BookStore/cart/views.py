@@ -32,10 +32,9 @@ def checkout(request):
 
             # cartItems.quantity
             
-
             form.save()
             return redirect("/dash")
-      
+    
     return render(request,'cart/checkout.html',{'items':items,'order':order, 'cartItems':cartItems})
 
 def updateItem(request):
