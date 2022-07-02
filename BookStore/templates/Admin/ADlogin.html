@@ -1,41 +1,34 @@
 <!DOCTYPE html>
-
-<html lang="en" dir="ltr">
-
+<html lang="en">
+{% load static %}
 <head>
-    <meta charset="UTF-8" />
-    <title>Add Books</title>
-    {% load static %}
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="{% static 'css/admin/Add_book.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Bookmandu</title>
 
-    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/admin_final/login.css' %}">
+
 </head>
 
 <body>
-    <section class="home-section" >
-        <div class="home-content">
-            <div class="sales-boxes">
-                <div class="recent-sales box">
-                    <div class="title">Admin Login </div>
-                    <div class="sales-details">
-                        <form action="adminlog" method="post" class="add-product-form" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <h3>Add Book</h3>
-                            <span>username</span>
-                            <input type="text" name="user_name" placeholder="username" class="box" required />
-                            <span>password</span>
-                            <input type="password" name="psw" placeholder="password" class="box" required />
 
-                            <input type="submit" value="Login" class="btn" />
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
+
+    <div class="form-container">
+        <form action="{% url 'adminlog' %}" method="post" class="add-product-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Admin Login</h3>
+            <input type="text" style="color:black"name="username" placeholder="enter your email" required class="box">
+            <input type="password"style="color:black" name="password" placeholder="enter your password" required class="box">
+            <input type="submit" name="submit" value="login now" class="btn">
+        </form>
+
+    </div>
 
 </body>
 

@@ -283,6 +283,15 @@ section {
 .header .icons div:hover {
   color: #1b6fa7;
 }
+.header .icons > *{
+  margin-left: 2rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #fdfdfd;
+}
+.header .icons > *:hover{
+  color: #1b6fa7;
+}
 
 #search-btn {
   display: none;
@@ -360,103 +369,6 @@ section {
 
 .navbar a:hover {
   color: var(--two);
-}
-
-.shopping-cart {
-  position: fixed;
-  top: 0;
-  right: -101%;
-  z-index: 1000;
-  width: 35rem;
-  height: 100vh;
-  background: var(--one);
-  padding: 2rem;
-  padding-top: 8rem;
-  overflow-y: scroll;
-}
-
-.shopping-cart.active {
-  right: 0;
-  -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
-  -webkit-transition: .4s linear;
-  transition: .4s linear;
-}
-
-.shopping-cart::-webkit-scrollbar {
-  width: 1rem;
-}
-
-.shopping-cart::-webkit-scrollbar-track {
-  background: #fff;
-}
-
-.shopping-cart::-webkit-scrollbar-thumb {
-  background: #244d4d;
-}
-
-.shopping-cart .box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  gap: 1.5rem;
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-.shopping-cart .box .fa-times {
-  position: absolute;
-  top: 50%;
-  right: 1rem;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  font-size: 2rem;
-  color: #779;
-  cursor: pointer;
-}
-
-.shopping-cart .box .fa-times:hover {
-  color: #244d4d;
-}
-
-.shopping-cart .box img {
-  height: 8rem;
-}
-
-.shopping-cart .box .content h3 {
-  color: #f8f8f8;
-  font-size: 1.8rem;
-  padding-bottom: .5rem;
-}
-
-.shopping-cart .box .content span {
-  font-size: 1.5rem;
-  color: rgb(189, 189, 189);
-}
-
-.shopping-cart .box .content span.multipy {
-  margin: 0 1rem;
-}
-
-.shopping-cart .total {
-  text-align: center;
-  font-size: 2rem;
-  padding: 1rem 0;
-  color: var(--three);
-}
-
-.shopping-cart .total span {
-  color: var(--four);
-}
-
-.shopping-cart .btn {
-  width: 100%;
-  text-align: center;
-  background-color: #0f5c69;
-  color: var(--three);
 }
 
 .account {
@@ -756,6 +668,19 @@ section {
 .book .row-1 .content p {
   margin-top: 1rem;
   color: rgb(255, 255, 255);
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+}
+
+.book .row-1 .content span {
+  margin-top: 1rem;
+  color: rgb(0, 182, 15);
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+}
+.book .row-1 .content span2 {
+  margin-top: 1rem;
+  color: rgb(182, 0, 0);
   font-size: 1.7rem;
   padding: 0.5rem 0;
 }
