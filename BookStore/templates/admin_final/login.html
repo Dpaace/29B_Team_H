@@ -20,10 +20,10 @@
 
 
     <div class="form-container">
-
-        <form action="" method="post">
+        <form action="{% url 'adminlog' %}" method="post" class="add-product-form" enctype="multipart/form-data">
+            {% csrf_token %}
             <h3>Admin Login</h3>
-            <input type="email" name="email" placeholder="enter your email" required class="box">
+            <input type="text" name="username" placeholder="enter your email" required class="box">
             <input type="password" name="password" placeholder="enter your password" required class="box">
             <input type="submit" name="submit" value="login now" class="btn">
         </form>

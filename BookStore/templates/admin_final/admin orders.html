@@ -1,6 +1,8 @@
+{% extends 'admin_final/adminNav.html' %}
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,10 +41,10 @@
 
 <body>
 
-    <section class="heading">
+    <!-- <section class="heading">
         <h3>Orders</h3>
         <p> <a href="/completeOrder">completed</a> / <span>Orders</span> </p>
-    </section>
+    </section> -->
 
 
     <!-- orders section starts-->
@@ -81,16 +83,6 @@
                         Online
                     </span> </p>
                 <form action="" method="">
-                   {{order.order.id}}
-                    <!-- <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>"> -->
-                    <!-- <select name="status" value="Pending">
-                        <option value="" selected disabled>
-                            Choose
-                        </option>
-                        <option value="pending">Pending</option>
-                        <option value="completed">Completed</option>
-                    </select> -->
-                    <!-- <input type="submit" value="update" name="update_order" class="option-btn"> -->
                     {% if order.status  %}
                     <a href="#"
                     onclick="return confirm('order is delivered');" class="delete-btn">completed</a>
@@ -113,9 +105,7 @@
     <!-- footer section  -->
 
     
-    <section class="credit">
-        Created by Book Mandu | all rights reserved!
-    </section>
+   
 
     <!-- custom js file link  -->
     <!-- <script src="js/home.js"></script> -->
@@ -124,3 +114,4 @@
 </body>
 
 </html>
+{% endblock %}
