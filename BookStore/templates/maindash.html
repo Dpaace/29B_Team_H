@@ -69,17 +69,17 @@
 
     <section class="product" id="product">
 
-        <h1 class="title"> 
+        <h1 class="title">
             <a href="/fiction">
-                <span>Fiction </span> 
-            </a> 
+                <span>Fiction </span>
+            </a>
             <a href="/nonfiction">
                 <span>Non-Fiction</span>
-            </a> 
+            </a>
             <a href="/philosophical"><span>Philosophical</span> </a>
             <a href="/thriller"><span>Thriller</span> </a>
             <a href="/romance"><span>Romance</span> </a>
-            <a href="/shop">view all >></a> 
+            <a href="/shop">view all >></a>
         </h1>
 
         <div class="box-container">
@@ -87,12 +87,12 @@
 
             <div class="box">
 
-                <a href="/bookdesc/{{addbook.New_slug}}"><img src="{% static 'assets/' %}{{addbook.b_pic}}"></a>
+                <a href="/bookdesc/{{addbook.New_slug}}"><img src="{{addbook.b_pic.url}}"></a>
                 <h3>{{addbook.b_name}}</h3>
                 <span>Condition: Good</span>
                 <a data-product="{{addbook.book_id}}" data-action="add" class="btn update-cart">add to
                     cart</a>
-                    
+
             </div>
             {% endfor %}
         </div>

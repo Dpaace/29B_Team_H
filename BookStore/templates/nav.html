@@ -60,7 +60,9 @@
             <div id="search-btn" class="fas fa-search"></div>
             <!-- <h1>cart-items{{cartItems}}</h1> -->
             <a href="/cart"><i class="fas fa-shopping-cart"><span style="color:Red">({{cartItems}})</span></i></a>
+            {% if request.user == True %}
             <div id="login-btn" class="fas fa-user"></div>
+            {% endif %}
         </div>
 
     </header>
@@ -81,66 +83,66 @@
         <a href="/blogs">Blog</a>
         <a href="/contact">Contact</a>
     </nav>
-        <!-- login form  -->
+    <!-- login form  -->
 
-        <div class="account">
+    <div class="account">
 
-            <form action="">
-                <h3>Name: {{request.user.username}}</h3>
-                <h3>Email: {{request.user.email}} </h3>
-                <a href="/addDetails/{{user.id}}" class="btn"> Add info <i class="fas fa-info"></i> </a>
-                <a href="/profile" class="btn">Edit Your Profile</a>
-                <a href="/favourite_list" class="btn">favourite</a>
-                <a href="/order_display/{{user.id}}" class="btn">your order</a>
-                <a href="/logout" class="btn2">Log Out</a>
-
-
-            </form>
-
-        </div>
-        {% block content %}{% endblock content %}
+        <form action="">
+            <h3>Name: {{request.user.username}}</h3>
+            <h3>Email: {{request.user.email}} </h3>
+            <a href="/addDetails/{{user.id}}" class="btn"> Add info <i class="fas fa-info"></i> </a>
+            <a href="/profile" class="btn">Edit Your Profile</a>
+            <a href="/favourite_list" class="btn">favourite</a>
+            <a href="/order_display/{{user.id}}" class="btn">your order</a>
+            <a href="/logout" class="btn2">Log Out</a>
 
 
-        <!-- footer section  -->
+        </form>
 
-        <section class="footer">
+    </div>
+    {% block content %}{% endblock content %}
 
-            <div class="box-container">
 
-                <div class="box">
-                    <h3>Quick Links</h3>
-                    <a href="/dash"> <i class="fas fa-arrow-right"></i> Home</a>
-                    <a href="/shop"> <i class="fas fa-arrow-right"></i> Shop</a>
-                    <a href="/aboutus"> <i class="fas fa-arrow-right"></i> About</a>
-                    <a href="/team"> <i class="fas fa-arrow-right"></i> Team</a>
-                    <a href="/blogs"> <i class="fas fa-arrow-right"></i> Blog</a>
-                    <a href="/contact"> <i class="fas fa-arrow-right"></i> Contact</a>
-                </div>
+    <!-- footer section  -->
 
-                <div class="box">
-                    <h3>Extra Links</h3>
-                    <a href="/order_display/{{user.id}}"> <i class="fas fa-arrow-right"></i> My order</a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> Login</a>
-                    <a href="/profile"> <i class="fas fa-arrow-right"></i> My account</a>
-                </div>
+    <section class="footer">
 
-                <div class="box">
-                    <h3>Extra Links</h3>
-                    <a href="#"> <i class="fa fa-map-marker"></i> Dillibazar</a>
-                    <a href="#"> <i class="fa fa-envelope"></i> bookmandu@gmail.com</a>
-                    <a href="#"> <i class="fa fa-phone"></i> 9880327811</a>
-                </div>
+        <div class="box-container">
 
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="/dash"> <i class="fas fa-arrow-right"></i> Home</a>
+                <a href="/shop"> <i class="fas fa-arrow-right"></i> Shop</a>
+                <a href="/aboutus"> <i class="fas fa-arrow-right"></i> About</a>
+                <a href="/team"> <i class="fas fa-arrow-right"></i> Team</a>
+                <a href="/blogs"> <i class="fas fa-arrow-right"></i> Blog</a>
+                <a href="/contact"> <i class="fas fa-arrow-right"></i> Contact</a>
             </div>
 
-        </section>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="/order_display/{{user.id}}"> <i class="fas fa-arrow-right"></i> My order</a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Login</a>
+                <a href="/profile"> <i class="fas fa-arrow-right"></i> My account</a>
+            </div>
 
-        <section class="credit">
-            Created by Book Mandu | All Rights Reserved!
-        </section>
-        <script type='text/javascript' src="{% static 'js/cart.js' %}"></script>
-        <script src="{% static 'js/home.js' %}"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="#"> <i class="fa fa-map-marker"></i> Dillibazar</a>
+                <a href="#"> <i class="fa fa-envelope"></i> bookmandu@gmail.com</a>
+                <a href="#"> <i class="fa fa-phone"></i> 9880327811</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="credit">
+        Created by Book Mandu | All Rights Reserved!
+    </section>
+    <script type='text/javascript' src="{% static 'js/cart.js' %}"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </body>
 

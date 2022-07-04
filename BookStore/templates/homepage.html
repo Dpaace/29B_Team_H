@@ -29,7 +29,7 @@
     <header class="header">
 
 
-        <a href="home.html" class="logo"> <i class="fas fa-book"></i> Book Mandu </a>
+        <a href="{% url 'home' %}" class="logo"> <i class="fas fa-book"></i> Book Mandu </a>
 
         <form action="" class="search-form">
             <input type="search" placeholder="search here..." id="search-box">
@@ -40,7 +40,7 @@
             <div id="menu-btn" class="fas fa-bars"></div>
             <div id="search-btn" class="fas fa-search"></div>
             <div id="cart-btn" class="fas fa-shopping-cart"></div>
-        
+
         </div>
 
     </header>
@@ -54,17 +54,17 @@
     <!-- navbar  -->
 
     <nav class="navbar">
-        <a href="home.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About Us</a>
-        <a href="team.html">Our Team</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">contact</a>
-    </nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'loginn' %}">Shop</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/team">Our Team</a>
+        <a href="/blogs">Blog</a>
+        <a href="/contact">Contact</a>
+    </nav>  
 
     <!-- shopping cart  -->
 
-  
+
     <!-- login form  -->
 
     <div class="account">
@@ -74,8 +74,6 @@
             <h3>Email: </h3>
             <a href="profile" class="btn">Edit Your Profile</a>
             <a href="#" class="btn2">Log Out</a>
-
-
         </form>
 
     </div>
@@ -126,120 +124,15 @@
 
 
     <section class="product" id="product">
-
-       
-
-
         <div class="box-container">
-
             {% for addbook in dash %}
-
             <div class="box">
-
-                <a href="/bookdesc/{{addbook.New_slug}}"><img src="{% static 'assets/' %}{{addbook.b_pic}}"></a>
+                <a href=""><img src="{{addbook.b_pic.url}}"></a>
                 <h3>{{addbook.b_name}}</h3>
                 <span>Condition: Good</span>
-              
-                <a data-product="{{addbook.book_id}}" data-action="add" class="btn update-cart">add to
-                    cart</a>
-                    
             </div>
             {% endfor %}
-            <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}"">
-            <h3>Piercing The Darkness</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
         </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>A PHO Love Story</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Born of Fury</h3>
-            <span>Condition: Good</span>
-
-  <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>His Beloved Bride</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Love Story</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-
-            <img src="{% static 'assets/home_img/calibre_cover.jpg' %}">
-            <h3>Child of a MAD GOD</h3>
-            <span>Condition: Good</span>
-
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        
-        </div>
-
-        
-
     </section>
 
     <!-- product section ends -->
@@ -249,30 +142,28 @@
     <section class="footer">
 
         <div class="box-container">
-
             <div class="box">
-                <h3>quick links</h3>
-                <a href="home.html"> <i class="fas fa-arrow-right"></i> home</a>
-                <a href="shop.html"> <i class="fas fa-arrow-right"></i> shop</a>
-                <a href="about.html"> <i class="fas fa-arrow-right"></i> about</a>
-                <a href="team.html"> <i class="fas fa-arrow-right"></i> team</a>
-                <a href="blog.html"> <i class="fas fa-arrow-right"></i> blog</a>
-                <a href="contact.html"> <i class="fas fa-arrow-right"></i> contact</a>
+                <h3>Quick Links</h3>
+                <a href="{% url 'home' %}"> <i class="fas fa-arrow-right"></i> Home</a>
+                <a href="{% url 'loginn' %}"> <i class="fas fa-arrow-right"></i> Shop</a>
+                <a href="/aboutus"> <i class="fas fa-arrow-right"></i> About</a>
+                <a href="/team"> <i class="fas fa-arrow-right"></i> Team</a>
+                <a href="/blogs"> <i class="fas fa-arrow-right"></i> Blog</a>
+                <a href="/contact"> <i class="fas fa-arrow-right"></i> Contact</a>
             </div>
 
             <div class="box">
-                <h3>extra links</h3>
-                <a href="#"> <i class="fas fa-arrow-right"></i> my order</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> login</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> my account</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> terms of user</a>
+                <h3>Extra Links</h3>
+                <a href="{% url 'loginn' %}"> <i class="fas fa-arrow-right"></i> My order</a>
+                <a href="{% url 'loginn' %}"> <i class="fas fa-arrow-right"></i> Login</a>
+                <a href="{% url 'loginn' %}"> <i class="fas fa-arrow-right"></i> My account</a>
             </div>
 
             <div class="box">
-                <h3>extra links</h3>
-                <a href="#"> <i class="fa fa-map-marker"></i> Dillibazar</a>
-                <a href="#"> <i class="fa fa-envelope"></i> bookmandu@gmail.com</a>
-                <a href="#"> <i class="fa fa-phone"></i> 9880327811</a>
+                <h3>Extra Links</h3>
+                <a href="{% url 'home' %}"> <i class="fa fa-map-marker"></i> Dillibazar</a>
+                <a href="{% url 'home' %}"> <i class="fa fa-envelope"></i> bookmandu@gmail.com</a>
+                <a href="{% url 'home' %}"> <i class="fa fa-phone"></i> 9880327811</a>
             </div>
 
         </div>

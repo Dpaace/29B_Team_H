@@ -18,13 +18,21 @@ from cart.models import *
 from django.http import JsonResponse
 import json
 from . import models
-
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 # Create your views here.
 
 
 def home(request):
-    dash = AddBook.objects.raw("select * from addbook")
-    return render(request, "homepage.html",{"dash":dash})
+    product = AddBook.objects.raw("select * from addbook")
+    # product = Product.objects.order_by('-created_date')
+    paginator = Paginator(product, 4)
+    page = request.GET.get('page')
+    paged_product = paginator.get_page(page)
+    data = {
+        'dash': paged_product,
+    }
+    
+    return render(request, "homepage.html",data)
 
 
 def Register(request):
@@ -389,6 +397,7 @@ def acc_del(request, id):
 def blog(request):
     return render(request, 'blogs.html')
 
+# @login_required(login_url='loginn')
 def shop(request):
     customer = request.user
     order, created = Order.objects.get_or_create(
