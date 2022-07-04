@@ -60,7 +60,7 @@
             <div id="search-btn" class="fas fa-search"></div>
             <!-- <h1>cart-items{{cartItems}}</h1> -->
             <a href="/cart"><i class="fas fa-shopping-cart"><span style="color:Red">({{cartItems}})</span></i></a>
-            {% if request.user == True %}
+            {% if request.user %}
             <div id="login-btn" class="fas fa-user"></div>
             {% endif %}
         </div>

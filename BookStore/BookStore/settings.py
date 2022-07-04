@@ -25,10 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bd2l-#aky)qm!3$7jqnuab&x*tj!j8hsb2s4*j)poipd$+^!ah'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = ['bookmandu.herokuapp.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bookmandu.herokuapp.com']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,26 +83,26 @@ LOGIN_REDIRECT_URL = '/afterlogin'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'BookStore',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd9crft4nurbglo',
-#         'USER': 'rpwtnkjbofimwy',
-#         'PASSWORD': '39d032c1497b80114d5e1a6c3f9adcf04b2918cef105f44faf2c5c8859a9d7ed',
-#         'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
-#         'PORT':'5432',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'BookStore',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin',
+#         'HOST': 'localhost',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd9crft4nurbglo',
+        'USER': 'rpwtnkjbofimwy',
+        'PASSWORD': '39d032c1497b80114d5e1a6c3f9adcf04b2918cef105f44faf2c5c8859a9d7ed',
+        'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
+        'PORT':'5432',
+    }
+}
 
 
 # Password validation
