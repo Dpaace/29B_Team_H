@@ -14,7 +14,7 @@ class AddBook(models.Model):
     auther=models.CharField(max_length=100, blank=True)
     b_genre=models.CharField(max_length=100, blank=True)
     b_price=models.IntegerField(blank=True)
-    b_pic= models.FileField(upload_to='books', blank=True)
+    b_pic= models.ImageField(upload_to='books/%Y/%m/%d/', blank=True)
     favourite =models.ManyToManyField(User, related_name='favourite', blank=True)
     New_slug=AutoSlugField(populate_from='b_name',unique=True,null=True,default=None)
     objects=models.Manager() #default manager
@@ -48,7 +48,7 @@ class UserP(models.Model):
     address = models.CharField(max_length=100, blank=True)
     language = models.CharField(max_length=100, blank=True)
     occupation=models.CharField(max_length=100, blank=True)
-    customer_picture =  models.FileField(upload_to='profile', blank=True)
+    customer_picture =  models.ImageField(upload_to='profile/%Y/%m/%d/', blank=True)
 
     class Meta:
         db_table = 'user_tbl'
