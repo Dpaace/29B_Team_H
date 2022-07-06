@@ -1,5 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
 from autoslug import AutoSlugField
 from django.contrib.auth.models import User
 
@@ -9,11 +8,6 @@ class AddBook(models.Model):
         def get_queryset(self):
             return super().get_queryset()
         
-=======
-
-# Create your models here.
-class AddBook(models.Model):
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
     book_id = models.AutoField(auto_created=True, primary_key=True)
     b_name = models.CharField(max_length=100, blank=True)
     b_desc = models.CharField(max_length=250, blank=True)
@@ -21,7 +15,6 @@ class AddBook(models.Model):
     b_genre=models.CharField(max_length=100, blank=True)
     b_price=models.IntegerField(blank=True)
     b_pic= models.FileField(upload_to='books', blank=True)
-<<<<<<< HEAD
     favourite =models.ManyToManyField(User, related_name='favourite', blank=True)
     New_slug=AutoSlugField(populate_from='b_name',unique=True,null=True,default=None)
     objects=models.Manager() #default manager
@@ -59,8 +52,3 @@ class UserP(models.Model):
 
     class Meta:
         db_table = 'user_tbl'
-=======
-
-    class Meta:
-        db_table="addbook"
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691

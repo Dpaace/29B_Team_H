@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 from pickle import FALSE
 from django.shortcuts import get_object_or_404, render, redirect
-=======
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 from urllib import request
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
@@ -10,7 +7,6 @@ from django.contrib.auth import authenticate, login, logout
 from register.forms import *
 from register.models import AddBook
 from django.contrib import messages
-<<<<<<< HEAD
 from django.template.loader import render_to_string
 import os
 from register.models import AddBook
@@ -21,27 +17,20 @@ from cart.models import *
 from django.http import JsonResponse
 import json
 from . import models
-=======
-import os
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 
 # Create your views here.
 
 
-<<<<<<< HEAD
 def home(request):
     dash = AddBook.objects.raw("select * from addbook")
     return render(request, "homepage.html",{"dash":dash})
 
 
-=======
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 def Register(request):
     if request.method == 'POST':
         Username = request.POST['user_name']
         email = request.POST['email']
         psw = request.POST['psw']
-<<<<<<< HEAD
         cpsw = request.POST['con_psw']
         first = request.POST['first']
         last = request.POST['last']
@@ -66,23 +55,12 @@ def Register(request):
             return redirect('register')
     else:
         return render(request, "signin/signin.html")
-=======
-        first = request.POST['first']
-        last = request.POST['last']
-    
-
-        user = User.objects.create_user(username=Username, email=email, password=psw, first_name=first, last_name=last)
-        user.save()
-        return redirect("home")
-    return render(request, "signin/signin.html")
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 
 
 def loginn(request):
     if request.method == 'POST':
         customer_name = request.POST.get("user_name")
         customer_password = request.POST.get("psw")
-<<<<<<< HEAD
         user = authenticate(request, username=customer_name,
                             password=customer_password)
         if user is not None:
@@ -91,20 +69,12 @@ def loginn(request):
         else:
             messages.error(request, "Invalid login credentials")
             return redirect('loginn')
-=======
-        user = authenticate(request, username=customer_name, password=customer_password)
-        if user is not None:
-            login(request, user)
-            print(request.user.username)
-            return redirect("/dash")
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
     return render(request, "signin/signin.html")
 
 
 def logout_page(request):
     logout(request)
     request.session.clear()
-<<<<<<< HEAD
     return redirect("home")
     # return render(request, "homepage.html")
 
@@ -202,50 +172,10 @@ def adminDashboard(request):
 def addbooks(request):
     if request.method == "POST":
         form = add_book(request.POST, request.FILES)
-=======
-    return render(request,"homepage.html")
-
-
-
-
-def maindash(request):
-    dash=AddBook.objects.raw("select * from addbook")
-    return render(request, "maindash.html",{'dash':dash})
-
-def home(request):
-    return render(request, "homepage.html")
-
-
-
-
-
-#ADMIn section
-def Aloginn(request):
-    if request.method == 'POST':
-        customer_name = request.POST.get("user_name")
-        customer_password = request.POST.get("psw")
-        print("admin")
-        user = authenticate(request, username=customer_name, password=customer_password)
-        if user is not None:
-            login(request, user)
-            print(request.user.username)
-            return redirect("home")
-    return render(request, "Admin/ADlogin.html")
-
-
-def adminDashboard(request):
-    dash=AddBook.objects.raw("select * from addbook")
-    return render(request, "Admin/admindash.html",{'dash':dash})
-
-def addbooks(request):
-    if request.method=="POST":
-        form=add_book(request.POST, request.FILES)
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
         form.save()
         return redirect("/admindash")
     return render(request, "admin/Add_book.html")
 
-<<<<<<< HEAD
 #to update the books by admin
 def Bedit(request, p_id):  
     books = AddBook.objects.get(book_id=p_id)
@@ -359,41 +289,10 @@ def mybook(request):
     return render(request,'User/mybooks.html',{'new':new})
 
 
-=======
-def Bedit(request, p_id):
-    books=AddBook.objects.get(book_id=p_id)
-    
-    if request.method=="POST":
-        if len(request.FILES) !=0:
-            if len(books.b_pic)>0:
-                os.remove(books.b_pic.path)
-            books.b_pic=request.FILES['b_pic']
-        form= add_book(request.POST, instance=books)
-    
-        form.save()
-        messages.success(request,"data has been updated ")
-        return redirect("/admindash")
-    return render(request,"Admin/update_book.html",{'books':books})
-
-
-def Bdelete(request, p_id):
-    books=AddBook.objects.get(book_id=p_id)
-    books.delete()
-    messages.success(request,"data has been deleted ")
-    return redirect("/admindash")
-
-# profile page
-def profile(request):
-    return render(request, "User/profile.html")
-
-def mybook(request):
-    return render(request, "User/mybooks.html")
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 
 def psetting(request):
     return render(request, "User/settings.html")
 
-<<<<<<< HEAD
 
 def about(request):
     
@@ -496,10 +395,3 @@ def team(request):
 def aboutus(request):
     return render(request, "About/about.html")
 
-=======
-def about(request):
-    return render(request, "User/about.html")
-
-def contact(request):
-    return render(request, "User/contact_us.html")
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691

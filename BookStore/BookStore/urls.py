@@ -14,12 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-<<<<<<< HEAD
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-=======
-from django.urls import path,include
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 
 urlpatterns = [
     # Below path for using custom made Admin Panel
@@ -27,8 +23,5 @@ urlpatterns = [
     # Below path for using Django's Default Admin Panel
     path('admin/', admin.site.urls),
     path('',include('register.urls')),
-<<<<<<< HEAD
      path('',include('cart.urls')),
-=======
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 ]
