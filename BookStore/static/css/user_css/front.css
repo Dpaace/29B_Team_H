@@ -117,10 +117,6 @@ section {
 }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 body {
 	display: flex;
 	justify-content: center;
@@ -213,13 +209,8 @@ body {
 	width: 50%;
 	left: 20%;
 	padding: 20px 20px 20px 40px;
-<<<<<<< HEAD
 	opacity: 0; 
     transition: 0.5s; 
-=======
-	opacity: 0;
-	transition: 0.5s;
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 	visibility: hidden;
 }
 

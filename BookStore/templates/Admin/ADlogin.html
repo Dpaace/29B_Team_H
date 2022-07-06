@@ -14,17 +14,12 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <section class="home-section">
-=======
-    <section class="home-section" >
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
         <div class="home-content">
             <div class="sales-boxes">
                 <div class="recent-sales box">
                     <div class="title">Admin Login </div>
                     <div class="sales-details">
-<<<<<<< HEAD
                         <form action="{% url 'adminlog' %}" method="post" class="add-product-form" enctype="multipart/form-data">
                             {% csrf_token %}
                             <h3>Add Book</h3>
@@ -32,16 +27,6 @@
                             <input type="text" name="username" placeholder="username" class="box" required />
                             <span>password</span>
                             <input type="password" name="password" placeholder="password" class="box" required />
-=======
-                        <form action="adminlog" method="post" class="add-product-form" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <h3>Add Book</h3>
-                            <span>username</span>
-                            <input type="text" name="user_name" placeholder="username" class="box" required />
-                            <span>password</span>
-                            <input type="password" name="psw" placeholder="password" class="box" required />
-
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
                             <input type="submit" value="Login" class="btn" />
                         </form>
                     </div>

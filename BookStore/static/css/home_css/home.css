@@ -9,10 +9,6 @@
   outline: none;
   border: none;
   text-decoration: none;
-<<<<<<< HEAD
-=======
-  text-transform: capitalize;
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
   -webkit-transition: .2s linear;
   transition: .2s linear;
 }
