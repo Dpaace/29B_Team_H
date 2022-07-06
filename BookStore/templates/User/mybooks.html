@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 
 {% load static %}
 
+=======
+{% extends 'User/user_nav.html' %}
+{% load static %}
+{% block content %}
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
+<<<<<<< HEAD
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
@@ -114,3 +121,91 @@
 
 </body>
 </html>
+=======
+    <link rel="stylesheet" href="{% static 'css/user_cssstyle.css' %}">
+
+</head>
+
+<body>
+
+    <!-- mybooks section starts  -->
+
+    <section class="mybooks">
+
+        <h1 class="heading"> <span>My</span> Books </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/books/calibre_cover.jpg" alt="">
+                <div class="content">
+                    <h3>Warrior Rising</h3>
+                    <p>Nice Book bla bla</p>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/books/ebf4e9056090c7318dcbeb944934b703.jpg" alt="">
+                <div class="content">
+                    <h3>Dragon Haven</h3>
+                    <p>Nice Book</p>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/books/the-curse-9781451672008_xlg.jpg" alt="">
+                <div class="content">
+                    <h3>The Curse</h3>
+                    <p>Nice Book</p>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/books/R (1).jfif" alt="">
+                <div class="content">
+                    <h3>His Beloved</h3>
+                    <p>Nice Book Bla Bla</p>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/books/R.jfif" alt="">
+                <div class="content">
+                    <h3>Child of a Mad God</h3>
+                    <p>Nice Book Bla Bla</p>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/books/OIP (2).jfif" alt="">
+                <div class="content">
+                    <h3>A Pho Love Story</h3>
+                    <p>Nice Book Bla Bla</p>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="#" class="btn"> Add Books <i class="fas fa-plus"></i> </a>
+
+    </section>
+
+    <!-- mybooks section ends -->
+
+</body>
+
+</html>
+{% endblock content %}
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691

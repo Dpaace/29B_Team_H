@@ -1,10 +1,14 @@
 from django.urls import path, include
 from register import views
+<<<<<<< HEAD
 from django.contrib.auth import views as auth_views
+=======
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 
 
 urlpatterns = [
     path("", views.home, name='home'),
+<<<<<<< HEAD
 
     path("Register", views.Register, name='register'),
     path("loginn", views.loginn, name='loginn'),
@@ -93,4 +97,21 @@ urlpatterns = [
 
 ]
     
+=======
+    path("Register", views.Register, name='register'),
+    path("loginn", views.loginn, name='loginn'),
+    path("profile", views.profile, name='profile'),
+    path("adminlog",views.Aloginn),
+    path("addbook",views.addbooks),
+    path("admindash",views.adminDashboard),
+    path("dash",views.maindash),
+    path("mybook",views.mybook),
+    path("profile_setting",views.psetting),
+    path("about",views.about),
+    path("logout",views.logout_page),
+    path("edit/<int:p_id>",views.Bedit),
+    path("delete/<int:p_id>",views.Bdelete),
+    path("contact", views.contact),
+]
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 

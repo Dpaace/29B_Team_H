@@ -416,7 +416,11 @@ section {
 }
 
 .settings .row form .inputBox input {
+<<<<<<< HEAD
   width: 100%;
+=======
+  width: 49%;
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 }
 
 .settings .row form .inputBox input, .settings .row form textarea {
@@ -449,6 +453,7 @@ section {
   color: #fff;
 }
 
+<<<<<<< HEAD
 /*place order */
 
 .placed-orders {
@@ -489,6 +494,8 @@ section {
 }
 
 
+=======
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 
 @media (max-width: 1200px) {
   html {

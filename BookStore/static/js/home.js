@@ -16,10 +16,17 @@ document.querySelector('#menu-btn').onclick = () =>{
 
 let cart = document.querySelector('.shopping-cart');
 
+<<<<<<< HEAD
 // document.querySelector('#cart-btn').onclick = () =>{
 //     closer.style.display = 'block';
 //     cart.classList.toggle('active');
 // }
+=======
+document.querySelector('#cart-btn').onclick = () =>{
+    closer.style.display = 'block';
+    cart.classList.toggle('active');
+}
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 
 let loginForm = document.querySelector('.account');
 
@@ -51,6 +58,7 @@ function prev(){
     slides[index].classList.remove('active');
     index = (index - 1 + slides.length) % slides.length;
     slides[index].classList.add('active');
+<<<<<<< HEAD
 }
 
 
@@ -133,3 +141,6 @@ var typed = new Typed('.typing-text6',{
     loop : true,
     typeSpeed : 50
 })
+=======
+}
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691

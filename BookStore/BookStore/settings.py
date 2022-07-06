@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'register',
+<<<<<<< HEAD
     'cart',
     'bootstrapform',
+=======
+>>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
     
 ]
 
