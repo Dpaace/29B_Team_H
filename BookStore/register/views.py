@@ -1,4 +1,5 @@
 from pickle import FALSE
+import re
 from django.shortcuts import get_object_or_404, render, redirect
 from urllib import request
 from django.shortcuts import render, redirect
@@ -96,7 +97,7 @@ def maindash(request):
 @login_required
 def afterlogin_view(request):
     if request.user.is_superuser:
-        return redirect('admindash')
+        return redirect('adminpage')
     else:
         messages.error(request, "Invalid login credentials")
         return redirect('adminlog')
@@ -121,7 +122,7 @@ def nonfiction(request):
     items = order.orderitem_set.all()
     cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
-    nonfiction = AddBook.objects.filter(b_genre="Nonfiction")
+    nonfiction = AddBook.objects.filter(b_genre="Non-Fiction")
     return render(request, "genre/nonfiction.html", {'dash': dash, 'nonfiction': nonfiction,'cartItems': cartItems})
 
 
@@ -143,7 +144,7 @@ def thriller(request):
     items = order.orderitem_set.all()
     cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
-    thriller = AddBook.objects.filter(b_genre="thriller")
+    thriller = AddBook.objects.filter(b_genre="Thriller")
     return render(request, "genre/thriller.html", {'dash': dash, 'thriller': thriller,'cartItems': cartItems})
 
 
@@ -154,16 +155,22 @@ def romance(request):
     items = order.orderitem_set.all()
     cartItems = order.get_cart_items
     dash = AddBook.objects.raw("select * from addbook")
-    romance = AddBook.objects.filter(b_genre="romance")
+    romance = AddBook.objects.filter(b_genre="Romance")
     return render(request, "genre/romance.html", {'dash': dash, 'romance': romance,'cartItems': cartItems})
 
 # @login_required(login_url='afterlogin')
 
 
+def adminpage(request):
+    customer=User.objects.count()
+    books=AddBook.objects.count()
+    order=ShippingAddress.objects.count()
+    msg=Contact.objects.count()
+    return render(request,"admin_final/dashboard.html",{'customer':customer,'books':books,'order':order,'msg':msg})
 def adminDashboard(request):
     if request.user.is_superuser:
         dash = AddBook.objects.raw("select * from addbook")
-        return render(request, "Admin/admindash.html", {'dash': dash})
+        return render(request, "admin_final/books.html", {'dash': dash})
     else:
         # messages.error(request, "Invalid login credentials")
         return redirect('adminlog')
@@ -174,7 +181,7 @@ def addbooks(request):
         form = add_book(request.POST, request.FILES)
         form.save()
         return redirect("/admindash")
-    return render(request, "admin/Add_book.html")
+    return render(request, "admin_final/Add_book.html")
 
 #to update the books by admin
 def Bedit(request, p_id):  
@@ -190,7 +197,7 @@ def Bedit(request, p_id):
         form.save()
         messages.success(request, "data has been updated ")
         return redirect("/admindash")
-    return render(request, "Admin/update_book.html", {'books': books})
+    return render(request, "admin_final/update.book.html", {'books': books})
 
 #to delete the books by admin
 def Bdelete(request, p_id):  
@@ -203,7 +210,7 @@ def Bdelete(request, p_id):
 def user_order(request):  # Show_order
     orders = ShippingAddress.objects.raw("select * from cart_shippingaddress")
     order3 = OrderItem.objects.raw("select * from cart_orderitem ")
-    return render(request, 'admin/admin orders.html', {'orders': orders, 'order3': order3})
+    return render(request, 'admin_final/admin orders.html', {'orders': orders, 'order3': order3})
 
 # update the status of shippping order
 def delivery_update(request):
@@ -241,19 +248,22 @@ def completeOrder(request):
 
 
 
-# user detail
-
-
+# user detail on admin side
 def customers(request):
     users = User.objects.filter(is_superuser=False)
-    return render(request, 'Admin/customers.html', {'users': users, })
+    return render(request, 'admin_final/customers.html', {'users': users, })
 
-
+#to remove customer
 def cdelete(request, p_id):
     users = User.objects.get(id=p_id)
     users.delete()
     messages.success(request, "data has been deleted ")
-    return render(request, 'Admin/customers.html')
+    return render(request, 'admin_final/customers.html')
+
+#to see message from users
+def message(request):
+    msg=Contact.objects.raw("select * from contact")
+    return render(request,"admin_final/messages.html",{'msg':msg})
 
 # profile page
 
@@ -380,7 +390,15 @@ def blog(request):
     return render(request, 'blogs.html')
 
 def shop(request):
-    return render(request, 'shop.html')
+    customer = request.user
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cartItems = order.get_cart_items
+    # add_cart funtion end
+    dash = AddBook.objects.raw("select * from addbook")
+
+    return render(request, 'shop.html', {'dash': dash, 'cartItems': cartItems})
 
 
 def price_range(request):

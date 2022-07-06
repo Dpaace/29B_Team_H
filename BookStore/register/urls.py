@@ -90,7 +90,8 @@ urlpatterns = [
     path('completeOrder', views.completeOrder),
     path('team', views.team),
     path('aboutus', views.aboutus),
-
+    path("adminpage",views.adminpage,name="adminpage"),
+    path("message",views.message)
 ]
     
 
