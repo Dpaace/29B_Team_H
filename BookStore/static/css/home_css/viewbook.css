@@ -283,7 +283,6 @@ section {
 .header .icons div:hover {
   color: #1b6fa7;
 }
-<<<<<<< HEAD
 .header .icons > *{
   margin-left: 2rem;
   font-size: 2.5rem;
@@ -293,8 +292,6 @@ section {
 .header .icons > *:hover{
   color: #1b6fa7;
 }
-=======
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 
 #search-btn {
   display: none;
@@ -675,7 +672,6 @@ section {
   padding: 0.5rem 0;
 }
 
-<<<<<<< HEAD
 .book .row-1 .content span {
   margin-top: 1rem;
   color: rgb(0, 182, 15);
@@ -689,8 +685,6 @@ section {
   padding: 0.5rem 0;
 }
 
-=======
->>>>>>> 95b8839843f97dc739f3b6ff9659038d3e5dd691
 .book .row-1 .content .box-container {
   display: flex;
   flex-wrap: wrap;
