@@ -83,26 +83,26 @@ LOGIN_REDIRECT_URL = '/afterlogin'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'BookStore',
-#         'USER': 'postgres',
-#         'PASSWORD': 'admin',
-#         'HOST': 'localhost',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9crft4nurbglo',
-        'USER': 'rpwtnkjbofimwy',
-        'PASSWORD': '39d032c1497b80114d5e1a6c3f9adcf04b2918cef105f44faf2c5c8859a9d7ed',
-        'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'BookStore',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd9crft4nurbglo',
+#         'USER': 'rpwtnkjbofimwy',
+#         'PASSWORD': '39d032c1497b80114d5e1a6c3f9adcf04b2918cef105f44faf2c5c8859a9d7ed',
+#         'HOST': 'ec2-3-217-14-181.compute-1.amazonaws.com',
+#         'PORT':'5432',
+#     }
+# }
 
 
 # Password validation

@@ -33,7 +33,7 @@
             <div class="box">
                 <!-- <button class="fas fa-times"   href="/remove_order/{{item.product_id}}"
                     onclick="return confirm('delete this item?')"></button> -->
-                    <img src="{% static 'assets/' %}{{item.product.b_pic}}" alt="">
+                    <img src="{{item.product.b_pic.url}}" alt="">
                 <div class="name">{{item.product.b_name}}</div>
             
                     <div class="name">{{item.quantity}}</div>
