@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/home_css/home.css' %}">
+
+</head>
+
+<body>
+    <div class="header-1">
+        <div class="flex">
+
+            <p> New <a href="Register">Login</a> | <a href="Register">Register</a> </p>
+        </div>
+    </div>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+
+        <a href="{% url 'home' %}" class="logo"> <i class="fas fa-book"></i> Book Mandu </a>
+
+        <form action="" class="search-form">
+            <input type="search" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-cart"></div>
+
+        </div>
+
+    </header>
+
+    <!-- header section ends  -->
+
+    <!-- closer btn  -->
+
+    <div id="closer" class="fas fa-times"></div>
+
+    <!-- navbar  -->
+
+    <nav class="navbar">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'loginn' %}">Shop</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/team">Our Team</a>
+        <a href="/blogs">Blog</a>
+        <a href="/contact">Contact</a>
+    </nav>  
+
+    <!-- shopping cart  -->
+
+
+    <!-- login form  -->
+
+    <div class="account">
+
+        <form action="">
+            <h3>Name: </h3>
+            <h3>Email: </h3>
+            <a href="profile" class="btn">Edit Your Profile</a>
+            <a href="#" class="btn2">Log Out</a>
+        </form>
+
+    </div>
+
+    <!-- home section starts  -->
+
+    <section class="home">
+
+        <div class="slides-container">
+
+            <div class="slide">
+                <div class="content">
+
+                    <h3>Book Mandu</h3>
+                    <p>Buy second hand books online, old books, used books online in Nepal</p>
+                    <a href="#" class="btn">shop now</a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'assets/home_img/pngwing.com (3).png' %}" alt="">
+                </div>
+            </div>
+            <div class="slide active">
+                <div class="content">
+                    <h3>Book Mandu</h3>
+                    <p>Nepal's first second-hand textbook marketplace
+                        Find costly textbooks for a great bargain price and help save the environment</p>
+                    <a href="#" class="btn">shop now</a>
+                </div>
+                <div class="image">
+                    <img src="{% static 'assets/home_img/book.png' %}">
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div id="slide-next" onclick="next()" class="fas fa-angle-right"></div>
+        <div id="slide-prev" onclick="prev()" class="fas fa-angle-left"></div>
+
+
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- book section starts  -->
+
+
+
+    <section class="product" id="product">
+        <div class="box-container">
+            {% for addbook in dash %}
+            <div class="box">
+                <a href=""><img src="{{addbook.b_pic.url}}"></a>
+                <h3>{{addbook.b_name}}</h3>
+                <span>Condition: Good</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- product section ends -->
+
+    <!-- footer section  -->
+
+    <section class="footer">
+
+        <div class="box-container">
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="{% url 'home' %}"> <i class="fas fa-arrow-right"></i> Home</a>
+                <a href="{% url 'loginn' %}"> <i class="fas fa-arrow-right"></i> Shop</a>
+                <a href="/aboutus"> <i class="fas fa-arrow-right"></i> About</a>
+                <a href="/team"> <i class="fas fa-arrow-right"></i> Team</a>
+                <a href="/blogs"> <i class="fas fa-arrow-right"></i> Blog</a>
+                <a href="/contact"> <i class="fas fa-arrow-right"></i> Contact</a>
+            </div>
+
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="{% url 'loginn' %}"> <i class="fas fa-arrow-right"></i> My order</a>
+                <a href="{% url 'loginn' %}"> <i class="fas fa-arrow-right"></i> Login</a>
+                <a href="{% url 'loginn' %}"> <i class="fas fa-arrow-right"></i> My account</a>
+            </div>
+
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="{% url 'home' %}"> <i class="fa fa-map-marker"></i> Dillibazar</a>
+                <a href="{% url 'home' %}"> <i class="fa fa-envelope"></i> bookmandu@gmail.com</a>
+                <a href="{% url 'home' %}"> <i class="fa fa-phone"></i> 9880327811</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="credit">
+        created by Book Mandu | all rights reserved!
+    </section>
+
+    <!-- custom js file link  -->
+    <script src="{% static 'js/home.js' %}"></script>
+
+</body>
+
+</html>
