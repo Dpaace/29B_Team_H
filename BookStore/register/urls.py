@@ -94,4 +94,3 @@ urlpatterns = [
     path("message",views.message)
 ]
     
-
