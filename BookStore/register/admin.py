@@ -1,3 +1,4 @@
+
 from django.contrib import admin
 from register.models import AddBook
 from django.utils.html import format_html
@@ -13,3 +14,5 @@ class BookAdmin(admin.ModelAdmin):
     list_display_links = ('book_id', 'thumbnail', 'b_name')
 
 admin.site.register(AddBook, BookAdmin)
+
+

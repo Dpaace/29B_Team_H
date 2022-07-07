@@ -48,7 +48,7 @@
             <div class="box">
                 <!-- <button class="fas fa-times"   href="/remove_order/{{item.product_id}}"
                     onclick="return confirm('delete this item?')"></button> -->
-                    <img src="{{item.product.b_pic.url}}" alt="">
+                    <img src="{% static 'assets/' %}{{item.product.b_pic}}" alt="">
                 <div class="name">{{item.product.b_name}}</div>
                 <div class="flex">
                     <div class="price"><span>Nrs.{{item.product.b_price}} </span></div>
